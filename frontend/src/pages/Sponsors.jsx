@@ -1,248 +1,109 @@
-import Button from "../components/ui/Button";
-import Card from "../components/ui/Card";
 import { Icon } from "../components/ui/Icon";
-import PageHeader from "../components/ui/PageHeader";
 import Reveal from "../components/ui/Reveal";
-import SectionHeading from "../components/ui/SectionHeading";
-import event from "../config/event";
-
-const audience = [
-  {
-    title: `${event.stats[1].value}${event.stats[1].suffix} builders in the room`,
-    desc: "Students, early-career engineers and designers from colleges and communities across the region.",
-    icon: "users",
-  },
-  {
-    title: `${event.stats[0].value}${event.stats[0].suffix} of attention`,
-    desc: "A full build sprint on site — not a flyer in a hallway. Your track brief lives inside their workflow.",
-    icon: "clock",
-  },
-  {
-    title: "Content you can reuse",
-    desc: "Stage photos, a highlight reel and a post-event report with project links and opt-in talent notes.",
-    icon: "spark",
-  },
-];
 
 export default function Sponsors() {
-  const partnerHref = event.socials.find((social) => social.href)?.href;
-  const featured = event.sponsorTiers[0];
-  const tiers = event.sponsorTiers.slice(1);
-
   return (
-    <>
-      <PageHeader
-        index="05"
-        breadcrumb="Sponsor"
-        eyebrow="Sponsorship"
-        title={
-          <>
-            Back the room
-            <br />
-            that <span className="accent">builds.</span>
-          </>
-        }
-        description={event.sponsorNote}
-        chips={[
-          { label: "Every slot open", icon: "spark" },
-          { label: event.dates.label, icon: "calendar" },
-          { label: "Custom packages", icon: "layers" },
-        ]}
-      />
+    <section
+      aria-labelledby="sponsors-reveal-title"
+      className="relative isolate flex min-h-svh items-center overflow-hidden pb-[clamp(4rem,9vw,7rem)] pt-[calc(var(--nav-h)+clamp(2rem,6vw,4.5rem))]"
+    >
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/10 blur-[130px]" />
+        <div className="absolute bottom-[8%] right-[6%] h-56 w-56 rounded-full bg-primary/10 blur-[110px]" />
+        <div className="absolute left-[4%] top-[16%] h-44 w-44 rounded-full bg-secondary/10 blur-[100px]" />
+      </div>
 
-      <section className="section" aria-labelledby="audience-title">
-        <div className="shell">
-          <SectionHeading
-            id="audience-title"
-            eyebrow="The audience"
-            title="Who is actually in the room."
-            description="No vanity metrics. These are the people writing code, forming teams and picking tools they will keep using after the weekend."
-          />
-
-          <ul className="mt-10 grid gap-4 md:grid-cols-3">
-            {audience.map((item, index) => (
-              <li key={item.title}>
-                <Reveal delay={index * 80} className="h-full">
-                  <Card className="h-full">
-                    <span className="icon-box">
-                      <Icon name={item.icon} size={21} />
-                    </span>
-                    <h3 className="display-3 mt-5 text-text">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted">{item.desc}</p>
-                  </Card>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="section section-rule" aria-labelledby="tiers-title">
-        <div className="shell">
-          <SectionHeading
-            id="tiers-title"
-            eyebrow="Packages"
-            title="Pick a level. Shape the brief."
-            description="Each tier is a starting point, not a fixed box. Tell us what you need to get out of the weekend."
-          />
-
-          <Reveal className="mt-10">
-            <Card
-              interactive={false}
-              className="card-gold relative overflow-hidden p-6 sm:p-8 lg:grid lg:grid-cols-[1fr_1fr] lg:gap-10"
-            >
-              <div className="absolute right-0 top-0 h-32 w-32 bg-gold/10 blur-3xl" aria-hidden="true" />
-
-              <div className="relative">
-                <div className="flex items-center justify-between gap-3">
-                  <span className="font-pixel text-[0.5rem] uppercase tracking-[0.14em] text-gold">
-                    {featured.tier}
-                  </span>
-                  <span className="chip">{featured.slots} slot</span>
-                </div>
-                <h3 className="display-2 mt-4 text-text">{featured.headline}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-muted">
-                  The highest-visibility partnership on the event. Your team is on stage, in the brief and on
-                  every deliverable.
-                </p>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  {partnerHref ? (
-                    <Button href={partnerHref} variant="primary" size="sm">
-                      Request the deck
-                    </Button>
-                  ) : (
-                    <Button to="/team" variant="primary" size="sm">
-                      Talk to the team
-                    </Button>
-                  )}
-                  <Button to="/prizes" variant="ghost" size="sm">
-                    See the prizes
-                  </Button>
-                </div>
-              </div>
-
-              <ul className="relative mt-8 space-y-3 border-t border-gold/20 pt-6 lg:mt-0 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
-                {featured.benefits.map((benefit) => (
-                  <li key={benefit} className="flex items-start gap-2.5 text-sm text-text">
-                    <span className="mt-0.5 text-gold">
-                      <Icon name="check" size={15} />
-                    </span>
-                    {benefit}
-                  </li>
-                ))}
-              </ul>
-            </Card>
-          </Reveal>
-
-          <ul className="mt-4 grid gap-4 md:grid-cols-3">
-            {tiers.map((tier, index) => (
-              <li key={tier.tier}>
-                <Reveal delay={index * 70} className="h-full">
-                  <Card className="flex h-full flex-col">
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="font-pixel text-[0.5rem] uppercase tracking-[0.12em] text-primary">
-                        {tier.tier}
-                      </span>
-                      <span className="chip">
-                        {tier.slots} {tier.slots === 1 ? "slot" : "slots"}
-                      </span>
-                    </div>
-
-                    <h3 className="display-3 mt-4 text-text">{tier.headline}</h3>
-
-                    <ul className="mt-5 space-y-2.5 border-t border-line-soft pt-4">
-                      {tier.benefits.map((benefit) => (
-                        <li key={benefit} className="flex items-start gap-2 text-sm leading-relaxed text-muted">
-                          <span className="mt-0.5 text-primary">
-                            <Icon name="check" size={14} />
-                          </span>
-                          {benefit}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="mt-auto pt-5">
-                      {partnerHref ? (
-                        <a
-                          href={partnerHref}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex min-h-11 items-center gap-2 text-sm text-text transition-colors hover:text-primary"
-                        >
-                          Enquire about {tier.tier}
-                          <Icon name="arrowUpRight" size={15} />
-                        </a>
-                      ) : (
-                        <span className="text-sm text-muted">Enquiries open soon</span>
-                      )}
-                    </div>
-                  </Card>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="section section-rule" aria-labelledby="logo-wall-title">
-        <div className="shell">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <SectionHeading
-              id="logo-wall-title"
-              eyebrow="Logo wall"
-              title="Nobody here yet. Be first."
-              description="Sponsor marks appear here as they are confirmed, and travel to the hero, stage loop and certificates."
+      <div className="shell">
+        <Reveal className="mx-auto max-w-4xl">
+          <article className="group relative overflow-hidden rounded-[2rem] border border-line/60 bg-panel/50 p-1.5 shadow-[0_40px_120px_-55px_rgba(0,0,0,0.9)] backdrop-blur-2xl transition-[transform,border-color] duration-500 ease-out hover:-translate-y-1.5 hover:border-gold/45">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-br from-gold/15 via-transparent to-white/10"
             />
-            <span className="chip chip-primary md:mb-2">6 of 6 slots open</span>
-          </div>
 
-          <ul className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-            {Array.from({ length: 6 }).map((_, index) => (
-              <li key={index}>
-                <div className="corner-ticks flex aspect-[4/3] flex-col items-center justify-center gap-2 border border-dashed border-line bg-ink-2/60 p-3 text-center transition-colors hover:border-primary/60">
-                  <span className="font-pixel text-[0.45rem] uppercase tracking-[0.1em] text-primary/70">
-                    Slot {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className="font-pixel text-[0.5rem] uppercase tracking-[0.12em] text-muted">
-                    Logo
-                  </span>
-                  <span className="text-[0.6rem] uppercase tracking-[0.12em] text-muted/60">Open</span>
+            <div className="relative overflow-hidden rounded-[1.65rem] border border-white/10 bg-gradient-to-b from-ink-2/20 via-panel/10 to-panel/40 px-5 py-10 sm:px-10 sm:py-14 lg:px-16 lg:py-16">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 grid-lines grid-fade opacity-30"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -top-28 left-1/2 h-60 w-60 -translate-x-1/2 rounded-full bg-gold/25 blur-3xl"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -bottom-28 -right-20 h-72 w-72 rounded-full bg-primary/15 blur-3xl"
+              />
+
+              <div className="relative mx-auto flex max-w-2xl flex-col items-center text-center">
+                <div className="animate-float">
+                  <div className="relative">
+                    <span
+                      aria-hidden="true"
+                      className="absolute -inset-4 rounded-[1.75rem] border border-gold/20"
+                    />
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-0 rounded-2xl bg-gold/30 blur-2xl"
+                    />
+                    <span className="relative flex h-16 w-16 items-center justify-center rounded-2xl border border-gold/45 bg-gold/10 text-gold shadow-[inset_0_1px_0_rgba(255,255,255,0.22)] transition-transform duration-500 group-hover:-rotate-3 group-hover:scale-105">
+                      <Icon name="award" size={30} />
+                    </span>
+                  </div>
                 </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
 
-      <section className="section section-rule">
-        <div className="shell">
-          <div className="corner-ticks relative overflow-hidden border-2 border-primary/35 bg-gradient-to-br from-primary/10 via-ink-2 to-secondary/10 p-8 text-center sm:p-12">
-            <div className="absolute inset-0 grid-lines grid-fade opacity-50" aria-hidden="true" />
-            <div className="relative mx-auto flex max-w-2xl flex-col items-center">
-              <p className="eyebrow">Let us build the package</p>
-              <h2 className="display-2 mt-4">Bring a brief. We will bring the room.</h2>
-              <p className="lede mt-4 text-base">
-                Send your goals, budget range and the audience you care about. We reply with a custom package and
-                the current sponsor deck.
-              </p>
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                {partnerHref ? (
-                  <Button href={partnerHref} variant="primary">
-                    Start a conversation <Icon name="arrowUpRight" size={15} />
-                  </Button>
-                ) : (
-                  <Button to="/team" variant="primary">
-                    Start a conversation <Icon name="arrowUpRight" size={15} />
-                  </Button>
-                )}
-                <Button to="/partners" variant="secondary">
-                  Community partnerships
-                </Button>
+                <span className="relative mt-8 inline-flex items-center gap-2.5 overflow-hidden rounded-full border border-gold/35 bg-gold/10 px-4 py-2 font-pixel text-[0.5rem] uppercase tracking-[0.18em] text-gold shadow-[0_0_30px_-10px_var(--color-gold)]">
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 animate-pulse bg-gradient-to-r from-transparent via-gold/20 to-transparent"
+                  />
+                  <span aria-hidden="true" className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-70" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-gold" />
+                  </span>
+                  <span className="relative">REVEALING SOON</span>
+                </span>
+
+                <h1
+                  id="sponsors-reveal-title"
+                  className="mt-6 font-display text-[clamp(1.8rem,5.4vw,3.75rem)] uppercase leading-[1.03] tracking-[0.01em] text-text"
+                >
+                  STAY TUNED{" "}
+                  <span className="mt-1 block text-gold">— REVEALING SOON!</span>
+                </h1>
+
+                <p className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+                  Our official sponsors will be revealed soon.
+                </p>
+
+                <div aria-hidden="true" className="mt-8 flex items-center gap-2.5">
+                  <span className="h-px w-12 bg-gradient-to-r from-transparent to-gold/60" />
+                  <span className="h-1.5 w-1.5 rotate-45 border border-gold/70 bg-gold/25" />
+                  <span className="h-px w-12 bg-gradient-to-l from-transparent to-gold/60" />
+                </div>
+
+                <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-gold/35 bg-gold/10 px-3 py-1.5 font-pixel text-[0.45rem] uppercase tracking-[0.14em] text-gold">
+                    <Icon name="award" size={11} />
+                    Partnerships
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-line/70 bg-white/[0.04] px-3 py-1.5 font-pixel text-[0.45rem] uppercase tracking-[0.14em] text-muted">
+                    <Icon name="clock" size={11} />
+                    TO BE REVEALED
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-    </>
+          </article>
+
+          <p className="mt-7 text-center text-xs leading-relaxed text-muted sm:text-sm">
+            Partner logos and packages drop with the official announcement.{" "}
+            <span className="ml-2 inline-block whitespace-nowrap font-pixel text-[0.48rem] uppercase tracking-[0.12em] text-gold">
+              Stay tuned
+            </span>
+          </p>
+        </Reveal>
+      </div>
+    </section>
   );
 }

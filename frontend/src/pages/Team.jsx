@@ -1,87 +1,109 @@
-import ContactSection from "../components/ContactSection";
-import OrganizerCards from "../components/OrganizerCards";
-import Card from "../components/ui/Card";
 import { Icon } from "../components/ui/Icon";
-import PageHeader from "../components/ui/PageHeader";
 import Reveal from "../components/ui/Reveal";
-import SectionHeading from "../components/ui/SectionHeading";
-import event from "../config/event";
 
 export default function Team() {
   return (
-    <>
-      <PageHeader
-        index="09"
-        breadcrumb="Team"
-        eyebrow="The crew"
-        title={
-          <>
-            The humans
-            <br />
-            behind the <span className="accent">HUD.</span>
-          </>
-        }
-        description={event.team.note}
-        chips={[
-          { label: "2 organizer communities", icon: "users" },
-          { label: `${event.team.crew.length} crew seats`, icon: "compass" },
-          { label: "Names rolling out", icon: "clock" },
-        ]}
-      />
+    <section
+      aria-labelledby="team-reveal-title"
+      className="relative isolate flex min-h-svh items-center overflow-hidden pb-[clamp(4rem,9vw,7rem)] pt-[calc(var(--nav-h)+clamp(2rem,6vw,4.5rem))]"
+    >
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[130px]" />
+        <div className="absolute bottom-[8%] right-[6%] h-56 w-56 rounded-full bg-secondary/10 blur-[110px]" />
+        <div className="absolute left-[4%] top-[16%] h-44 w-44 rounded-full bg-gold/10 blur-[100px]" />
+      </div>
 
-      <section className="section" aria-labelledby="organizers-team-title">
-        <div className="shell">
-          <SectionHeading
-            id="organizers-team-title"
-            eyebrow="Presented by"
-            title="Two organizers, equal billing."
-            description="Both communities share direction, budget and the stage. No silent partner, no logo-only collaboration."
-          />
-          <Reveal className="mt-10">
-            <OrganizerCards />
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section section-rule" aria-labelledby="crew-title">
-        <div className="shell">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <SectionHeading
-              id="crew-title"
-              eyebrow="Core crew"
-              title="Who is on the floor."
-              description="Operations, design, engineering and community — the roles are filled first, names follow with the announcement."
+      <div className="shell">
+        <Reveal className="mx-auto max-w-4xl">
+          <article className="group relative overflow-hidden rounded-[2rem] border border-line/60 bg-panel/50 p-1.5 shadow-[0_40px_120px_-55px_rgba(0,0,0,0.9)] backdrop-blur-2xl transition-[transform,border-color] duration-500 ease-out hover:-translate-y-1.5 hover:border-primary/40">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-primary/10"
             />
-            <span className="chip chip-primary md:mb-2">Names TBA</span>
-          </div>
 
-          <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {event.team.crew.map((member, index) => (
-              <li key={member.role}>
-                <Reveal delay={Math.min(index * 60, 240)} className="h-full">
-                  <Card className="flex h-full items-center gap-4">
-                    <span className="avatar-pixel h-16 w-16 flex-none font-pixel text-sm">
-                      {member.monogram}
-                    </span>
-                    <span className="min-w-0">
-                      <span className="block font-display text-xl uppercase leading-tight text-text">
-                        {member.role}
-                      </span>
-                      <span className="mt-1 block text-sm text-muted">{member.area}</span>
-                      <span className="mt-2 inline-flex min-h-7 items-center gap-1.5 font-pixel text-[0.42rem] uppercase tracking-[0.1em] text-primary/70">
-                        <Icon name="user" size={12} />
-                        Announcing soon
-                      </span>
-                    </span>
-                  </Card>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+            <div className="relative overflow-hidden rounded-[1.65rem] border border-white/10 bg-gradient-to-b from-ink-2/20 via-panel/10 to-panel/40 px-5 py-10 sm:px-10 sm:py-14 lg:px-16 lg:py-16">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 grid-lines grid-fade opacity-30"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -top-28 left-1/2 h-60 w-60 -translate-x-1/2 rounded-full bg-primary/25 blur-3xl"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -bottom-28 -right-20 h-72 w-72 rounded-full bg-secondary/15 blur-3xl"
+              />
 
-      <ContactSection />
-    </>
+              <div className="relative mx-auto flex max-w-2xl flex-col items-center text-center">
+                <div className="animate-float">
+                  <div className="relative">
+                    <span
+                      aria-hidden="true"
+                      className="absolute -inset-4 rounded-[1.75rem] border border-primary/15"
+                    />
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-0 rounded-2xl bg-primary/30 blur-2xl"
+                    />
+                    <span className="relative flex h-16 w-16 items-center justify-center rounded-2xl border border-primary/40 bg-primary/10 text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.22)] transition-transform duration-500 group-hover:-rotate-3 group-hover:scale-105">
+                      <Icon name="users" size={30} />
+                    </span>
+                  </div>
+                </div>
+
+                <span className="relative mt-8 inline-flex items-center gap-2.5 overflow-hidden rounded-full border border-primary/35 bg-primary/10 px-4 py-2 font-pixel text-[0.5rem] uppercase tracking-[0.18em] text-primary shadow-[0_0_30px_-10px_var(--color-primary)]">
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 animate-pulse bg-gradient-to-r from-transparent via-primary/20 to-transparent"
+                  />
+                  <span aria-hidden="true" className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-70" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+                  </span>
+                  <span className="relative">REVEALING SOON</span>
+                </span>
+
+                <h1
+                  id="team-reveal-title"
+                  className="mt-6 font-display text-[clamp(1.8rem,5.4vw,3.75rem)] uppercase leading-[1.03] tracking-[0.01em] text-text"
+                >
+                  STAY TUNED{" "}
+                  <span className="mt-1 block text-primary">— REVEALING SOON!</span>
+                </h1>
+
+                <p className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+                  The faces behind CODE KOLKATA will be revealed soon.
+                </p>
+
+                <div aria-hidden="true" className="mt-8 flex items-center gap-2.5">
+                  <span className="h-px w-12 bg-gradient-to-r from-transparent to-primary/60" />
+                  <span className="h-1.5 w-1.5 rotate-45 border border-primary/70 bg-primary/25" />
+                  <span className="h-px w-12 bg-gradient-to-l from-transparent to-primary/60" />
+                </div>
+
+                <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 font-pixel text-[0.45rem] uppercase tracking-[0.14em] text-primary">
+                    <Icon name="users" size={11} />
+                    Core crew
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-line/70 bg-white/[0.04] px-3 py-1.5 font-pixel text-[0.45rem] uppercase tracking-[0.14em] text-muted">
+                    <Icon name="clock" size={11} />
+                    TO BE REVEALED
+                  </span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <p className="mt-7 text-center text-xs leading-relaxed text-muted sm:text-sm">
+            Crew introductions drop with the official announcement.{" "}
+            <span className="ml-2 inline-block whitespace-nowrap font-pixel text-[0.48rem] uppercase tracking-[0.12em] text-primary">
+              Stay tuned
+            </span>
+          </p>
+        </Reveal>
+      </div>
+    </section>
   );
 }

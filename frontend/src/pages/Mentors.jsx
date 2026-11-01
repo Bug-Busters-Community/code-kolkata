@@ -1,128 +1,109 @@
-import Button from "../components/ui/Button";
-import Card from "../components/ui/Card";
 import { Icon } from "../components/ui/Icon";
-import PageHeader from "../components/ui/PageHeader";
 import Reveal from "../components/ui/Reveal";
-import SectionHeading from "../components/ui/SectionHeading";
-import event from "../config/event";
 
 export default function Mentors() {
   return (
-    <>
-      <PageHeader
-        index="06"
-        breadcrumb="Mentor"
-        eyebrow="Mentors & speakers"
-        title={
-          <>
-            People who
-            <br />
-            have <span className="accent">shipped.</span>
-          </>
-        }
-        description={event.mentors.note}
-        chips={[
-          { label: "Roster onboarding", icon: "users" },
-          { label: `${event.mentors.cards.length} mentor seats`, icon: "compass" },
-          { label: "1:1 office hours", icon: "clock" },
-        ]}
-      />
+    <section
+      aria-labelledby="mentors-reveal-title"
+      className="relative isolate flex min-h-svh items-center overflow-hidden pb-[clamp(4rem,9vw,7rem)] pt-[calc(var(--nav-h)+clamp(2rem,6vw,4.5rem))]"
+    >
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary/10 blur-[130px]" />
+        <div className="absolute bottom-[8%] right-[6%] h-56 w-56 rounded-full bg-primary/10 blur-[110px]" />
+        <div className="absolute left-[4%] top-[16%] h-44 w-44 rounded-full bg-gold/10 blur-[100px]" />
+      </div>
 
-      <section className="section" aria-labelledby="mentor-grid-title">
-        <div className="shell">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <SectionHeading
-              id="mentor-grid-title"
-              eyebrow="The bench"
-              title="Mentor seats, by discipline."
-              description="Roles are locked. Names and companies are announced with the theme reveal — every seat is a working practitioner, not a logo."
-            />
-            <span className="chip chip-primary md:mb-2">Names TBA</span>
-          </div>
-
-          <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {event.mentors.cards.map((mentor, index) => (
-              <li key={mentor.role}>
-                <Reveal delay={Math.min(index * 60, 240)} className="h-full">
-                  <Card className="flex h-full flex-col">
-                    <div className="flex items-start justify-between gap-3">
-                      <span className="avatar-pixel h-16 w-16">
-                        <Icon name={mentor.icon} size={26} />
-                      </span>
-                      <span className="chip">Seat {String(index + 1).padStart(2, "0")}</span>
-                    </div>
-
-                    <h3 className="display-3 mt-5 text-text">{mentor.role}</h3>
-                    <p className="mt-2 font-pixel text-[0.5rem] uppercase leading-relaxed tracking-[0.1em] text-muted">
-                      Name announced soon
-                    </p>
-                    <p className="mt-3 text-sm leading-relaxed text-muted">{mentor.focus}</p>
-
-                    <ul className="mt-auto flex flex-wrap gap-1.5 border-t border-line-soft pt-4">
-                      {mentor.tags.map((tag) => (
-                        <li key={tag} className="chip">
-                          {tag}
-                        </li>
-                      ))}
-                    </ul>
-                  </Card>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="section section-rule" aria-labelledby="mentor-apply-title">
-        <div className="shell">
-          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            <SectionHeading
-              id="mentor-apply-title"
-              eyebrow="Join the bench"
-              title={
-                <>
-                  Got scars from
-                  <br />
-                  shipping? <span className="accent">Bring them.</span>
-                </>
-              }
-              description="Two-hour shifts, zero slide decks. Help teams scope, debug and rehearse. We cover meals, swag and a thank-you that is not a generic certificate."
+      <div className="shell">
+        <Reveal className="mx-auto max-w-4xl">
+          <article className="group relative overflow-hidden rounded-[2rem] border border-line/60 bg-panel/50 p-1.5 shadow-[0_40px_120px_-55px_rgba(0,0,0,0.9)] backdrop-blur-2xl transition-[transform,border-color] duration-500 ease-out hover:-translate-y-1.5 hover:border-secondary/45">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-br from-secondary/15 via-transparent to-white/10"
             />
 
-            <Card className="p-6 sm:p-7">
-              <p className="font-pixel text-[0.5rem] uppercase tracking-[0.12em] text-primary">
-                What we ask
-              </p>
-              <ul className="mt-4 space-y-3">
-                {[
-                  "Two mentor shifts across the build window",
-                  "One 15-minute 1:1 slot per team that books you",
-                  "Honest feedback on the judging rubric",
-                  "Comfortable giving product, not just code, advice",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-muted">
-                    <span className="mt-0.5 text-primary">
-                      <Icon name="check" size={15} />
+            <div className="relative overflow-hidden rounded-[1.65rem] border border-white/10 bg-gradient-to-b from-ink-2/20 via-panel/10 to-panel/40 px-5 py-10 sm:px-10 sm:py-14 lg:px-16 lg:py-16">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 grid-lines grid-fade opacity-30"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -top-28 left-1/2 h-60 w-60 -translate-x-1/2 rounded-full bg-secondary/25 blur-3xl"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -bottom-28 -right-20 h-72 w-72 rounded-full bg-primary/15 blur-3xl"
+              />
+
+              <div className="relative mx-auto flex max-w-2xl flex-col items-center text-center">
+                <div className="animate-float">
+                  <div className="relative">
+                    <span
+                      aria-hidden="true"
+                      className="absolute -inset-4 rounded-[1.75rem] border border-secondary/20"
+                    />
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-0 rounded-2xl bg-secondary/30 blur-2xl"
+                    />
+                    <span className="relative flex h-16 w-16 items-center justify-center rounded-2xl border border-secondary/45 bg-secondary/10 text-secondary shadow-[inset_0_1px_0_rgba(255,255,255,0.22)] transition-transform duration-500 group-hover:-rotate-3 group-hover:scale-105">
+                      <Icon name="compass" size={30} />
                     </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6">
-                {event.socials.find((social) => social.href) ? (
-                  <Button href={event.socials.find((social) => social.href).href} variant="secondary">
-                    Apply to mentor <Icon name="arrowUpRight" size={15} />
-                  </Button>
-                ) : (
-                  <Button to="/team" variant="secondary">
-                    Talk to the team
-                  </Button>
-                )}
+                  </div>
+                </div>
+
+                <span className="relative mt-8 inline-flex items-center gap-2.5 overflow-hidden rounded-full border border-secondary/35 bg-secondary/10 px-4 py-2 font-pixel text-[0.5rem] uppercase tracking-[0.18em] text-secondary shadow-[0_0_30px_-10px_var(--color-secondary)]">
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 animate-pulse bg-gradient-to-r from-transparent via-secondary/20 to-transparent"
+                  />
+                  <span aria-hidden="true" className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-secondary opacity-70" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-secondary" />
+                  </span>
+                  <span className="relative">REVEALING SOON</span>
+                </span>
+
+                <h1
+                  id="mentors-reveal-title"
+                  className="mt-6 font-display text-[clamp(1.8rem,5.4vw,3.75rem)] uppercase leading-[1.03] tracking-[0.01em] text-text"
+                >
+                  STAY TUNED{" "}
+                  <span className="mt-1 block text-secondary">— REVEALING SOON!</span>
+                </h1>
+
+                <p className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+                  Meet our incredible mentors. Their identities will be revealed soon.
+                </p>
+
+                <div aria-hidden="true" className="mt-8 flex items-center gap-2.5">
+                  <span className="h-px w-12 bg-gradient-to-r from-transparent to-secondary/60" />
+                  <span className="h-1.5 w-1.5 rotate-45 border border-secondary/70 bg-secondary/25" />
+                  <span className="h-px w-12 bg-gradient-to-l from-transparent to-secondary/60" />
+                </div>
+
+                <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-secondary/35 bg-secondary/10 px-3 py-1.5 font-pixel text-[0.45rem] uppercase tracking-[0.14em] text-secondary">
+                    <Icon name="compass" size={11} />
+                    Mentor roster
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-line/70 bg-white/[0.04] px-3 py-1.5 font-pixel text-[0.45rem] uppercase tracking-[0.14em] text-muted">
+                    <Icon name="clock" size={11} />
+                    TO BE REVEALED
+                  </span>
+                </div>
               </div>
-            </Card>
-          </div>
-        </div>
-      </section>
-    </>
+            </div>
+          </article>
+
+          <p className="mt-7 text-center text-xs leading-relaxed text-muted sm:text-sm">
+            The full mentor roster drops with the official announcement.{" "}
+            <span className="ml-2 inline-block whitespace-nowrap font-pixel text-[0.48rem] uppercase tracking-[0.12em] text-secondary">
+              Stay tuned
+            </span>
+          </p>
+        </Reveal>
+      </div>
+    </section>
   );
 }
