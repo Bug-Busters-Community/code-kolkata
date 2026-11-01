@@ -4,7 +4,9 @@ import event from "../config/event";
 import BackgroundVideo from "./BackgroundVideo";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
+import SoundNotice from "./SoundNotice";
 import { SoundProvider } from "./SoundProvider";
+import WelcomeModal from "./WelcomeModal";
 
 export default function Layout() {
   const { pathname } = useLocation();
@@ -32,6 +34,8 @@ export default function Layout() {
           className="pointer-events-none fixed inset-0 z-[1] scanlines opacity-50"
           aria-hidden="true"
         />
+        <SoundNotice />
+        <WelcomeModal />
       </div>
     </SoundProvider>
   );

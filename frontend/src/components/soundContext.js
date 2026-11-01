@@ -2,10 +2,16 @@ import { createContext, useContext } from "react";
 
 export const SoundContext = createContext(null);
 
+const FALLBACK = {
+  isPlaying: false,
+  pendingResume: false,
+  toggle: () => {},
+  play: async () => false,
+  stop: () => {},
+  playbackError: null,
+  clearPlaybackError: () => {},
+};
+
 export function useSound() {
-  const context = useContext(SoundContext);
-  if (!context) {
-    return { isPlaying: false, pendingResume: false, toggle: () => {} };
-  }
-  return context;
+  return useContext(SoundContext) ?? FALLBACK;
 }
