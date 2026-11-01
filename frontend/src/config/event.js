@@ -80,8 +80,8 @@ export const event = {
 
   /* ---------------------------------------------------------------- stats */
   stats: [
-    { value: 24, suffix: "H", label: "Build sprint", hint: "Non-stop, mentor-supported" },
-    { value: 500, suffix: "+", label: "Builders expected", hint: "Students and early-career devs" },
+    { value: 8, suffix: "H", label: "Build sprint", hint: "Non-stop, mentor-supported" },
+    { value: 100, suffix: "+", label: "Builders expected", hint: "Students and early-career devs" },
     { value: 24, suffix: "", label: "Mentors on deck", hint: "Product, AI, design, infra" },
     { value: 2, suffix: "", label: "Communities, one room", hint: "Two crews, one leaderboard" },
   ],
