@@ -65,14 +65,14 @@
   --dur-slow: 700ms;
 
   /* effects ------------------------------------------------------------- */
-  --hero-blur: 15px;
+  --hero-blur: 2px;
   --grid-color: rgba(94, 242, 214, 0.065);
   --grid-size: 56px;
   --scanline-color: rgba(255, 255, 255, 0.035);
-  --hero-overlay-top: rgba(5, 5, 12, 0.44);
-  --hero-overlay-mid: rgba(5, 5, 12, 0.58);
-  --hero-overlay-bottom: rgba(5, 5, 12, 0.9);
-  --hero-vignette: rgba(5, 5, 12, 0.34);
+  --hero-overlay-top: rgba(5, 5, 12, 0.36);
+  --hero-overlay-mid: rgba(5, 5, 12, 0.48);
+  --hero-overlay-bottom: rgba(5, 5, 12, 0.8);
+  --hero-vignette: rgba(5, 5, 12, 0.24);
   --shadow-btn: #17152b;
   --surface-btn: rgba(5, 5, 12, 0.35);
   --avatar-grid: rgba(255, 255, 255, 0.045);
@@ -111,10 +111,10 @@ html[data-theme="light"] {
   /* effects ------------------------------------------------------------- */
   --grid-color: rgba(11, 125, 108, 0.09);
   --scanline-color: rgba(19, 23, 38, 0.03);
-  --hero-overlay-top: rgba(245, 246, 250, 0.64);
-  --hero-overlay-mid: rgba(245, 246, 250, 0.68);
-  --hero-overlay-bottom: rgba(245, 246, 250, 0.9);
-  --hero-vignette: rgba(245, 246, 250, 0.36);
+  --hero-overlay-top: rgba(245, 246, 250, 0.52);
+  --hero-overlay-mid: rgba(245, 246, 250, 0.56);
+  --hero-overlay-bottom: rgba(245, 246, 250, 0.8);
+  --hero-vignette: rgba(245, 246, 250, 0.22);
   --shadow-btn: #c3cadb;
   --surface-btn: rgba(255, 255, 255, 0.62);
   --avatar-grid: rgba(19, 23, 38, 0.06);
