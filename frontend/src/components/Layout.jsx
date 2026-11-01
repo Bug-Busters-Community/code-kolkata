@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import event from "../config/event";
+import BackgroundVideo from "./BackgroundVideo";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import { SoundProvider } from "./SoundProvider";
@@ -16,7 +17,8 @@ export default function Layout() {
 
   return (
     <SoundProvider>
-      <div id="top" className="flex min-h-screen flex-col bg-ink text-text">
+      <BackgroundVideo />
+      <div id="top" className="relative z-10 flex min-h-screen flex-col text-text">
         <a href="#main" className="skip-link">
           Skip to content
         </a>

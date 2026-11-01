@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, useRef } from "react";
+import { useEffect, useMemo, useState } from "react";
 import event from "../config/event";
 import Button from "./ui/Button";
 import Countdown from "./ui/Countdown";
@@ -82,60 +82,12 @@ function Wordmark({ reduced }) {
 
 export default function Hero() {
   const reduced = useReducedMotion();
-  const videoRef = useRef(null);
-
-  // Load video only after user interaction for performance
-  useEffect(() => {
-    if (!videoRef.current) return;
-    const handleClick = async () => {
-      try {
-        await videoRef.current.play();
-        // Remove click listener after first play
-        videoRef.current.removeEventListener("click", handleClick);
-      } catch (e) {
-        // Play blocked - keep poster image
-      }
-    };
-    videoRef.current.addEventListener("click", handleClick);
-    return () => {
-      if (videoRef.current) {
-        videoRef.current.removeEventListener("click", handleClick);
-      }
-    };
-  }, []);
 
   return (
     <section
       className="relative isolate flex min-h-svh flex-col justify-center overflow-hidden"
       aria-labelledby="hero-title"
     >
-      <div className="hero-media absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
-        {/* Video element - loaded on user click for performance */}
-        <video
-          ref={videoRef}
-          className="absolute inset-0 h-full w-full object-cover"
-          poster="/media/hero-poster.jpg"
-          playsInline
-          loop
-          muted
-          aria-hidden="true"
-          tabIndex={-1}
-        >
-          <source src="/media/hero-loop.mp4" type="video/mp4" />
-        </video>
-        {/* Poster image shown by default for performance */}
-        <img
-          src="/media/hero-poster.jpg"
-          srcSet="/media/hero-poster-mobile.jpg 720w, /media/hero-poster.jpg 1280w"
-          sizes="100vw"
-          alt=""
-          aria-hidden="true"
-          fetchPriority="high"
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      </div>
-
       <div className="absolute inset-0 -z-10 grid-lines grid-fade opacity-70" aria-hidden="true" />
       <div className="absolute inset-0 -z-10 scanlines opacity-60" aria-hidden="true" />
 
