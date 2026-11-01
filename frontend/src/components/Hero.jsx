@@ -118,7 +118,7 @@ export default function Hero() {
           <span className="text-gold" aria-hidden="true">
             ✦{" "}
           </span>
-          Welcome to the build weekend
+          Welcome to CODE KOLKATA
           <span className="text-gold" aria-hidden="true">
             {" "}✦
           </span>
@@ -126,7 +126,7 @@ export default function Hero() {
 
         <Wordmark reduced={reduced} />
 
-        <p className="mt-5 max-w-[46ch] text-pretty text-sm uppercase leading-relaxed tracking-[0.12em] text-white/75 sm:text-base">
+        <p className="mt-5 max-w-[46ch] text-pretty text-sm uppercase leading-relaxed tracking-[0.12em] text-text/75 sm:text-base">
           {event.tagline}
         </p>
 

@@ -187,7 +187,7 @@ export default function About() {
               <>
                 {event.venue.city.split(",")[0]},
                 <br />
-                <span className="accent">location TBD.</span>
+                <span className="accent">venue TBA.</span>
               </>
             }
             description={event.venue.note}

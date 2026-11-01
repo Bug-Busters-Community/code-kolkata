@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import event from "../config/event";
 import { navLinks } from "../data/navigation";
 import SoundToggle from "./SoundToggle";
+import ThemeToggle from "./ThemeToggle";
 import { Icon, SocialIcon } from "./ui/Icon";
 
 export default function Navbar() {
@@ -103,6 +104,7 @@ export default function Navbar() {
         </nav>
 
         <div className="flex flex-none items-center gap-2">
+          <ThemeToggle />
           <SoundToggle />
           <span className="xl:hidden">
             <button
@@ -183,7 +185,10 @@ export default function Navbar() {
             </nav>
 
             <div className="flex-none border-t border-line px-5 py-5">
-              <SoundToggle withLabel className="w-full" />
+              <div className="flex flex-col gap-2">
+                <ThemeToggle withLabel className="w-full" />
+                <SoundToggle withLabel className="w-full" />
+              </div>
               <ul className="mt-4 flex items-center gap-3">
                 {event.socials.map((social) =>
                   social.href ? (

@@ -12,7 +12,7 @@
   --font-display: "Pixelify Sans", "Space Grotesk", ui-sans-serif, sans-serif;
   --font-pixel: "Press Start 2P", ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  /* palette ------------------------------------------------------------- */
+  /* palette — dark theme defaults (light overrides live further down) ---- */
   --color-ink: #05050c;
   --color-ink-2: #090914;
   --color-panel: #0e0e1c;
@@ -44,6 +44,8 @@
 }
 
 :root {
+  color-scheme: dark;
+
   /* fluid spacing ------------------------------------------------------- */
   --section-y: clamp(4.25rem, 8.5vw, 7.5rem);
   --section-y-tight: clamp(3rem, 6vw, 5rem);
@@ -68,6 +70,53 @@
   --grid-size: 56px;
   --scanline-color: rgba(255, 255, 255, 0.035);
   --hero-overlay-top: rgba(5, 5, 12, 0.58);
+  --hero-overlay-mid: rgba(5, 5, 12, 0.72);
   --hero-overlay-bottom: rgba(5, 5, 12, 0.96);
+  --hero-vignette: rgba(5, 5, 12, 0.42);
+  --shadow-btn: #17152b;
+  --surface-btn: rgba(5, 5, 12, 0.35);
+  --avatar-grid: rgba(255, 255, 255, 0.045);
+  --ring: 0 0 0 3px color-mix(in srgb, var(--color-primary) 22%, transparent);
+}
+
+/* ============================================================================
+   LIGHT THEME
+   ----------------------------------------------------------------------------
+   The inline boot script in index.html sets data-theme on <html> before the
+   first paint, so there is no flash of the wrong theme. These overrides are
+   intentionally unlayered so they beat Tailwind's @theme defaults.
+   ========================================================================== */
+html[data-theme="light"] {
+  color-scheme: light;
+
+  /* palette ------------------------------------------------------------- */
+  --color-ink: #f5f6fa;
+  --color-ink-2: #ffffff;
+  --color-panel: #ffffff;
+  --color-panel-2: #eef1f8;
+  --color-line: #d9ddeb;
+  --color-line-soft: #e8ebf4;
+  --color-text: #131726;
+  --color-muted: #575e76;
+  --color-primary: #0b7d6c;
+  --color-primary-deep: #0a5c50;
+  --color-primary-ink: #ffffff;
+  --color-secondary: #c41f63;
+  --color-secondary-deep: #f3c3d6;
+  --color-gold: #8f6200;
+  --color-gold-deep: #f1e2b8;
+  --color-success: #127a49;
+  --color-danger: #b32b2b;
+
+  /* effects ------------------------------------------------------------- */
+  --grid-color: rgba(11, 125, 108, 0.09);
+  --scanline-color: rgba(19, 23, 38, 0.03);
+  --hero-overlay-top: rgba(245, 246, 250, 0.8);
+  --hero-overlay-mid: rgba(245, 246, 250, 0.8);
+  --hero-overlay-bottom: rgba(245, 246, 250, 0.97);
+  --hero-vignette: rgba(245, 246, 250, 0.45);
+  --shadow-btn: #c3cadb;
+  --surface-btn: rgba(255, 255, 255, 0.62);
+  --avatar-grid: rgba(19, 23, 38, 0.06);
   --ring: 0 0 0 3px color-mix(in srgb, var(--color-primary) 22%, transparent);
 }

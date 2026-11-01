@@ -7,14 +7,38 @@
     <meta name="theme-color" content="#05050c" />
     <meta
       name="description"
-      content="A 24-hour arcade-styled build sprint hosted by two communities. Track reveals, schedule, prizes and registration in one place."
+      content="CODE KOLKATA is a 24-hour coding build sprint hosted by two communities. Tracks, schedule, prizes and registration in one place."
     />
-    <meta property="og:title" content="Build weekend — 24 hours, two communities" />
+    <meta property="og:title" content="CODE KOLKATA — 24-hour coding build sprint" />
     <meta
       property="og:description"
-      content="A 24-hour build sprint hosted by two communities. Theme, dates and venue are announced soon."
+      content="CODE KOLKATA brings two communities together for a 24-hour coding build sprint. Dates and venue are announced soon."
     />
     <meta property="og:type" content="website" />
+
+    <!-- Resolve the saved theme before the first paint to avoid a flash. -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("ck-theme");
+          var theme =
+            stored === "light" || stored === "dark"
+              ? stored
+              : window.matchMedia("(prefers-color-scheme: light)").matches
+                ? "light"
+                : "dark";
+          var root = document.documentElement;
+          var ink = theme === "light" ? "#f5f6fa" : "#05050c";
+          root.dataset.theme = theme;
+          root.style.colorScheme = theme;
+          root.style.backgroundColor = ink;
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute("content", ink);
+        } catch (error) {
+          document.documentElement.dataset.theme = "dark";
+        }
+      })();
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -38,7 +62,7 @@
       fetchpriority="high"
     />
 
-    <title>Build weekend — 24 hours, two communities</title>
+    <title>CODE KOLKATA — 24-hour coding build sprint</title>
   </head>
   <body>
     <div id="root"></div>

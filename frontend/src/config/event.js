@@ -8,27 +8,27 @@
 
 export const event = {
   /* ---------------------------------------------------------------- identity */
-  name: "EVENT NAME TBD",
-  shortName: "EVENT TBD",
-  monogram: "EV",
+  name: "CODE KOLKATA",
+  shortName: "CODE KOLKATA",
+  monogram: "CK",
   edition: "01",
   year: "2026",
-  theme: "THEME TBD",
-  tagline: "TWO COMMUNITIES. ONE ARCADE. SHIP SOMETHING LEGENDARY.",
+  theme: "BUILD FOR KOLKATA",
+  tagline: "TWO COMMUNITIES. ONE CITY. SHIP SOMETHING LEGENDARY.",
   intro:
-    "A 24-hour build sprint where two communities collide. Bring an idea, a laptop and unreasonable ambition — leave with a working product, a crew and a story worth posting.",
+    "CODE KOLKATA is a 24-hour build sprint where two communities collide. Bring an idea, a laptop and unreasonable ambition — leave with a working product, a crew and a story worth posting.",
 
   /* ------------------------------------------------------- dates & location */
   dates: {
-    label: "DATES TBD",
-    shortLabel: "DATES TBD",
+    label: "DATES TBA",
+    shortLabel: "DATES TBA",
     // Used by the live countdown. Update this ISO string when dates are final.
     iso: "2026-12-12T10:00:00+05:30",
     isConfirmed: false,
     note: "Provisional window. The final weekend drops with the theme reveal.",
   },
   venue: {
-    name: "VENUE TBD",
+    name: "VENUE TBA",
     city: "Kolkata, India",
     isConfirmed: false,
     note: "A 24-hour indoor venue with power, Wi-Fi and enough coffee to keep 500 builders upright.",
@@ -52,15 +52,15 @@ export const event = {
       monogram: "BB",
       href: "https://instagram.com/community.bugbusters",
       blurb:
-        "A builder-first community running offline hackathons, workshops and demo nights for students and early-career developers.",
+        "A builder-first community running offline hackathons, workshops and demo nights for students and early-career developers — and co-hosting CODE KOLKATA.",
     },
     {
-      name: "CO-ORGANIZER NAME TBD",
+      name: "Co-organizer TBA",
       role: "Co-organizer",
       monogram: "CO",
       href: null,
       blurb:
-        "The second half of this collaboration. Name, crew and links are confirmed with the joint announcement.",
+        "The second half of the CODE KOLKATA collaboration. Name, crew and links are confirmed with the joint announcement.",
     },
   ],
 
@@ -89,8 +89,8 @@ export const event = {
   /* ---------------------------------------------------------------- about */
   about: {
     paragraphs: [
-      "This is not another webinar with a certificate at the end. It is a room full of people who would rather ship a rough version tonight than polish a slide deck for a month.",
-      "Two organizer communities are combining their crews, mentors and networks for one shared build weekend. The theme and track list stay under wraps until the reveal — the format does not.",
+      "CODE KOLKATA is not another webinar with a certificate at the end. It is a room full of people who would rather ship a rough version tonight than polish a slide deck for a month.",
+      "Two organizer communities are combining their crews, mentors and networks for one shared build weekend in Kolkata. The theme and track list stay under wraps until the reveal — the format does not.",
     ],
     expectations: [
       {
@@ -105,7 +105,7 @@ export const event = {
       },
       {
         title: "Two communities",
-        desc: "Meet builders from both organizing crews, swap war stories and leave with a wider network.",
+        desc: "Meet builders from both crews behind CODE KOLKATA, swap war stories and leave with a wider network.",
         icon: "compass",
       },
       {
@@ -152,7 +152,7 @@ export const event = {
       {
         id: "day-1",
         label: "Day 01",
-        date: "DATE TBD",
+        date: "DATE TBA",
         theme: "Arrive, form up, start shipping",
         items: [
           {
@@ -164,7 +164,7 @@ export const event = {
           {
             time: "10:00",
             title: "Opening keynote",
-            desc: "The two organizer crews set the brief, reveal the theme and explain how judging works.",
+            desc: "The CODE KOLKATA crew sets the brief, reveals the theme and explains how judging works.",
             type: "Stage",
           },
           {
@@ -196,7 +196,7 @@ export const event = {
       {
         id: "day-2",
         label: "Day 02",
-        date: "DATE TBD",
+        date: "DATE TBA",
         theme: "Finish, pitch, celebrate",
         items: [
           {
@@ -236,7 +236,7 @@ export const event = {
 
   /* --------------------------------------------------------------- prizes */
   prizes: {
-    poolLabel: "PRIZE POOL TBD",
+    poolLabel: "PRIZE POOL TBA",
     note: "Cash, credits and swag are being finalised with partners. Categories are locked.",
     tiers: [
       {
@@ -347,7 +347,7 @@ export const event = {
   /* ----------------------------------------------------------- team roster */
   team: {
     isConfirmed: false,
-    note: "The joint core crew is being assembled. Roles are final; names are announced with the organizers.",
+    note: "The joint CODE KOLKATA core crew is being assembled. Roles are final; names are announced with the organizers.",
     crew: [
       { role: "Event Lead", area: "Direction", monogram: "EL" },
       { role: "Operations", area: "Venue & logistics", monogram: "OP" },
@@ -380,7 +380,7 @@ export const event = {
   faqs: [
     {
       q: "Who can take part?",
-      a: "Students, early-career developers, designers and builders from any college or community. Teams can be 1–4 people; solo builders are welcome and can join a team at check-in.",
+      a: "CODE KOLKATA is open to students, early-career developers, designers and builders from any college or community. Teams can be 1–4 people; solo builders are welcome and can join a team at check-in.",
     },
     {
       q: "Do I need a finished idea to register?",
