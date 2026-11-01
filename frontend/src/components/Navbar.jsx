@@ -83,7 +83,7 @@ export default function Navbar() {
             <span className="truncate font-display text-[clamp(0.95rem,2.1vw,1.1rem)] uppercase tracking-wide text-text">
               {event.name}
             </span>
-            <span className="mt-1 hidden truncate font-pixel text-[0.42rem] uppercase tracking-[0.1em] text-muted sm:block">
+            <span className="mt-1 hidden truncate font-pixel text-[0.42rem] uppercase leading-relaxed tracking-[0.1em] text-muted sm:block">
               {event.organizers[0].name} <span className="text-primary">×</span>{" "}
               {event.organizers[1].name}
             </span>

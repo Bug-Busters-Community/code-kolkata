@@ -130,7 +130,7 @@ export default function Hero() {
           {event.tagline}
         </p>
 
-        <p className="mt-4 font-pixel text-[0.5rem] uppercase leading-relaxed tracking-[0.12em] text-muted sm:text-[0.55rem]">
+        <p className="mt-7 font-pixel text-[0.5rem] uppercase leading-relaxed tracking-[0.12em] text-muted sm:text-[0.55rem]">
           {event.organizers[0].name} <span className="text-primary">×</span>{" "}{event.organizers[1].name}
         </p>
 
