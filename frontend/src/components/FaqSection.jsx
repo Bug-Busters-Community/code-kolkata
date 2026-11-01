@@ -1,40 +1,68 @@
 import { useState } from "react";
-import siteConfig from "../data/siteConfig";
-import { IconChevronDown } from "./Icons";
-import SectionHeading from "./SectionHeading";
+import event from "../config/event";
+import { Icon } from "./ui/Icon";
+import SectionHeading from "./ui/SectionHeading";
 
 export default function FaqSection() {
-  const [openFaqIdx, setOpenFaqIdx] = useState(null);
-
-  const toggleFaq = (idx) => {
-    setOpenFaqIdx(openFaqIdx === idx ? null : idx);
-  };
+  const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="py-20 bg-[#02080a] border-t border-slate-900">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="section section-rule" aria-labelledby="faq-title">
+      <div className="shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
         <SectionHeading
-          eyebrow="Frequently Asked Questions"
-          title="Got Questions?"
+          id="faq-title"
+          eyebrow="FAQ"
+          title={
+            <>
+              Questions,
+              <br />
+              answered.
+            </>
+          }
+          description="Everything participants ask before hitting register. Still stuck? Ping the community handle and a human will reply."
         />
 
-        <div className="space-y-4">
-          {siteConfig.faqs.map((faq, idx) => {
-            const isOpen = openFaqIdx === idx;
+        <div className="divide-y divide-line border-y border-line">
+          {event.faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            const panelId = `faq-panel-${index}`;
+            const buttonId = `faq-button-${index}`;
+
             return (
-              <div key={idx} className="rounded-xl bg-slate-950 border border-slate-800 overflow-hidden">
-                <button
-                  onClick={() => toggleFaq(idx)}
-                  className="w-full text-left px-6 py-4 flex justify-between items-center text-white font-medium hover:text-[#19d3c5] focus:outline-none focus:ring-2 focus:ring-[#19d3c5]"
+              <div key={faq.q}>
+                <h3>
+                  <button
+                    type="button"
+                    id={buttonId}
+                    aria-expanded={isOpen}
+                    aria-controls={panelId}
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                    className="flex min-h-16 w-full items-center justify-between gap-4 py-4 text-left transition-colors hover:text-primary"
+                  >
+                    <span className="flex items-start gap-3">
+                      <span className="mt-1 font-pixel text-[0.5rem] text-primary">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span className="text-base font-medium leading-snug text-text">{faq.q}</span>
+                    </span>
+                    <span
+                      className={`mt-1 flex-none text-muted transition-transform duration-300 ${
+                        isOpen ? "rotate-180 text-primary" : ""
+                      }`}
+                    >
+                      <Icon name="chevronDown" size={18} />
+                    </span>
+                  </button>
+                </h3>
+                <div
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={buttonId}
+                  hidden={!isOpen}
+                  className="pb-5 pl-8 pr-8 text-sm leading-relaxed text-muted"
                 >
-                  <span className="text-base">{faq.q}</span>
-                  <IconChevronDown isOpen={isOpen} />
-                </button>
-                {isOpen && (
-                  <div className="px-6 pb-4 text-sm text-gray-400 border-t border-slate-900 pt-3">
-                    {faq.a}
-                  </div>
-                )}
+                  {faq.a}
+                </div>
               </div>
             );
           })}
