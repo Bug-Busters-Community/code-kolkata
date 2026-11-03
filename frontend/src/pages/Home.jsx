@@ -179,15 +179,16 @@ export default function Home() {
                 {previewItems.map((item) => (
                   <li
                     key={`${item.time}-${item.title}`}
-                    className="grid grid-cols-1 gap-3 border-b border-line-soft px-5 py-4 last:border-0 sm:grid-cols-[4rem_1fr]"
-
+                    className="grid grid-cols-1 gap-x-4 gap-y-2 border-b border-line-soft px-5 py-4 last:border-0 sm:grid-cols-[4rem_minmax(0,1fr)_auto] sm:items-start"
                   >
-                    <span className="font-pixel text-[0.5rem] leading-loose text-primary">{item.time}</span>
-                    <span>
+                    <span className="font-pixel text-[0.5rem] leading-loose text-primary sm:row-start-1">
+                      {item.time}
+                    </span>
+                    <span className="min-w-0 sm:col-start-2 sm:row-start-1">
                       <span className="block text-sm font-medium text-text">{item.title}</span>
                       <span className="mt-1 block text-xs leading-relaxed text-muted">{item.desc}</span>
                     </span>
-                    <span className="chip col-start-2 justify-self-start sm:col-start-3">{item.type}</span>
+                    <span className="chip justify-self-start sm:col-start-3 sm:row-start-1">{item.type}</span>
                   </li>
                 ))}
               </ol>

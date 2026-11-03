@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
@@ -51,23 +51,6 @@ export default function App() {
         lenis.scroll = window.pageYOffset;
       }, { passive: true });
 
-      // Scroll to top on navigation
-      const handleRouteChange = () => {
-        lenis.stop();
-        lenis.scrollTo(0, { duration: 0.8, easing: (t) => t });
-      };
-
-      const { push, replace } = window.history;
-      const originalPush = history.push.bind(history);
-      const originalReplace = history.replace.bind(history);
-      history.push = (...args) => {
-        handleRouteChange();
-        return originalPush(...args);
-      };
-      history.replace = (...args) => {
-        handleRouteChange();
-        return originalReplace(...args);
-      };
     }).catch((err) => {
       console.error("Failed to initialize Lenis:", err);
     });

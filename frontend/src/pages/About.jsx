@@ -82,15 +82,13 @@ export default function About() {
 
               <dl className="divide-y divide-line-soft">
                 {glance.map((row) => (
-                    <>
-                      <dt key={row.label} className="font-pixel text-[0.45rem] uppercase leading-relaxed tracking-[0.1em] text-muted">
-                        {row.label}
-                      </dt>
-                      <dd key={row.label} className="text-sm leading-relaxed text-text">
-                        {row.value}
-                      </dd>
-                    </>
-                  ))}
+                  <div key={row.label} className="py-3 first:pt-0 last:pb-0">
+                    <dt className="font-pixel text-[0.45rem] uppercase leading-relaxed tracking-[0.1em] text-muted">
+                      {row.label}
+                    </dt>
+                    <dd className="mt-1 text-sm leading-relaxed text-text">{row.value}</dd>
+                  </div>
+                ))}
               </dl>
 
               <div className="mt-5 border border-dashed border-primary/35 bg-primary/5 p-4">

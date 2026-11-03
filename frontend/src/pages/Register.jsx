@@ -117,14 +117,12 @@ export default function Register() {
                     { label: "Track", value: values.track },
                     { label: "Team size", value: `${values.teamSize} ${values.teamSize === "1" ? "person" : "people"}` },
                   ].map((row) => (
-                    <>
-                      <dt key={row.label} className="font-pixel text-[0.45rem] uppercase leading-relaxed tracking-[0.1em] text-muted">
+                    <div key={row.label} className="py-3 first:pt-0 last:pb-0">
+                      <dt className="font-pixel text-[0.45rem] uppercase leading-relaxed tracking-[0.1em] text-muted">
                         {row.label}
                       </dt>
-                      <dd key={row.label} className="text-sm text-text">
-                        {row.value}
-                      </dd>
-                    </>
+                      <dd className="mt-1 text-sm text-text">{row.value}</dd>
+                    </div>
                   ))}
                 </dl>
 

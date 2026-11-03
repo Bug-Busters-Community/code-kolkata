@@ -104,7 +104,9 @@ export default function Navbar() {
         </nav>
 
         <div className="flex flex-none items-center gap-2">
-          <ThemeToggle />
+          <span className="hidden min-[360px]:block">
+            <ThemeToggle />
+          </span>
           <SoundToggle />
           <span className="xl:hidden">
             <button
