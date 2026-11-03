@@ -3,7 +3,7 @@ import Reveal from "../components/ui/Reveal";
 
 export default function Sponsors() {
   return (
-    <section
+    <section data-lenis
       aria-labelledby="sponsors-reveal-title"
       className="relative isolate flex min-h-svh items-center overflow-hidden pb-[clamp(4rem,9vw,7rem)] pt-[calc(var(--nav-h)+clamp(2rem,6vw,4.5rem))]"
     >

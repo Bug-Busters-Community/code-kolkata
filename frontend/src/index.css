@@ -520,13 +520,72 @@ button {
   transform: none;
 }
 
-.reveal-left {
-  transform: translateX(-24px);
+/* Fade-Up */
+.reveal {
+  --dur-slow: 700ms;
 }
 
+/* Fade-In Left */
+.reveal-left {
+  transform: translateX(-24px);
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.reveal-left.is-visible {
+  transform: none;
+}
+
+/* Fade-In Right */
+.reveal-right {
+  transform: translateX(24px);
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.reveal-right.is-visible {
+  transform: none;
+}
+
+/* Scale & Fade */
 .reveal-scale {
   transform: scale(0.97);
+  transition: transform var(--dur-slow) var(--ease-out), opacity var(--dur-slow) var(--ease-out);
+  opacity: 0;
 }
+
+.reveal-scale.is-visible {
+  transform: none;
+  opacity: 1;
+}
+
+/* Staggered Reveal parent */
+.reveal-stagger {
+  transition-delay: 0ms;
+}
+
+.reveal-stagger > *:nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger > *:nth-child(2) { transition-delay: 100ms; }
+.reveal-stagger > *:nth-child(3) { transition-delay: 200ms; }
+.reveal-stagger > *:nth-child(4) { transition-delay: 300ms; }
+.reveal-stagger > *:nth-child(5) { transition-delay: 400ms; }
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+
+/* Combined: Fade-Up with slight slide */
+.reveal-fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-fade-up.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
 
 .page-enter {
   animation: page-enter 0.5s var(--ease-out) both;

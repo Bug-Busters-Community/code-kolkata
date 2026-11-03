@@ -49,7 +49,7 @@ export default function Partners() {
         ]}
       />
 
-      <section className="section" aria-labelledby="program-title">
+      <section className="section" aria-labelledby="program-title" data-lenis>
         <div className="shell">
           <SectionHeading
             id="program-title"
@@ -79,7 +79,7 @@ export default function Partners() {
         </div>
       </section>
 
-      <section className="section-tight section-rule overflow-hidden" aria-labelledby="partner-wall-title">
+      <section className="section-tight section-rule overflow-hidden" aria-labelledby="partner-wall-title" data-lenis>
         <div className="shell">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <SectionHeading
@@ -97,7 +97,7 @@ export default function Partners() {
         </div>
       </section>
 
-      <section className="section section-rule" aria-labelledby="partner-benefits-title">
+      <section className="section section-rule" aria-labelledby="partner-benefits-title" data-lenis>
         <div className="shell grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
           <SectionHeading
             id="partner-benefits-title"
@@ -132,7 +132,7 @@ export default function Partners() {
         </div>
       </section>
 
-      <section className="section section-rule">
+      <section className="section section-rule" data-lenis>
         <div className="shell">
           <div className="corner-ticks relative overflow-hidden border-2 border-primary/35 bg-gradient-to-br from-secondary/10 via-ink-2 to-primary/10 p-8 text-center sm:p-12">
             <div className="absolute inset-0 grid-lines grid-fade opacity-50" aria-hidden="true" />

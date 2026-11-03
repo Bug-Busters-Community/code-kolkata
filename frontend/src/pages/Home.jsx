@@ -47,7 +47,7 @@ export default function Home() {
       </section>
 
       {/* -------------------------------------------------- about teaser */}
-      <section className="section" aria-labelledby="about-teaser">
+      <section className="section" aria-labelledby="about-teaser" data-lenis>
         <div className="shell grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <Reveal>
             <SectionHeading
@@ -121,7 +121,7 @@ export default function Home() {
       </section>
 
       {/* -------------------------------------------------- tracks / highlights */}
-      <section className="section section-rule" aria-labelledby="tracks-title">
+      <section className="section section-rule" aria-labelledby="tracks-title" data-lenis>
         <div className="shell">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <SectionHeading
@@ -144,7 +144,7 @@ export default function Home() {
       </section>
 
       {/* -------------------------------------------------- schedule preview */}
-      <section className="section section-rule" aria-labelledby="schedule-preview">
+      <section className="section section-rule" aria-labelledby="schedule-preview" data-lenis>
         <div className="shell grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <Reveal>
             <SectionHeading
@@ -206,7 +206,7 @@ export default function Home() {
       </section>
 
       {/* -------------------------------------------------- prizes teaser */}
-      <section className="section section-rule" aria-labelledby="prizes-teaser">
+      <section className="section section-rule" aria-labelledby="prizes-teaser" data-lenis>
         <div className="shell">
           <SectionHeading
             id="prizes-teaser"
@@ -262,7 +262,7 @@ export default function Home() {
       </section>
 
       {/* -------------------------------------------------- final CTA */}
-      <section className="section section-rule" aria-labelledby="final-cta">
+      <section className="section section-rule" aria-labelledby="final-cta" data-lenis>
         <div className="shell">
           <Reveal>
             <div className="corner-ticks relative overflow-hidden border-2 border-primary/35 bg-gradient-to-br from-primary/10 via-ink-2 to-secondary/10 px-6 py-12 text-center sm:px-10 md:px-14 md:py-16">

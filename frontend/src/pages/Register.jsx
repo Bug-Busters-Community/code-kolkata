@@ -95,7 +95,7 @@ export default function Register() {
         ]}
       />
 
-      <section className="section" aria-labelledby="register-form-title">
+      <section className="section" aria-labelledby="register-form-title" data-lenis>
         <div className="shell grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
           <Reveal>
             {submitted ? (
