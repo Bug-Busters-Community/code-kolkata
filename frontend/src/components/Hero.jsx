@@ -5,6 +5,22 @@ import Countdown from "./ui/Countdown";
 import { Icon, SocialIcon } from "./ui/Icon";
 
 const TITLE = event.name.toUpperCase();
+const SOCIAL_LINKS = event.socials.filter((social) => social.href);
+
+function HeroSocialLink({ social, size = 17 }) {
+  return (
+    <a
+      href={social.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${social.label} — opens in a new tab`}
+      title={`${social.label} — opens in a new tab`}
+      className={`btn-icon social-link social-link--${social.icon}`}
+    >
+      <SocialIcon name={social.icon} size={size} />
+    </a>
+  );
+}
 
 function useReducedMotion() {
   const [reduced, setReduced] = useState(
@@ -91,25 +107,14 @@ export default function Hero() {
       <div className="absolute inset-0 -z-10 grid-lines grid-fade opacity-70" aria-hidden="true" />
       <div className="absolute inset-0 -z-10 scanlines opacity-60" aria-hidden="true" />
 
-      <div className="absolute left-6 top-1/2 hidden -translate-y-1/2 flex-col items-center gap-3 2xl:flex">
+      <div className="absolute left-2 top-1/2 hidden -translate-y-1/2 flex-col items-center gap-2 md:flex lg:left-3 2xl:left-6 2xl:gap-3">
         <span className="font-pixel text-[0.42rem] uppercase tracking-[0.2em] text-muted [writing-mode:vertical-rl]">
           Follow
         </span>
         <span className="h-10 w-px bg-line" aria-hidden="true" />
-        {event.socials
-          .filter((social) => social.href)
-          .map((social) => (
-            <a
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={social.label}
-              className="btn-icon border-transparent bg-transparent hover:border-primary"
-            >
-              <SocialIcon name={social.icon} size={17} />
-            </a>
-          ))}
+        {SOCIAL_LINKS.map((social) => (
+          <HeroSocialLink key={social.label} social={social} />
+        ))}
         <span className="h-10 w-px bg-line" aria-hidden="true" />
       </div>
 
@@ -145,6 +150,16 @@ export default function Hero() {
           </li>
           <li className="chip chip-primary">{event.theme}</li>
         </ul>
+
+        <div className="mt-6 flex w-full items-center gap-1.5 md:hidden">
+          <span className="font-pixel text-[0.42rem] uppercase tracking-[0.16em] text-muted">
+            Follow
+          </span>
+          <span className="h-px w-6 bg-line" aria-hidden="true" />
+          {SOCIAL_LINKS.map((social) => (
+            <HeroSocialLink key={social.label} social={social} size={16} />
+          ))}
+        </div>
 
         <div className="mt-8 flex w-full flex-col items-stretch justify-center gap-3 sm:w-auto sm:flex-row">
           <Button to="/register" variant="primary">

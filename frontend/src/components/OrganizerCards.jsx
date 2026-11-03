@@ -26,7 +26,7 @@ export default function OrganizerCards({ className = "" }) {
                 <a
                   href={organizer.href}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="inline-flex min-h-11 items-center gap-2 text-sm text-text transition-colors hover:text-primary"
                 >
                   Visit {organizer.name}

@@ -333,6 +333,60 @@ button {
   background: color-mix(in srgb, var(--color-primary) 10%, var(--color-panel));
 }
 
+/* Brand-tinted hover feedback for social icon links. */
+.social-link {
+  --social-brand: var(--color-primary);
+  --social-tint: color-mix(in srgb, var(--social-brand) 14%, var(--color-panel));
+}
+
+.social-link svg {
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.social-link:hover,
+.social-link:focus-visible {
+  color: var(--social-brand);
+  border-color: color-mix(in srgb, var(--social-brand) 60%, var(--color-line));
+  background: var(--social-tint);
+}
+
+.social-link:hover svg,
+.social-link:focus-visible svg {
+  transform: scale(1.12);
+}
+
+.social-link--instagram {
+  --social-brand: #ff5c8a;
+}
+
+.social-link--linkedin {
+  --social-brand: #6cb6ff;
+}
+
+.social-link--github {
+  --social-brand: #f3f1ff;
+}
+
+.social-link--whatsapp {
+  --social-brand: #25d366;
+}
+
+html[data-theme="light"] .social-link--instagram {
+  --social-brand: #c1235a;
+}
+
+html[data-theme="light"] .social-link--linkedin {
+  --social-brand: #0a66c2;
+}
+
+html[data-theme="light"] .social-link--github {
+  --social-brand: #24292f;
+}
+
+html[data-theme="light"] .social-link--whatsapp {
+  --social-brand: #128c7e;
+}
+
 @media (max-width: 400px) {
   .btn {
     padding-inline: 1rem;

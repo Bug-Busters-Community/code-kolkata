@@ -95,7 +95,9 @@ export default function Footer() {
                     <a
                       href={social.href}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
+                      aria-label={`${social.label} — opens in a new tab`}
+                      title={`${social.label} — opens in a new tab`}
                       className="flex min-h-11 items-center gap-2.5 text-sm text-muted transition-colors hover:text-primary"
                     >
                       <SocialIcon name={social.icon} size={16} />

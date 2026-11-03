@@ -72,9 +72,24 @@ export const event = {
       href: "https://instagram.com/community.bugbusters",
       icon: "instagram",
     },
-    { label: "LinkedIn", handle: "Link coming soon", href: null, icon: "linkedin" },
-    { label: "GitHub", handle: "Link coming soon", href: null, icon: "github" },
-    { label: "X", handle: "Link coming soon", href: null, icon: "x" },
+    {
+      label: "LinkedIn",
+      handle: "Bug Busters Community",
+      href: "https://www.linkedin.com/company/bug-busters-community/posts/",
+      icon: "linkedin",
+    },
+    {
+      label: "GitHub",
+      handle: "Bug-Busters-Community",
+      href: "https://github.com/Bug-Busters-Community",
+      icon: "github",
+    },
+    {
+      label: "WhatsApp Community",
+      handle: "Join the community",
+      href: "https://chat.whatsapp.com/KPtQUSsprdK7i68uD7QB0L",
+      icon: "whatsapp",
+    },
   ],
   contactEmail: null,
 

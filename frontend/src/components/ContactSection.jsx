@@ -69,7 +69,9 @@ export default function ContactSection() {
                   <a
                     href={social.href}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
+                    aria-label={`${social.label} — opens in a new tab`}
+                    title={`${social.label} — opens in a new tab`}
                     className="flex min-h-12 items-center gap-3 border border-line bg-ink-2/60 px-4 py-3 transition-colors hover:border-primary hover:text-primary"
                   >
                     <SocialIcon name={social.icon} size={18} />

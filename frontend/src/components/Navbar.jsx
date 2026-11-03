@@ -196,8 +196,9 @@ export default function Navbar() {
                       <a
                         href={social.href}
                         target="_blank"
-                        rel="noreferrer"
-                        aria-label={social.label}
+                        rel="noopener noreferrer"
+                        aria-label={`${social.label} — opens in a new tab`}
+                        title={`${social.label} — opens in a new tab`}
                         className="btn-icon"
                       >
                         <SocialIcon name={social.icon} />
