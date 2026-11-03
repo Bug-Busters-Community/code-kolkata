@@ -30,7 +30,7 @@ export default function Home() {
       {/* ---------------------------------------------------------- stats */}
       <section id="stats" aria-label="Event at a glance" className="scroll-mt-24 border-y border-line bg-ink-2/60">
         <div className="shell">
-          <ul className="grid grid-cols-2 gap-px bg-line-soft lg:grid-cols-4">
+          <ul className="grid grid-cols-1 gap-px bg-line-soft sm:grid-cols-2 lg:grid-cols-4">
             {event.stats.map((stat) => (
               <li key={stat.label} className="bg-ink px-4 py-8 sm:px-6 md:py-10">
                 <p className="font-display text-[clamp(2.1rem,4.6vw,3.4rem)] leading-none text-primary">
@@ -101,7 +101,7 @@ export default function Home() {
                 {manifest.map((row) => (
                   <div
                     key={row.label}
-                    className="grid grid-cols-[4.5rem_1fr] gap-3 border-b border-line-soft py-2.5 last:border-0 sm:grid-cols-[5.5rem_1fr]"
+                    className="grid grid-cols-1 gap-3 border-b border-line-soft py-2.5 last:border-0 sm:grid-cols-[5.5rem_1fr]"
                   >
                     <dt className="font-pixel text-[0.45rem] uppercase leading-relaxed tracking-[0.1em] text-muted">
                       {row.label}
@@ -179,7 +179,8 @@ export default function Home() {
                 {previewItems.map((item) => (
                   <li
                     key={`${item.time}-${item.title}`}
-                    className="grid grid-cols-[3.5rem_1fr] items-start gap-3 border-b border-line-soft px-5 py-4 last:border-0 sm:grid-cols-[4rem_1fr_auto]"
+                    className="grid grid-cols-1 gap-3 border-b border-line-soft px-5 py-4 last:border-0 sm:grid-cols-[4rem_1fr]"
+
                   >
                     <span className="font-pixel text-[0.5rem] leading-loose text-primary">{item.time}</span>
                     <span>

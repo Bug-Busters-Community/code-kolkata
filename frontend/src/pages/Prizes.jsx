@@ -76,7 +76,7 @@ export default function Prizes() {
           />
 
           <Reveal className="mt-10">
-            <ul className="grid gap-4 md:grid-cols-3">
+            <ul className="grid gap-4 sm:grid-cols-1 md:grid-cols-3">
               {event.prizes.tiers.map((tier) => (
                 <li key={tier.title}>
                   <PrizeCard tier={tier} featured={tier.tone === "gold"} />
