@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import headerBackdrop from "../../assets/VictoriaMemorial.jpg";
 import { Icon } from "./Icon";
 
 export default function PageHeader({
@@ -14,7 +15,7 @@ export default function PageHeader({
     <header className="relative isolate overflow-hidden border-b border-line pb-14 pt-[calc(var(--nav-h)+2.75rem)] md:pb-20">
       <div className="absolute inset-0 -z-10" aria-hidden="true">
         <img
-          src="/media/hero-poster.jpg"
+          src={headerBackdrop}
           alt=""
           className="h-full w-full scale-110 object-cover opacity-45 blur-[10px]"
           loading="lazy"

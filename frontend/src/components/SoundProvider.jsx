@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import musicSrc from "../assets/SubwaySurfers.mp3";
+import musicSrc from "../assets/SuperMario.mp3";
 import { SoundContext } from "./soundContext";
 
 const STORAGE_KEY = "ck-soundtrack";

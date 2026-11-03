@@ -489,7 +489,8 @@ button {
 }
 
 .hero-media img {
-  filter: blur(calc(var(--hero-blur) * 0.85)) saturate(1.1) brightness(0.92);
+  filter: saturate(1.08) brightness(0.98);
+  object-position: center;
   transform: scale(1.02);
 }
 

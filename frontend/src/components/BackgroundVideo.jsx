@@ -1,18 +1,26 @@
 import { useEffect, useRef } from "react";
+import backgroundMedia from "../assets/VictoriaMemorial.jpg";
 
-const VIDEO_SRC = "/media/hero-loop.mp4";
-const POSTER_SRC = "/media/hero-poster.jpg";
+/**
+ * The uploaded "VictoriaMemorial" asset is a still JPEG, so it is rendered as a
+ * fixed background image. The component also supports a real video file: drop
+ * an mp4/webm into src/assets and update the import above — playback, looping
+ * and autoplay handling below stay the same.
+ */
+const IS_VIDEO = /\.(mp4|webm|ogv|ogg|mov|m4v)(?:[?#].*)?$/i.test(backgroundMedia);
 
 /**
  * Plays the site-wide background loop.
  *
  * Rendered once by Layout, outside <Outlet />, so route changes never remount,
- * reload, or restart the video.
+ * reload, or restart the background media.
  */
 export default function BackgroundVideo() {
   const videoRef = useRef(null);
 
   useEffect(() => {
+    if (!IS_VIDEO) return undefined;
+
     const video = videoRef.current;
     if (!video) return undefined;
 
@@ -80,30 +88,30 @@ export default function BackgroundVideo() {
       className="hero-media pointer-events-none fixed inset-0 z-0 overflow-hidden"
       aria-hidden="true"
     >
-      {/* Poster underneath the video so the page still looks complete if
-          playback or loading fails. */}
-      <img
-        src={POSTER_SRC}
-        alt=""
-        fetchPriority="high"
-        decoding="async"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-
-      <video
-        ref={videoRef}
-        className="absolute inset-0 h-full w-full object-cover"
-        poster={POSTER_SRC}
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        disablePictureInPicture
-        tabIndex={-1}
-      >
-        <source src={VIDEO_SRC} type="video/mp4" />
-      </video>
+      {IS_VIDEO ? (
+        <video
+          ref={videoRef}
+          className="absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          disablePictureInPicture
+          tabIndex={-1}
+        >
+          <source src={backgroundMedia} />
+        </video>
+      ) : (
+        <img
+          src={backgroundMedia}
+          alt=""
+          fetchPriority="high"
+          decoding="async"
+          draggable={false}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      )}
     </div>
   );
 }
