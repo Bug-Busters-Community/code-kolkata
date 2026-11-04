@@ -31,8 +31,9 @@ export function SoundProvider({ children }) {
 
   useEffect(() => {
     const audio = new Audio();
-    audio.preload = "auto";
-    audio.src = musicSrc;
+    // The soundtrack is ~3 MB. Do not fetch it until the visitor actually
+    // asks for music — the welcome modal can be dismissed without it.
+    audio.preload = "none";
     audio.loop = true;
     audio.volume = 0.32;
     audioRef.current = audio;
@@ -63,6 +64,19 @@ export function SoundProvider({ children }) {
     };
   }, []);
 
+  const ensureSource = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio) return null;
+
+    if (!audio.getAttribute("src")) {
+      audio.src = musicSrc;
+      audio.preload = "auto";
+      audio.load();
+    }
+
+    return audio;
+  }, []);
+
   const persist = useCallback((value) => {
     try {
       window.localStorage.setItem(STORAGE_KEY, value);
@@ -72,7 +86,7 @@ export function SoundProvider({ children }) {
   }, []);
 
   const play = useCallback(async () => {
-    const audio = audioRef.current;
+    const audio = ensureSource();
     if (!audio) return false;
 
     attemptedPlayRef.current = true;
@@ -89,7 +103,7 @@ export function SoundProvider({ children }) {
       setPlaybackError(describePlaybackError(error));
       return false;
     }
-  }, [persist]);
+  }, [ensureSource, persist]);
 
   const stop = useCallback(() => {
     const audio = audioRef.current;

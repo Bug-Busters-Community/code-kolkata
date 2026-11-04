@@ -40,7 +40,7 @@ export default function About() {
         ]}
       />
 
-      <section className="section" aria-labelledby="story-title" data-lenis>
+      <section className="section" aria-labelledby="story-title">
         <div className="shell grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <Reveal>
             <SectionHeading
@@ -105,7 +105,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section section-rule" aria-labelledby="organizers-title" data-lenis>
+      <section className="section section-rule" aria-labelledby="organizers-title">
         <div className="shell">
           <SectionHeading
             id="organizers-title"
@@ -119,7 +119,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section section-rule" aria-labelledby="expectations-title" data-lenis>
+      <section className="section section-rule" aria-labelledby="expectations-title">
         <div className="shell">
           <SectionHeading
             id="expectations-title"
@@ -154,7 +154,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section section-rule" aria-labelledby="tracks-about" data-lenis>
+      <section className="section section-rule" aria-labelledby="tracks-about">
         <div className="shell">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <SectionHeading
@@ -178,7 +178,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section section-rule" aria-labelledby="venue-title" data-lenis>
+      <section className="section section-rule" aria-labelledby="venue-title">
         <div className="shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <SectionHeading
             id="venue-title"

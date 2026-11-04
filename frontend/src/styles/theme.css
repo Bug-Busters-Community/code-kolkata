@@ -32,15 +32,8 @@
   --color-danger: #ff8585;
 
   /* effects ------------------------------------------------------------- */
-  --shadow-hard: 4px 4px 0 0 var(--color-primary-deep);
-  --shadow-hard-lg: 6px 6px 0 0 var(--color-primary-deep);
-  --shadow-glow: 0 24px 60px -32px color-mix(in srgb, var(--color-primary) 55%, transparent);
-
-  --animate-marquee: marquee 38s linear infinite;
   --animate-float: float 8s ease-in-out infinite;
-  --animate-blink: blink 1.1s steps(1, end) infinite;
   --animate-scroll-cue: scroll-cue 2.2s ease-in-out infinite;
-  --animate-flicker: flicker 7s steps(1, end) infinite;
 }
 
 :root {
@@ -52,11 +45,6 @@
   --gutter: clamp(1rem, 4vw, 2.25rem);
   --maxw: 80rem;
   --nav-h: 4.5rem;
-  --stack-xs: 0.5rem;
-  --stack-sm: 0.75rem;
-  --stack-md: 1.25rem;
-  --stack-lg: 2rem;
-  --stack-xl: 3rem;
 
   /* motion -------------------------------------------------------------- */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -75,7 +63,6 @@
   --hero-vignette: rgba(5, 5, 12, 0.18);
   --shadow-btn: #17152b;
   --surface-btn: rgba(5, 5, 12, 0.35);
-  --avatar-grid: rgba(255, 255, 255, 0.045);
   --ring: 0 0 0 3px color-mix(in srgb, var(--color-primary) 22%, transparent);
 }
 
@@ -117,6 +104,4 @@ html[data-theme="light"] {
   --hero-vignette: rgba(245, 246, 250, 0.12);
   --shadow-btn: #c3cadb;
   --surface-btn: rgba(255, 255, 255, 0.62);
-  --avatar-grid: rgba(19, 23, 38, 0.06);
-  --ring: 0 0 0 3px color-mix(in srgb, var(--color-primary) 22%, transparent);
 }

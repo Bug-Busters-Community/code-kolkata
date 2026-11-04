@@ -5,6 +5,7 @@ import { Icon } from "../components/ui/Icon";
 import PageHeader from "../components/ui/PageHeader";
 import Reveal from "../components/ui/Reveal";
 import event from "../config/event";
+import { scrollToTop } from "../lib/smoothScroll";
 
 const initialValues = {
   name: "",
@@ -66,7 +67,7 @@ export default function Register() {
     }
 
     setSubmitted(true);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    scrollToTop();
   };
 
   const fieldClass = (field) =>
@@ -95,7 +96,7 @@ export default function Register() {
         ]}
       />
 
-      <section className="section" aria-labelledby="register-form-title" data-lenis>
+      <section className="section" aria-labelledby="register-form-title">
         <div className="shell grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
           <Reveal>
             {submitted ? (
@@ -103,7 +104,9 @@ export default function Register() {
                 <span className="icon-box h-14 w-14">
                   <Icon name="check" size={26} />
                 </span>
-                <h2 className="display-2 mt-5">Application validated.</h2>
+                <h2 id="register-form-title" className="display-2 mt-5">
+                  Application validated.
+                </h2>
                 <p className="mt-3 text-sm leading-relaxed text-muted">
                   Every field passed the local checks. This preview build has no registration backend connected,
                   so nothing was sent — wire the form to your form service to go live.
@@ -121,7 +124,7 @@ export default function Register() {
                       <dt className="font-pixel text-[0.45rem] uppercase leading-relaxed tracking-[0.1em] text-muted">
                         {row.label}
                       </dt>
-                      <dd className="mt-1 text-sm text-text">{row.value}</dd>
+                      <dd className="mt-1 break-words text-sm text-text">{row.value}</dd>
                     </div>
                   ))}
                 </dl>

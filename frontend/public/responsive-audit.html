@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Responsive audit</title>
+    <style>
+      html, body { margin: 0; background: #111; }
+      #frames { display: flex; align-items: flex-start; padding: 8px; }
+      iframe { border: 1px solid #444; height: 800px; flex: none; background: #000; }
+    </style>
+  </head>
+  <body>
+    <div id="frames">
+      <iframe title="audit" style="width:320px" src="/"></iframe>
+    </div>
+
+    <script>
+      const frame = document.querySelector("iframe");
+      const widths = [320, 375, 430, 768, 1024, 1440];
+
+      const waitFor = (predicate, timeout = 20000) =>
+        new Promise((resolve) => {
+          const started = Date.now();
+          const tick = () => {
+            let value = false;
+            try {
+              value = predicate();
+            } catch {
+              value = false;
+            }
+            if (value || Date.now() - started > timeout) {
+              resolve(Boolean(value));
+              return;
+            }
+            setTimeout(tick, 100);
+          };
+          tick();
+        });
+
+      const measure = () => {
+        const win = frame.contentWindow;
+        const doc = frame.contentDocument;
+        const root = doc.documentElement;
+        const width = win.innerWidth;
+        const overflow = root.scrollWidth - root.clientWidth;
+        const offenders = [...doc.body.querySelectorAll("*")]
+          .filter((el) => {
+            const style = getComputedStyle(el);
+            if (style.position === "fixed" || style.position === "sticky") return false;
+            if (el.closest(".marquee, .menu-overlay, [aria-hidden='true']")) return false;
+            const rect = el.getBoundingClientRect();
+            return rect.width > 0 && (rect.right > width + 1 || rect.left < -1);
+          })
+          .slice(0, 6)
+          .map((el) => {
+            const rect = el.getBoundingClientRect();
+            return `${el.tagName.toLowerCase()}.${String(el.className).slice(0, 44)} [${Math.round(rect.left)}..${Math.round(rect.right)}]`;
+          });
+
+        const primaryNav = doc.querySelector('nav[aria-label="Primary"]');
+        const menuButton = doc.querySelector("button[aria-controls='mobile-menu']");
+
+        return {
+          width,
+          path: doc.location.pathname,
+          heading: doc.querySelector("main h1")?.innerText.replace(/\s+/g, " ").trim(),
+          overflow,
+          offenders,
+          desktopNav: primaryNav ? getComputedStyle(primaryNav).display : null,
+          menuButton: menuButton ? getComputedStyle(menuButton).display : null,
+        };
+      };
+
+      window.__audit = async (path) => {
+        frame.onload = null;
+        frame.contentWindow.location.href = path;
+        const ready = await waitFor(() => {
+          const doc = frame.contentDocument;
+          return doc?.querySelector("main h1") && doc.title.includes("DATES TBA");
+        });
+
+        if (!ready) return [{ error: "page did not become ready", path }];
+
+        const results = [];
+        for (const width of widths) {
+          frame.style.width = `${width}px`;
+          await new Promise((resolve) => setTimeout(resolve, 120));
+          results.push(measure());
+        }
+        return results;
+      };
+    </script>
+  </body>
+</html>

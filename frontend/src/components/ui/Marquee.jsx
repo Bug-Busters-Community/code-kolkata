@@ -22,7 +22,7 @@ export default function Marquee({ items, label = "Sponsor and partner slots", cl
     <div className={`marquee ${className}`} role="group" aria-label={label}>
       <div className="marquee-track">
         <Group items={items} copy={false} />
-        <Group items={items} copy />
+        <Group items={items} />
       </div>
     </div>
   );

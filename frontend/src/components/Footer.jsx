@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import event from "../config/event";
+import { scrollToTop } from "../lib/smoothScroll";
 import { Icon, SocialIcon } from "./ui/Icon";
 
 const exploreLinks = [
@@ -131,7 +132,7 @@ export default function Footer() {
           </p>
           <button
             type="button"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            onClick={() => scrollToTop()}
             className="flex min-h-11 items-center gap-2 font-pixel text-[0.5rem] uppercase tracking-[0.1em] text-muted transition-colors hover:text-primary"
           >
             Back to top

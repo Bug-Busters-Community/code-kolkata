@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import event from "../config/event";
 import { navLinks } from "../data/navigation";
+import { lockScroll, unlockScroll } from "../lib/smoothScroll";
 import SoundToggle from "./SoundToggle";
 import ThemeToggle from "./ThemeToggle";
 import { Icon, SocialIcon } from "./ui/Icon";
@@ -26,9 +27,16 @@ export default function Navbar() {
   useEffect(() => {
     if (!open) return undefined;
 
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    lockScroll();
     const focusTimer = window.setTimeout(() => firstLinkRef.current?.focus(), 80);
+
+    // The toggle disappears at the xl breakpoint. Close the panel if the
+    // viewport grows past it so the page never stays locked with no exit.
+    const desktopQuery = window.matchMedia("(min-width: 1280px)");
+    const onDesktop = (mediaEvent) => {
+      if (mediaEvent.matches) setMenuPath(null);
+    };
+    desktopQuery.addEventListener("change", onDesktop);
 
     const onKeyDown = (event_) => {
       if (event_.key === "Escape") {
@@ -57,8 +65,9 @@ export default function Navbar() {
 
     document.addEventListener("keydown", onKeyDown);
     return () => {
-      document.body.style.overflow = previousOverflow;
+      unlockScroll();
       document.removeEventListener("keydown", onKeyDown);
+      desktopQuery.removeEventListener("change", onDesktop);
       window.clearTimeout(focusTimer);
     };
   }, [open]);

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import event from "../config/event";
+import { lockScroll, unlockScroll } from "../lib/smoothScroll";
 import { useSound } from "./soundContext";
 import { Icon } from "./ui/Icon";
 
@@ -90,17 +91,16 @@ export default function WelcomeModal() {
     if (!mounted) return undefined;
 
     const root = document.getElementById("root");
-    const previousOverflow = document.body.style.overflow;
     const previousInert = root?.inert ?? false;
 
-    document.body.style.overflow = "hidden";
+    lockScroll();
     if (root) root.inert = true;
 
     const focusTimer = window.setTimeout(() => yesRef.current?.focus(), 140);
     document.addEventListener("keydown", onKeyDown);
 
     return () => {
-      document.body.style.overflow = previousOverflow;
+      unlockScroll();
       if (root) root.inert = previousInert;
       document.removeEventListener("keydown", onKeyDown);
       window.clearTimeout(focusTimer);

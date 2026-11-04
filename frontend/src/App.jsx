@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
 import { ThemeProvider } from "./components/ThemeProvider";
+import { setLenis } from "./lib/smoothScroll";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Mentors from "./pages/Mentors";
@@ -16,44 +17,46 @@ import Team from "./pages/Team";
 
 export default function App() {
   useEffect(() => {
-    // Initialize Lenis smooth scroll
-    import("lenis").then((lenisModule) => {
-      const Lenis = lenisModule.default;
-      const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: "vertical",
-        gestureDirection: "vertical",
-        smoothWheel: true,
-        wheelMultiplier: 1.2,
-        touchMultiplier: 1.2,
-        infinite: false,
+    let frame = 0;
+    let instance = null;
+    let cancelled = false;
+
+    // Initialize Lenis smooth scroll. Keeping the module dynamic preserves the
+    // separate vendor chunk and avoids blocking the first paint.
+    import("lenis")
+      .then(({ default: Lenis }) => {
+        if (cancelled) return;
+
+        instance = new Lenis({
+          duration: 1.2,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          direction: "vertical",
+          gestureDirection: "vertical",
+          smoothWheel: true,
+          wheelMultiplier: 1.2,
+          touchMultiplier: 1.2,
+          infinite: false,
+        });
+
+        setLenis(instance);
+
+        const raf = (time) => {
+          instance.raf(time);
+          frame = requestAnimationFrame(raf);
+        };
+
+        frame = requestAnimationFrame(raf);
+      })
+      .catch((error) => {
+        console.error("Failed to initialize Lenis:", error);
       });
 
-      // Lenis RAIN loop - must be called every frame
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-
-      requestAnimationFrame(raf);
-
-      // Make Lenis available globally
-      window.lenis = lenis;
-
-      // Sync Lenis with window scroll
-      lenis.on("scroll", () => {
-        window.scrollTo(0, lenis.scroll);
-      });
-
-      // Listen to native scroll and sync to Lenis
-      window.addEventListener("scroll", () => {
-        lenis.scroll = window.pageYOffset;
-      }, { passive: true });
-
-    }).catch((err) => {
-      console.error("Failed to initialize Lenis:", err);
-    });
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(frame);
+      instance?.destroy();
+      setLenis(null);
+    };
   }, []);
 
   return (

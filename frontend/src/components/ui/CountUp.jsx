@@ -2,19 +2,15 @@ import { useEffect, useRef, useState } from "react";
 
 export default function CountUp({ value, suffix = "", duration = 1400, className = "" }) {
   const ref = useRef(null);
-  const [display, setDisplay] = useState(() =>
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches
-      ? value
-      : 0,
-  );
+  const [animate] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return !window.matchMedia("(prefers-reduced-motion: reduce)").matches && typeof IntersectionObserver !== "undefined";
+  });
+  const [display, setDisplay] = useState(() => (animate ? 0 : value));
 
   useEffect(() => {
     const node = ref.current;
-    if (!node) return undefined;
-
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReduced || typeof IntersectionObserver === "undefined") return undefined;
+    if (!node || !animate) return undefined;
 
     let frame = 0;
     let started = false;
@@ -46,7 +42,7 @@ export default function CountUp({ value, suffix = "", duration = 1400, className
       observer.disconnect();
       cancelAnimationFrame(frame);
     };
-  }, [value, duration]);
+  }, [value, duration, animate]);
 
   return (
     <span ref={ref} className={`tabular-nums ${className}`}>

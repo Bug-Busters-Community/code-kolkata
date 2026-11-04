@@ -18,7 +18,7 @@ export default function PageHeader({
           src={headerBackdrop}
           alt=""
           className="h-full w-full scale-110 object-cover opacity-45 blur-[10px]"
-          loading="lazy"
+          fetchPriority="high"
           decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/75 via-ink/88 to-ink" />

@@ -29,7 +29,7 @@ export default function Prizes() {
         ]}
       />
 
-      <section className="section" aria-labelledby="pool-title" data-lenis>
+      <section className="section" aria-labelledby="pool-title">
         <div className="shell">
           <Reveal>
             <div className="corner-ticks relative overflow-hidden border-2 border-gold/30 bg-gradient-to-br from-gold/10 via-ink-2 to-ink p-6 sm:p-10">
@@ -66,7 +66,7 @@ export default function Prizes() {
         </div>
       </section>
 
-      <section className="section section-rule" aria-labelledby="placements-title" data-lenis>
+      <section className="section section-rule" aria-labelledby="placements-title">
         <div className="shell">
           <SectionHeading
             id="placements-title"
@@ -87,7 +87,7 @@ export default function Prizes() {
         </div>
       </section>
 
-      <section className="section section-rule" aria-labelledby="categories-title" data-lenis>
+      <section className="section section-rule" aria-labelledby="categories-title">
         <div className="shell">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <SectionHeading
@@ -119,7 +119,7 @@ export default function Prizes() {
         </div>
       </section>
 
-      <section className="section section-rule" data-lenis>
+      <section className="section section-rule">
         <div className="shell">
           <div className="flex flex-col items-center gap-5 text-center">
             <p className="eyebrow">Enter the arena</p>
