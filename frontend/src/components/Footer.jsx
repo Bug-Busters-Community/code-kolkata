@@ -128,7 +128,7 @@ export default function Footer() {
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-line-soft pt-6 sm:flex-row sm:items-center">
           <p className="text-xs text-muted">
             © {new Date().getFullYear()} {event.name}. All rights reserved. Presented by{" "}
-            {event.organizers[0].name} × {event.organizers[1].name}.
+            {event.collaboration}.
           </p>
           <button
             type="button"

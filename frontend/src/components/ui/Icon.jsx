@@ -25,7 +25,7 @@ import {
   FiX,
   FiZap,
 } from "react-icons/fi";
-import { FaGithub, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa6";
+import { FaGithub, FaInstagram, FaLinkedinIn, FaWhatsapp, FaXTwitter } from "react-icons/fa6";
 
 const ICONS = {
   arrowRight: FiArrowRight,
@@ -60,6 +60,7 @@ const SOCIALS = {
   linkedin: FaLinkedinIn,
   github: FaGithub,
   whatsapp: FaWhatsapp,
+  x: FaXTwitter,
 };
 
 export function Icon({ name, size = 20, className = "", ...rest }) {

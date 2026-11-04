@@ -93,8 +93,7 @@ export default function Navbar() {
               {event.name}
             </span>
             <span className="mt-1 hidden truncate font-pixel text-[0.42rem] uppercase leading-relaxed tracking-[0.1em] text-muted sm:block">
-              {event.organizers[0].name} <span className="text-primary">×</span>{" "}
-              {event.organizers[1].name}
+              {event.collaboration}
             </span>
           </span>
         </Link>

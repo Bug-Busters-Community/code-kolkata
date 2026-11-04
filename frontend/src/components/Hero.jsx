@@ -5,9 +5,23 @@ import Countdown from "./ui/Countdown";
 import { Icon, SocialIcon } from "./ui/Icon";
 
 const TITLE = event.name.toUpperCase();
-const SOCIAL_LINKS = event.socials.filter((social) => social.href);
+const SOCIAL_LINKS = event.socials;
 
 function HeroSocialLink({ social, size = 17 }) {
+  const className = `btn-icon social-link social-link--${social.icon}`;
+
+  if (!social.href) {
+    return (
+      <span
+        aria-label={`${social.label} — link coming soon`}
+        title={`${social.label} — link coming soon`}
+        className={`${className} cursor-not-allowed opacity-60`}
+      >
+        <SocialIcon name={social.icon} size={size} />
+      </span>
+    );
+  }
+
   return (
     <a
       href={social.href}
@@ -15,7 +29,7 @@ function HeroSocialLink({ social, size = 17 }) {
       rel="noopener noreferrer"
       aria-label={`${social.label} — opens in a new tab`}
       title={`${social.label} — opens in a new tab`}
-      className={`btn-icon social-link social-link--${social.icon}`}
+      className={className}
     >
       <SocialIcon name={social.icon} size={size} />
     </a>
@@ -131,13 +145,9 @@ export default function Hero() {
 
         <Wordmark reduced={reduced} />
 
-        <p className="mt-5 max-w-[46ch] text-pretty text-sm uppercase leading-relaxed tracking-[0.12em] text-text/75 sm:text-base">
-          {event.tagline}
-        </p>
-
-        <p className="mt-7 font-pixel text-[0.5rem] uppercase leading-relaxed tracking-[0.12em] text-muted sm:text-[0.55rem]">
-          {event.organizers[0].name} <span className="text-primary">×</span>{" "}{event.organizers[1].name}
-        </p>
+        <h2 className="mt-5 max-w-[46ch] text-pretty font-sans text-sm font-normal uppercase leading-relaxed tracking-[0.12em] text-text/75 sm:text-base">
+          {event.collaboration}
+        </h2>
 
         <ul className="mt-6 flex flex-wrap items-center justify-center gap-2">
           <li className="chip">

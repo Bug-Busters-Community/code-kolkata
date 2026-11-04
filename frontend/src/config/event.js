@@ -6,6 +6,9 @@
    Nothing else in the app hard-codes event information.
    ========================================================================== */
 
+/* Temporary placeholder — replace with the official X profile URL when available. */
+export const X_SOCIAL_URL = null;
+
 export const event = {
   /* ---------------------------------------------------------------- identity */
   name: "CODE KOLKATA",
@@ -14,6 +17,7 @@ export const event = {
   edition: "01",
   year: "2026",
   theme: "BUILD FOR KOLKATA",
+  collaboration: "Bug Busters X Anibotix Robotics",
   tagline: "TWO COMMUNITIES. ONE CITY. SHIP SOMETHING LEGENDARY.",
   intro:
     "CODE KOLKATA is a 24-hour build sprint where two communities collide. Bring an idea, a laptop and unreasonable ambition — leave with a working product, a crew and a story worth posting.",
@@ -55,12 +59,12 @@ export const event = {
         "A builder-first community running offline hackathons, workshops and demo nights for students and early-career developers — and co-hosting CODE KOLKATA.",
     },
     {
-      name: "Co-organizer TBA",
+      name: "Anibotix Robotics",
       role: "Co-organizer",
-      monogram: "CO",
+      monogram: "AR",
       href: null,
       blurb:
-        "The second half of the CODE KOLKATA collaboration. Name, crew and links are confirmed with the joint announcement.",
+        "The robotics half of the CODE KOLKATA collaboration, bringing hardware builders, makers and roboticists to the room.",
     },
   ],
 
@@ -89,6 +93,12 @@ export const event = {
       handle: "Join the community",
       href: "https://chat.whatsapp.com/KPtQUSsprdK7i68uD7QB0L",
       icon: "whatsapp",
+    },
+    {
+      label: "X",
+      handle: "Link coming soon",
+      href: X_SOCIAL_URL,
+      icon: "x",
     },
   ],
   contactEmail: null,

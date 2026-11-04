@@ -364,6 +364,10 @@ button {
   --social-brand: #25d366;
 }
 
+.social-link--x {
+  --social-brand: #f3f1ff;
+}
+
 html[data-theme="light"] .social-link--instagram {
   --social-brand: #c1235a;
 }
@@ -378,6 +382,10 @@ html[data-theme="light"] .social-link--github {
 
 html[data-theme="light"] .social-link--whatsapp {
   --social-brand: #128c7e;
+}
+
+html[data-theme="light"] .social-link--x {
+  --social-brand: #0f1419;
 }
 
 @media (max-width: 400px) {
