@@ -162,9 +162,14 @@ export default function Hero() {
         </ul>
 
         <div className="mt-8 flex w-full flex-col items-stretch justify-center gap-3 sm:w-auto sm:flex-row">
-          <Button to="/register" variant="primary">
+          <a
+            href="https://luma.com/2r9858zm"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+          >
             Register now <Icon name="arrowRight" size={15} />
-          </Button>
+          </a>
           <Button to="/about" variant="secondary">
             Learn more
           </Button>

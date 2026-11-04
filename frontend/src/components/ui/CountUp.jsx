@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-export default function CountUp({ value, suffix = "", duration = 1400, className = "" }) {
+export default function CountUp({ value, suffix = "", duration = 1800, className = "" }) {
   const ref = useRef(null);
   const [animate] = useState(() => {
     if (typeof window === "undefined") return false;
@@ -44,8 +44,14 @@ export default function CountUp({ value, suffix = "", duration = 1400, className
     };
   }, [value, duration, animate]);
 
+  const finalText = `${value.toLocaleString("en-IN")}${suffix}`;
+
   return (
-    <span ref={ref} className={`tabular-nums ${className}`}>
+    <span
+      ref={ref}
+      className={`inline-block tabular-nums ${className}`}
+      style={{ minWidth: `${finalText.length}ch` }}
+    >
       {display.toLocaleString("en-IN")}
       {suffix ? <span aria-hidden="true">{suffix}</span> : null}
     </span>

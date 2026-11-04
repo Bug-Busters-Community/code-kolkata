@@ -251,9 +251,9 @@ export default function Home() {
               title="Your logo belongs on this wall."
               description={event.sponsorNote}
             />
-            <Button to="/sponsors" variant="secondary" size="sm" className="md:mb-1">
+            <Link to="/register" className="btn btn-secondary btn-sm md:mb-1">
               Partner with us
-            </Button>
+            </Link>
           </div>
         </div>
 
