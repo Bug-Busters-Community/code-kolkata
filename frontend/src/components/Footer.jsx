@@ -23,7 +23,7 @@ export default function Footer() {
     <footer className="relative border-t border-line bg-ink-2/70">
       <div className="absolute inset-0 grid-lines opacity-40" aria-hidden="true" />
       <div className="shell relative py-14 md:py-16">
-        <div className="grid gap-12 lg:grid-cols-[1.5fr_0.7fr_0.8fr_1fr]">
+        <div className="grid gap-12 lg:grid-cols-[1.2fr_0.7fr_0.8fr_1fr]">
           <div>
             <Link to="/" className="flex items-center gap-3">
               <span className="flex h-11 w-11 items-center justify-center border border-primary/60 bg-primary/10 font-pixel text-[0.6rem] text-primary">
@@ -32,27 +32,6 @@ export default function Footer() {
               <span className="font-display text-lg uppercase tracking-wide text-text">{event.name}</span>
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted">{event.intro}</p>
-
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              {event.organizers.map((organizer) => (
-                <div
-                  key={organizer.name}
-                  className="flex items-start gap-3 border border-line bg-ink/50 px-3 py-3"
-                >
-                  <span className="flex h-9 w-9 flex-none items-center justify-center border border-line bg-panel font-pixel text-[0.5rem] text-primary">
-                    {organizer.monogram}
-                  </span>
-                  <span className="min-w-0">
-                    <span className="block text-sm font-medium leading-tight text-text">
-                      {organizer.name}
-                    </span>
-                    <span className="mt-1 block font-pixel text-[0.43rem] uppercase tracking-[0.1em] text-muted">
-                      {organizer.role}
-                    </span>
-                  </span>
-                </div>
-              ))}
-            </div>
           </div>
 
           <nav aria-label="Explore">
