@@ -30,13 +30,15 @@ export function SoundProvider({ children }) {
   const [playbackError, setPlaybackError] = useState(null);
 
   useEffect(() => {
-    const audio = new Audio();
-    // The soundtrack is ~3 MB. Do not fetch it until the visitor actually
-    // asks for music — the welcome modal can be dismissed without it.
-    audio.preload = "none";
+    const audio = new Audio(musicSrc);
+    // The soundtrack is ~3 MB, so buffer it while the welcome modal is open.
+    // Fetching it at click time is what made playback start late.
+    audio.preload = "auto";
     audio.loop = true;
     audio.volume = 0.32;
     audioRef.current = audio;
+
+    audio.load();
 
     const handlePlaying = () => setIsPlaying(true);
     const handlePause = () => setIsPlaying(false);
@@ -64,19 +66,6 @@ export function SoundProvider({ children }) {
     };
   }, []);
 
-  const ensureSource = useCallback(() => {
-    const audio = audioRef.current;
-    if (!audio) return null;
-
-    if (!audio.getAttribute("src")) {
-      audio.src = musicSrc;
-      audio.preload = "auto";
-      audio.load();
-    }
-
-    return audio;
-  }, []);
-
   const persist = useCallback((value) => {
     try {
       window.localStorage.setItem(STORAGE_KEY, value);
@@ -85,25 +74,38 @@ export function SoundProvider({ children }) {
     }
   }, []);
 
-  const play = useCallback(async () => {
-    const audio = ensureSource();
-    if (!audio) return false;
+  const play = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio) return Promise.resolve(false);
 
     attemptedPlayRef.current = true;
     setPlaybackError(null);
 
+    // Call play() synchronously inside the click handler so the browser still
+    // sees a user activation; awaiting anything first can drop it.
+    let request;
     try {
-      await audio.play();
-      setIsPlaying(true);
-      setPendingResume(false);
-      persist("on");
-      return true;
+      request = audio.play();
     } catch (error) {
       setIsPlaying(false);
       setPlaybackError(describePlaybackError(error));
-      return false;
+      return Promise.resolve(false);
     }
-  }, [ensureSource, persist]);
+
+    return Promise.resolve(request).then(
+      () => {
+        setIsPlaying(true);
+        setPendingResume(false);
+        persist("on");
+        return true;
+      },
+      (error) => {
+        setIsPlaying(false);
+        setPlaybackError(describePlaybackError(error));
+        return false;
+      },
+    );
+  }, [persist]);
 
   const stop = useCallback(() => {
     const audio = audioRef.current;
@@ -115,7 +117,10 @@ export function SoundProvider({ children }) {
   }, [persist]);
 
   const toggle = useCallback(() => {
-    if (isPlaying) {
+    const audio = audioRef.current;
+    // `isPlaying` flips on the "playing" event; checking the element too lets
+    // the toggle cancel playback that is still buffering.
+    if (isPlaying || (audio && !audio.paused)) {
       stop();
       return;
     }

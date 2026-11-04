@@ -44,11 +44,12 @@ export default function WelcomeModal() {
 
   useEffect(() => () => window.clearTimeout(closeTimer.current), []);
 
-  const handleYes = useCallback(async () => {
+  const handleYes = useCallback(() => {
     if (starting || closing) return;
     setStarting(true);
-    await play();
-    setStarting(false);
+    // Request playback before the exit animation; awaiting it would delay the
+    // modal closing and could outlive the click's user activation.
+    void play();
     dismiss("yes");
   }, [starting, closing, play, dismiss]);
 
