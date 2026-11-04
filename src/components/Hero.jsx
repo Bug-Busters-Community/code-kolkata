@@ -3,6 +3,7 @@ import event from "../config/event";
 import Button from "./ui/Button";
 import Countdown from "./ui/Countdown";
 import { Icon, SocialIcon } from "./ui/Icon";
+import Victoria from "../assets/code kolkata structure/victoria memorial.png";
 
 const TITLE = event.name.toUpperCase();
 const SOCIAL_LINKS = event.socials.filter((social) => social.href);
@@ -100,7 +101,9 @@ export default function Hero() {
   const reduced = useReducedMotion();
 
   return (
-    <section
+    <section id="hero" className="relative isolate overflow-hidden bg-hero">
+      <img src={Victoria} alt="Victoria Memorial" className="w-full h-full opacity-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 inset-0 -z-10 object-cover" />
+    <div
       className="relative isolate flex min-h-svh flex-col justify-center overflow-hidden"
       aria-labelledby="hero-title"
     >
@@ -195,6 +198,7 @@ export default function Hero() {
           <span className="animate-scroll-cue absolute inset-x-0 top-0 h-5 bg-primary" />
         </span>
       </a>
+    </div>
     </section>
   );
 }

@@ -19,7 +19,7 @@ export default function Layout() {
 
   return (
     <SoundProvider>
-      <BackgroundVideo />
+      {/* <BackgroundVideo /> */}
       <div id="top" className="relative z-10 flex min-h-screen flex-col text-text">
         <a href="#main" className="skip-link">
           Skip to content
