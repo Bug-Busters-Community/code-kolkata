@@ -172,9 +172,6 @@ export default function Home() {
                 <span className="font-pixel text-[0.5rem] uppercase tracking-[0.12em] text-primary">
                   {event.schedule.days[0].label} · {event.schedule.days[0].date}
                 </span>
-                <span className="chip chip-danger">
-                  {event.schedule.isConfirmed ? "Confirmed" : "Tentative"}
-                </span>
               </div>
 
               <ol>

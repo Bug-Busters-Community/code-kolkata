@@ -24,12 +24,12 @@ export const event = {
 
   /* ------------------------------------------------------- dates & location */
   dates: {
-    label: "DATES TBA",
-    shortLabel: "DATES TBA",
-    // Used by the live countdown. Update this ISO string when dates are final.
-    iso: "2026-12-12T10:00:00+05:30",
-    isConfirmed: false,
-    note: "Provisional window. The final weekend drops with the theme reveal.",
+    label: "28th November",
+    shortLabel: "28th November",
+    // Used by the live countdown. 28 November 2026, 10:00 AM IST.
+    iso: "2026-11-28T10:00:00+05:30",
+    isConfirmed: true,
+    note: "28 November 2026 · 10:00 AM IST.",
   },
   venue: {
     name: "VENUE TBA",
@@ -105,10 +105,10 @@ export const event = {
 
   /* ---------------------------------------------------------------- stats */
   stats: [
-    { value: 24, suffix: "H", label: "Build sprint", hint: "Non-stop, mentor-supported" },
-    { value: 100, suffix: "+", label: "Builders expected", hint: "Students and early-career devs" },
-    { value: 24, suffix: "", label: "Mentors on deck", hint: "Product, AI, design, infra" },
-    { value: 2, suffix: "", label: "Communities, one room", hint: "Two crews, one leaderboard" },
+    { value: 3, suffix: "H", label: "Build sprint", hint: "Non-stop, mentor-supported" },
+    { value: 100, suffix: "", label: "Builders expected", hint: "Students and early-career devs" },
+    { value: 4, suffix: "", label: "Judges on deck", hint: "Product, AI, design, infra" },
+    { value: 2, suffix: "", label: "Mentors on deck", hint: "Two crews, one leaderboard" },
   ],
 
   /* ---------------------------------------------------------------- about */
@@ -172,12 +172,12 @@ export const event = {
   /* ------------------------------------------------------------- schedule */
   schedule: {
     isConfirmed: false,
-    note: "Tentative run-of-show. Timings shift once the venue and final date are locked.",
+    note: "Run-of-show for the 24-hour sprint. Timings may shift closer to the event.",
     days: [
       {
         id: "day-1",
         label: "Day 01",
-        date: "DATE TBA",
+        date: "28th November",
         theme: "Arrive, form up, start shipping",
         items: [
           {
@@ -221,7 +221,7 @@ export const event = {
       {
         id: "day-2",
         label: "Day 02",
-        date: "DATE TBA",
+        date: "29th November",
         theme: "Finish, pitch, celebrate",
         items: [
           {

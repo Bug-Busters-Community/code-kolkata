@@ -76,7 +76,7 @@
         frame.contentWindow.location.href = path;
         const ready = await waitFor(() => {
           const doc = frame.contentDocument;
-          return doc?.querySelector("main h1") && doc.title.includes("DATES TBA");
+          return doc?.querySelector("main h1") && doc.title.includes("28th November");
         });
 
         if (!ready) return [{ error: "page did not become ready", path }];

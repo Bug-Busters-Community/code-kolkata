@@ -175,9 +175,6 @@ export default function Hero() {
             <span className="font-pixel text-[0.5rem] uppercase tracking-[0.16em] text-muted">
               Launch sequence
             </span>
-            <span className={`chip ${event.dates.isConfirmed ? "chip-primary" : "chip-danger"}`}>
-              {event.dates.isConfirmed ? "Confirmed" : "Tentative"}
-            </span>
           </div>
           <Countdown target={event.dates.iso} className="mt-3" />
         </div>
