@@ -85,7 +85,7 @@ export default function Footer() {
                     </a>
                   ) : (
                     <span
-                      className="flex min-h-11 items-center gap-2.5 text-sm text-muted/50"
+                      className="footer-soon flex min-h-11 items-center gap-2.5 text-sm text-muted/50"
                       title={`${social.label} — link coming soon`}
                     >
                       <SocialIcon name={social.icon} size={16} />

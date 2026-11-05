@@ -231,7 +231,7 @@ export default function Register() {
 
                     <div>
                       <label htmlFor="reg-team" className="field-label">
-                        Team name <span className="text-muted/60">· optional</span>
+                        Team name <span className="field-optional text-muted/60">· optional</span>
                       </label>
                       <input
                         id="reg-team"
@@ -363,7 +363,7 @@ export default function Register() {
                   { step: "03", title: "Show up", desc: "ID, laptop, charger. We handle the rest." },
                 ].map((item) => (
                   <li key={item.step} className="flex gap-3">
-                    <span className="font-pixel text-[0.5rem] text-primary/70">{item.step}</span>
+                    <span className="step-index font-pixel text-[0.5rem] text-primary/70">{item.step}</span>
                     <span>
                       <span className="block text-sm font-medium text-text">{item.title}</span>
                       <span className="mt-0.5 block text-xs leading-relaxed text-muted">{item.desc}</span>

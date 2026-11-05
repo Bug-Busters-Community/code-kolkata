@@ -83,25 +83,27 @@ html[data-theme="light"] {
   --color-panel-2: #eef1f8;
   --color-line: #d9ddeb;
   --color-line-soft: #e8ebf4;
-  --color-text: #131726;
-  --color-muted: #575e76;
-  --color-primary: #0b7d6c;
-  --color-primary-deep: #0a5c50;
+  --color-text: #111318;
+  --color-muted: #454c60;
+  --color-primary: #06594c;
+  --color-primary-deep: #04463b;
   --color-primary-ink: #ffffff;
-  --color-secondary: #c41f63;
+  --color-secondary: #a31450;
   --color-secondary-deep: #f3c3d6;
-  --color-gold: #8f6200;
+  --color-gold: #6e4d00;
   --color-gold-deep: #f1e2b8;
   --color-success: #127a49;
   --color-danger: #b32b2b;
 
   /* effects ------------------------------------------------------------- */
-  --grid-color: rgba(11, 125, 108, 0.09);
+  /* The photo backdrop stays visible as a soft texture, but it is held far
+     enough back that headings, labels and body copy keep their contrast. */
+  --grid-color: rgba(6, 89, 76, 0.09);
   --scanline-color: rgba(19, 23, 38, 0.03);
-  --hero-overlay-top: rgba(245, 246, 250, 0.28);
-  --hero-overlay-mid: rgba(245, 246, 250, 0.34);
-  --hero-overlay-bottom: rgba(245, 246, 250, 0.64);
-  --hero-vignette: rgba(245, 246, 250, 0.12);
+  --hero-overlay-top: rgba(245, 246, 250, 0.76);
+  --hero-overlay-mid: rgba(245, 246, 250, 0.82);
+  --hero-overlay-bottom: rgba(245, 246, 250, 0.92);
+  --hero-vignette: rgba(245, 246, 250, 0.6);
   --shadow-btn: #c3cadb;
-  --surface-btn: rgba(255, 255, 255, 0.62);
+  --surface-btn: rgba(255, 255, 255, 0.9);
 }

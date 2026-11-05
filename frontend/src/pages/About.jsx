@@ -139,7 +139,7 @@ export default function About() {
                       </span>
                       <span
                         aria-hidden="true"
-                        className="font-pixel text-[0.5rem] tracking-[0.1em] text-primary/35"
+                        className="deco-index font-pixel text-[0.5rem] tracking-[0.1em] text-primary/35"
                       >
                         {String(index + 1).padStart(2, "0")}
                       </span>

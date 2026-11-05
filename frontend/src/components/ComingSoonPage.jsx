@@ -97,14 +97,14 @@ export default function ComingSoonPage({
       <div className="shell">
         <Reveal className="mx-auto max-w-4xl">
           <article
-            className={`group relative overflow-hidden rounded-[2rem] border border-line/60 bg-panel/50 p-1.5 shadow-[0_40px_120px_-55px_rgba(0,0,0,0.9)] backdrop-blur-2xl transition-[transform,border-color] duration-500 ease-out hover:-translate-y-1.5 ${tone.hoverBorder}`}
+            className={`coming-soon-card group relative overflow-hidden rounded-[2rem] border border-line/60 bg-panel/50 p-1.5 shadow-[0_40px_120px_-55px_rgba(0,0,0,0.9)] backdrop-blur-2xl transition-[transform,border-color] duration-500 ease-out hover:-translate-y-1.5 ${tone.hoverBorder}`}
           >
             <div
               aria-hidden="true"
               className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${tone.overlay}`}
             />
 
-            <div className="relative overflow-hidden rounded-[1.65rem] border border-white/10 bg-gradient-to-b from-ink-2/20 via-panel/10 to-panel/40 px-5 py-10 sm:px-10 sm:py-14 lg:px-16 lg:py-16">
+            <div className="coming-soon-inner relative overflow-hidden rounded-[1.65rem] border border-white/10 bg-gradient-to-b from-ink-2/20 via-panel/10 to-panel/40 px-5 py-10 sm:px-10 sm:py-14 lg:px-16 lg:py-16">
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 grid-lines grid-fade opacity-30"
@@ -138,7 +138,7 @@ export default function ComingSoonPage({
                 </div>
 
                 <span
-                  className={`relative mt-8 inline-flex items-center gap-2.5 overflow-hidden rounded-full border px-4 py-2 font-pixel text-[0.5rem] uppercase tracking-[0.18em] ${tone.badge} ${tone.badgeShadow}`}
+                  className={`coming-soon-badge relative mt-8 inline-flex items-center gap-2.5 overflow-hidden rounded-full border px-4 py-2 font-pixel text-[0.5rem] uppercase tracking-[0.18em] ${tone.badge} ${tone.badgeShadow}`}
                 >
                   <span
                     aria-hidden="true"
@@ -177,7 +177,7 @@ export default function ComingSoonPage({
 
                 <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
                   <span
-                    className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-pixel text-[0.45rem] uppercase tracking-[0.14em] ${tone.tag}`}
+                    className={`coming-soon-tag inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-pixel text-[0.45rem] uppercase tracking-[0.14em] ${tone.tag}`}
                   >
                     <Icon name={icon} size={11} />
                     {badgeLabel}
@@ -191,10 +191,10 @@ export default function ComingSoonPage({
             </div>
           </article>
 
-          <p className="mt-7 text-center text-xs leading-relaxed text-muted sm:text-sm">
+          <p className="coming-soon-footer mt-7 text-center text-xs leading-relaxed text-muted sm:text-sm">
             {footerText}{" "}
             <span
-              className={`ml-2 inline-block whitespace-nowrap font-pixel text-[0.48rem] uppercase tracking-[0.12em] ${tone.footer}`}
+              className={`coming-soon-footer-accent ml-2 inline-block whitespace-nowrap font-pixel text-[0.48rem] uppercase tracking-[0.12em] ${tone.footer}`}
             >
               Stay tuned
             </span>

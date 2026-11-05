@@ -33,7 +33,7 @@ export default function OrganizerCards({ className = "" }) {
                   <Icon name="arrowUpRight" size={15} />
                 </a>
               ) : (
-                <span className="inline-flex min-h-11 items-center gap-2 text-sm text-muted/70">
+                <span className="link-soon inline-flex min-h-11 items-center gap-2 text-sm text-muted/70">
                   <Icon name="clock" size={15} />
                   Link coming with the joint announcement
                 </span>

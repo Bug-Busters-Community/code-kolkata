@@ -145,7 +145,7 @@ export default function Hero() {
 
         <Wordmark reduced={reduced} />
 
-        <h2 className="mt-5 max-w-[46ch] text-pretty font-sans text-sm font-normal uppercase leading-relaxed tracking-[0.12em] text-text/75 sm:text-base">
+        <h2 className="hero-subtitle mt-5 max-w-[46ch] text-pretty font-sans text-sm font-normal uppercase leading-relaxed tracking-[0.12em] text-text/75 sm:text-base">
           {event.collaboration}
         </h2>
 

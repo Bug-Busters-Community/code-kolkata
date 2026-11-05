@@ -2173,6 +2173,107 @@ html[data-theme="light"] .schedule-row--featured .schedule-card {
 }
 
 /* ============================================================================
+   LIGHT THEME READABILITY
+   ----------------------------------------------------------------------------
+   Light mode sits on a photographic backdrop, so text needs a calmer surface
+   and slightly stronger ink than the dark theme. Every rule below is scoped to
+   html[data-theme="light"]; dark mode is left exactly as it was.
+   ========================================================================== */
+
+/* Surfaces: keep the glassmorphism, just make the glass a little more opaque
+   so copy never competes with the photo behind it. */
+html[data-theme="light"] .card {
+  background: color-mix(in srgb, var(--color-panel) 94%, transparent);
+}
+
+html[data-theme="light"] .panel-glass {
+  background: color-mix(in srgb, var(--color-ink-2) 88%, transparent);
+}
+
+html[data-theme="light"] .chip {
+  background: color-mix(in srgb, var(--color-ink-2) 88%, transparent);
+}
+
+html[data-theme="light"] .btn-icon {
+  background: color-mix(in srgb, var(--color-panel) 88%, transparent);
+}
+
+html[data-theme="light"] .btn-ghost {
+  --btn-bg: color-mix(in srgb, var(--color-panel) 92%, transparent);
+}
+
+html[data-theme="light"] .btn-primary:hover {
+  --btn-bg: color-mix(in srgb, var(--color-primary) 88%, black);
+}
+
+html[data-theme="light"] .site-header.is-solid {
+  background: color-mix(in srgb, var(--color-ink) 90%, transparent);
+}
+
+html[data-theme="light"] .marquee-item {
+  background: color-mix(in srgb, var(--color-panel) 90%, transparent);
+}
+
+/* Text that is deliberately faded in dark mode needs a stronger ink here. */
+html[data-theme="light"] .hero-subtitle {
+  color: color-mix(in srgb, var(--color-text) 92%, transparent);
+}
+
+html[data-theme="light"] .footer-soon,
+html[data-theme="light"] .link-soon,
+html[data-theme="light"] .field-optional {
+  color: var(--color-muted);
+}
+
+html[data-theme="light"] .deco-index {
+  color: color-mix(in srgb, var(--color-primary) 55%, var(--color-muted));
+}
+
+html[data-theme="light"] .step-index {
+  color: var(--color-primary);
+}
+
+html[data-theme="light"] .team-card-index {
+  color: color-mix(in srgb, var(--team-accent) 55%, var(--color-muted));
+  opacity: 1;
+}
+
+html[data-theme="light"] .schedule-time-label {
+  color: var(--color-muted);
+}
+
+html[data-theme="light"] .field::placeholder {
+  color: color-mix(in srgb, var(--color-muted) 85%, transparent);
+}
+
+/* "Revealing soon" panel: the glass sits directly on the photo and its heavy
+   dark shadow used to sit behind the footer note. Lift the surface and soften
+   that shadow so every line of copy keeps its contrast. */
+html[data-theme="light"] .coming-soon-card {
+  background: color-mix(in srgb, var(--color-panel) 96%, transparent);
+  box-shadow: 0 24px 60px -40px rgba(15, 23, 42, 0.22);
+}
+
+html[data-theme="light"] .coming-soon-inner {
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--color-ink-2) 96%, transparent),
+    color-mix(in srgb, var(--color-panel) 92%, transparent)
+  );
+}
+
+/* Accent pills read as accent through their border, dot and label; the fill
+   itself becomes a near-white surface so the small label stays legible. */
+html[data-theme="light"] .coming-soon-badge,
+html[data-theme="light"] .coming-soon-tag {
+  background: color-mix(in srgb, var(--color-panel) 92%, transparent);
+}
+
+html[data-theme="light"] .coming-soon-footer {
+  color: var(--color-muted);
+}
+
+/* ============================================================================
    REDUCED MOTION
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
