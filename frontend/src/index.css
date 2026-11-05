@@ -1122,15 +1122,10 @@ html[data-theme="light"] .checkbox-row input[type="checkbox"]:checked {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 3rem;
-  height: 3rem;
+  width: clamp(3.75rem, 15vw, 4.5rem);
+  height: clamp(2.5rem, 10vw, 3rem);
   flex: none;
-  border: 1px solid color-mix(in srgb, var(--color-primary) 60%, transparent);
-  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
-  color: var(--color-primary);
-  font-family: var(--font-pixel);
-  font-size: 0.6rem;
-  box-shadow: 0 0 30px -10px var(--color-primary);
+  overflow: hidden;
 }
 
 .welcome-wave {

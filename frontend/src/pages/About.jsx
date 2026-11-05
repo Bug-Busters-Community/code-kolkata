@@ -10,8 +10,8 @@ import SectionHeading from "../components/ui/SectionHeading";
 import event from "../config/event";
 
 const glance = [
-  { label: "Format", value: "24-hour build sprint" },
-  { label: "Team size", value: "1–4 builders" },
+  { label: "Format", value: "8-hour build sprint" },
+  { label: "Team size", value: "1-4 builders" },
   { label: "Tracks", value: `${event.tracks.length} topic tracks` },
   { label: "Cost", value: "Free to apply" },
   { label: "Dates", value: event.dates.label },

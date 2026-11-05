@@ -152,7 +152,7 @@ export default function Home() {
               eyebrow="Run of show"
               title={
                 <>
-                  24 hours,
+                  8 hours,
                   <br />
                   zero filler.
                 </>
