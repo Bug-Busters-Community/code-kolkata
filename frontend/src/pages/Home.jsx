@@ -9,6 +9,7 @@ import { Icon } from "../components/ui/Icon";
 import Marquee from "../components/ui/Marquee";
 import Reveal from "../components/ui/Reveal";
 import SectionHeading from "../components/ui/SectionHeading";
+import Typewriter from "../components/ui/Typewriter";
 import event from "../config/event";
 
 const manifest = [
@@ -112,8 +113,7 @@ export default function Home() {
               </dl>
 
               <p className="mt-4 font-pixel text-[0.45rem] uppercase tracking-[0.12em] text-primary">
-                &gt; status: assembling_
-                <span className="cursor-block ml-1 inline-block h-3 w-[0.5ch] align-middle" aria-hidden="true" />
+                &gt; status: <Typewriter text="assembling" />
               </p>
             </div>
           </Reveal>

@@ -598,6 +598,10 @@ html[data-theme="light"] .social-link--x {
   vertical-align: baseline;
 }
 
+.typewriter-caret {
+  animation: blink 1.1s steps(1, end) infinite;
+}
+
 .glitch-flicker {
   animation: flicker 7s steps(1, end) infinite;
 }
@@ -2329,6 +2333,7 @@ html[data-theme="light"] .coming-soon-footer {
 
   .glitch-flicker,
   .cursor-block,
+  .typewriter-caret,
   .eq span {
     animation: none !important;
   }
