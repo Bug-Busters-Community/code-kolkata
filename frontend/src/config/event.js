@@ -16,7 +16,7 @@ export const event = {
   monogram: "CK",
   edition: "01",
   year: "2026",
-  theme: "BUILD FOR KOLKATA",
+  theme: "Discovering Kolkata Through AI & Innovation",
   collaboration: "Bug Busters X Anibotix Robotics",
   tagline: "TWO COMMUNITIES. ONE CITY. SHIP SOMETHING LEGENDARY.",
   intro:
@@ -129,8 +129,8 @@ export const event = {
         icon: "users",
       },
       {
-        title: "Two communities",
-        desc: "Meet builders from both crews behind CODE KOLKATA, swap war stories and leave with a wider network.",
+        title: "Live Internship",
+        desc: "Connect with industry opportunities, gain practical experience, and take your first step towards a professional career.",
         icon: "compass",
       },
       {

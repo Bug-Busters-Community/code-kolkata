@@ -145,7 +145,9 @@ export default function About() {
                       </span>
                     </div>
                     <h3 className="display-3 mt-5 text-text">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted">{item.desc}</p>
+                    {item.desc ? (
+                      <p className="mt-2 text-sm leading-relaxed text-muted">{item.desc}</p>
+                    ) : null}
                   </Card>
                 </Reveal>
               </li>
@@ -169,7 +171,7 @@ export default function About() {
               }
               description="Pick a lane at kickoff, or mix two. Judges score the working build first, the slide deck never."
             />
-            <p className="chip chip-primary md:mb-2">Theme · {event.theme}</p>
+            <p className="chip chip-primary max-w-full md:mb-2">Theme · {event.theme}</p>
           </div>
 
           <Reveal className="mt-10">

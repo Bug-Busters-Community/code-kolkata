@@ -15,8 +15,6 @@ const manifest = [
   { label: "Event", value: event.name },
   { label: "Theme", value: event.theme },
   { label: "Dates", value: event.dates.label },
-  { label: "Host", value: event.organizers[0].name },
-  { label: "Co-host", value: event.organizers[1].name },
   { label: "Venue", value: event.venue.name },
 ];
 
@@ -71,7 +69,9 @@ export default function Home() {
                   </span>
                   <span>
                     <span className="block text-sm font-medium text-text">{item.title}</span>
-                    <span className="mt-1 block text-xs leading-relaxed text-muted">{item.desc}</span>
+                    {item.desc ? (
+                      <span className="mt-1 block text-xs leading-relaxed text-muted">{item.desc}</span>
+                    ) : null}
                   </span>
                 </li>
               ))}
@@ -134,7 +134,7 @@ export default function Home() {
               }
               description="Four ways in, one leaderboard. Every track gets mentors, a judging rubric and a winner on stage."
             />
-            <p className="chip chip-primary md:mb-2">Theme reveal · {event.theme}</p>
+            <p className="chip chip-primary max-w-full md:mb-2">Theme reveal · {event.theme}</p>
           </div>
 
           <Reveal className="mt-10">
@@ -278,27 +278,24 @@ export default function Home() {
                 </h2>
                 <p className="lede mt-5 max-w-xl text-base">{event.intro}</p>
 
-                <div className="mt-8 flex w-full flex-col items-stretch justify-center gap-3 sm:w-auto sm:flex-row">
+                <div className="mt-8 flex justify-center">
                   <Button to="/register" variant="primary">
                     Register now <Icon name="arrowRight" size={15} />
-                  </Button>
-                  <Button to="/sponsors" variant="secondary">
-                    Sponsor the weekend
                   </Button>
                 </div>
 
                 <ul className="mt-8 flex flex-wrap items-center justify-center gap-2">
                   <li className="chip">
                     <Icon name="clock" size={13} />
-                    24-hour sprint
+                    3-hour sprint
                   </li>
                   <li className="chip">
                     <Icon name="users" size={13} />
-                    Teams of 1–4
+                    Teams of 1-4
                   </li>
                   <li className="chip">
                     <Icon name="lock" size={13} />
-                    Theme reveal soon
+                    Theme: Discovering Kolkata Through AI &amp; Innovation
                   </li>
                 </ul>
               </div>
