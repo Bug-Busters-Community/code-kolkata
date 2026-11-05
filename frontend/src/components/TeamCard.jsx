@@ -9,6 +9,9 @@ const SOCIALS = [
 ];
 
 export default function TeamCard({ member, index = 0, accent = "primary" }) {
+  const hiddenSocials = member.hiddenSocials ?? [];
+  const socials = SOCIALS.filter(({ key }) => !hiddenSocials.includes(key));
+
   return (
     <Reveal as="li" delay={index * 90} className="team-card-slot">
       <article className={`team-card${accent === "secondary" ? " team-card--secondary" : ""}`}>
@@ -22,7 +25,7 @@ export default function TeamCard({ member, index = 0, accent = "primary" }) {
         <p className="team-card-role">{member.designation}</p>
 
         <ul className="team-card-socials" aria-label={`${member.name} social profiles`}>
-          {SOCIALS.map(({ key, label }) => {
+          {socials.map(({ key, label }) => {
             const url = member.socials?.[key];
 
             return (
