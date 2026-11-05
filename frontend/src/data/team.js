@@ -79,7 +79,7 @@ export const coreTeam = [
   },
   {
     id: "core-08",
-    name: "Punya",
+    name: "Punya Shree",
     designation: "Social Media Manager",
     socials: {
       linkedin: "https://www.linkedin.com/in/punya-shree-423432385?utm_source=share_via&utm_content=profile&utm_medium=member_android",
