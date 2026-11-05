@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import event from "../config/event";
 import { lockScroll, unlockScroll } from "../lib/smoothScroll";
 import { useSound } from "./soundContext";
+import BrandLogo from "./ui/BrandLogo";
 import { Icon } from "./ui/Icon";
 
 const SESSION_KEY = "ck-welcome-choice";
@@ -124,8 +125,8 @@ export default function WelcomeModal() {
         <span className="welcome-sheen" aria-hidden="true" />
 
         <div className="welcome-head welcome-rise" style={{ "--welcome-delay": "40ms" }}>
-          <span className="welcome-mark" aria-hidden="true">
-            {event.monogram}
+          <span className="welcome-mark overflow-hidden" aria-hidden="true">
+            <BrandLogo alt="" />
           </span>
           <div className="min-w-0">
             <p className="eyebrow">{event.name}</p>

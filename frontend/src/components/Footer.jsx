@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import event from "../config/event";
 import { scrollToTop } from "../lib/smoothScroll";
+import BrandLogo from "./ui/BrandLogo";
 import { Icon, SocialIcon } from "./ui/Icon";
 
 const exploreLinks = [
@@ -26,8 +27,8 @@ export default function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.2fr_0.7fr_0.8fr_1fr]">
           <div>
             <Link to="/" className="flex items-center gap-3">
-              <span className="flex h-11 w-11 items-center justify-center border border-primary/60 bg-primary/10 font-pixel text-[0.6rem] text-primary">
-                {event.monogram}
+              <span className="flex h-11 w-11 items-center justify-center overflow-hidden border border-primary/60 bg-primary/10 p-0.5">
+                <BrandLogo alt="" aria-hidden="true" />
               </span>
               <span className="font-display text-lg uppercase tracking-wide text-text">{event.name}</span>
             </Link>

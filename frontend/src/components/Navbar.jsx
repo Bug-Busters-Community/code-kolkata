@@ -5,6 +5,7 @@ import { navLinks } from "../data/navigation";
 import { lockScroll, unlockScroll } from "../lib/smoothScroll";
 import SoundToggle from "./SoundToggle";
 import ThemeToggle from "./ThemeToggle";
+import BrandLogo from "./ui/BrandLogo";
 import { Icon, SocialIcon } from "./ui/Icon";
 
 export default function Navbar() {
@@ -85,14 +86,14 @@ export default function Navbar() {
     >
       <div className="shell flex h-[var(--nav-h)] items-center justify-between gap-4">
         <Link to="/" className="flex min-h-11 min-w-0 items-center gap-2.5">
-          <span className="flex h-10 w-10 flex-none items-center justify-center border border-primary/60 bg-primary/10 font-pixel text-[0.55rem] text-primary shadow-[0_0_24px_-8px_var(--color-primary)]">
-            {event.monogram}
+          <span className="flex h-10 w-10 flex-none items-center justify-center overflow-hidden">
+            <BrandLogo alt="" aria-hidden="true" />
           </span>
-          <span className="flex min-w-0 flex-col leading-none">
-            <span className="truncate font-display text-[clamp(0.95rem,2.1vw,1.1rem)] uppercase tracking-wide text-text">
+          <span className="flex min-w-0 flex-col justify-center">
+            <span className="truncate font-display text-[clamp(0.95rem,2.1vw,1.1rem)] uppercase leading-none tracking-wide text-text">
               {event.name}
             </span>
-            <span className="mt-1 hidden truncate font-pixel text-[0.42rem] uppercase leading-relaxed tracking-[0.1em] text-muted sm:block">
+            <span className="mt-1.5 font-pixel text-[0.45rem] uppercase leading-[1.5] tracking-[0.08em] text-muted sm:text-[0.5rem] sm:leading-relaxed sm:tracking-[0.1em]">
               {event.collaboration}
             </span>
           </span>
@@ -151,8 +152,11 @@ export default function Navbar() {
             className="menu-panel absolute inset-y-0 right-0 flex w-full max-w-[32rem] flex-col overflow-y-auto border-l border-line bg-ink-2/95 backdrop-blur-2xl"
           >
             <div className="flex h-[var(--nav-h)] flex-none items-center justify-between gap-4 border-b border-line px-5">
-              <span className="font-pixel text-[0.5rem] uppercase tracking-[0.16em] text-primary">
-                {event.monogram} / Menu
+              <span className="flex items-center gap-2 font-pixel text-[0.5rem] uppercase tracking-[0.16em] text-primary">
+                <span className="flex h-6 w-6 flex-none items-center justify-center overflow-hidden border border-primary/50 bg-primary/10 p-0.5">
+                  <BrandLogo alt="" aria-hidden="true" />
+                </span>
+                <span>/ Menu</span>
               </span>
               <button
                 type="button"
