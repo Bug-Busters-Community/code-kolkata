@@ -1614,6 +1614,565 @@ html[data-theme="light"] .team-social--disabled {
 }
 
 /* ============================================================================
+   SCHEDULE
+   ----------------------------------------------------------------------------
+   The page uses a two-column vertical timeline on desktop (time / rail / card)
+   and collapses to a single-column rail on smaller screens. Colour comes from
+   --row-accent so each activity keeps a distinct, theme-aware accent.
+   ========================================================================== */
+.schedule-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.schedule-stat {
+  --stat-accent: var(--color-primary);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  height: 100%;
+  min-width: 0;
+  padding: 0.95rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--stat-accent) 22%, var(--color-line));
+  border-radius: 0.7rem;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--stat-accent) 8%, transparent), transparent 62%),
+    color-mix(in srgb, var(--color-panel) 76%, transparent);
+  box-shadow:
+    0 16px 38px -34px rgb(0 0 0 / 0.9),
+    inset 0 1px 0 color-mix(in srgb, var(--color-text) 8%, transparent);
+  backdrop-filter: blur(14px) saturate(125%);
+  -webkit-backdrop-filter: blur(14px) saturate(125%);
+  transition:
+    transform var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out);
+}
+
+.schedule-stat--gold {
+  --stat-accent: var(--color-gold);
+}
+
+.schedule-stat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  flex: none;
+  border: 1px solid color-mix(in srgb, var(--stat-accent) 38%, var(--color-line));
+  border-radius: 0.35rem;
+  background: color-mix(in srgb, var(--stat-accent) 9%, transparent);
+  color: var(--stat-accent);
+}
+
+.schedule-stat-label {
+  display: block;
+  font-family: var(--font-pixel);
+  font-size: 0.5rem;
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.schedule-stat-value {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.9vw, 1.35rem);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+html[data-theme="light"] .schedule-stat {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--stat-accent) 6%, transparent), transparent 62%),
+    color-mix(in srgb, var(--color-panel) 90%, transparent);
+  box-shadow:
+    0 16px 34px -34px rgb(19 23 38 / 0.35),
+    inset 0 1px 0 #ffffff;
+}
+
+.schedule-section {
+  padding-top: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.schedule-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.schedule-chip {
+  max-width: 100%;
+  white-space: normal;
+}
+
+/* The light-theme primary at 8% tint lands just under 4.5:1 for the small
+   pixel label, so darken the text while keeping the same accent family. */
+html[data-theme="light"] .schedule-chip {
+  color: color-mix(in srgb, var(--color-primary) 62%, var(--color-text));
+}
+
+.schedule-timeline {
+  max-width: 66rem;
+  margin: clamp(1.75rem, 4vw, 2.75rem) auto 0;
+  padding: 0;
+  list-style: none;
+}
+
+.schedule-row {
+  --row-accent: var(--color-primary);
+  --rail-node: 1.75rem;
+  display: grid;
+  grid-template-columns: 1.55rem minmax(0, 1fr);
+  padding-bottom: 0.9rem;
+}
+
+.schedule-row--muted {
+  --row-accent: var(--color-muted);
+}
+
+.schedule-row--secondary {
+  --row-accent: var(--color-secondary);
+}
+
+.schedule-row--gold {
+  --row-accent: var(--color-gold);
+}
+
+.schedule-time {
+  display: none;
+}
+
+.schedule-rail {
+  position: relative;
+  width: 100%;
+}
+
+.schedule-rail::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--color-line) 90%, transparent),
+    color-mix(in srgb, var(--color-line) 62%, transparent)
+  );
+}
+
+.schedule-row:first-child .schedule-rail::before {
+  top: var(--rail-node);
+}
+
+.schedule-row:last-child .schedule-rail::before {
+  bottom: auto;
+  height: var(--rail-node);
+}
+
+.schedule-dot {
+  position: absolute;
+  top: var(--rail-node);
+  left: 50%;
+  width: 0.62rem;
+  height: 0.62rem;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border: 2px solid var(--row-accent);
+  background: color-mix(in srgb, var(--row-accent) 24%, var(--color-ink-2));
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--row-accent) 10%, transparent),
+    0 0 18px -2px color-mix(in srgb, var(--row-accent) 70%, transparent);
+  transition:
+    background-color var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out);
+}
+
+.schedule-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 0;
+  padding: 1rem 1.05rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--row-accent) 25%, var(--color-line));
+  border-radius: 0.8rem;
+  background:
+    linear-gradient(120deg, color-mix(in srgb, var(--row-accent) 8%, transparent), transparent 50%),
+    color-mix(in srgb, var(--color-panel) 76%, transparent);
+  box-shadow:
+    0 20px 46px -38px rgb(0 0 0 / 0.9),
+    inset 0 1px 0 color-mix(in srgb, var(--color-text) 8%, transparent);
+  backdrop-filter: blur(14px) saturate(125%);
+  -webkit-backdrop-filter: blur(14px) saturate(125%);
+  transition:
+    transform var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out);
+}
+
+.schedule-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--row-accent) 80%, transparent),
+    transparent 85%
+  );
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.schedule-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 0.7rem;
+  min-width: 0;
+}
+
+.schedule-index {
+  font-family: var(--font-pixel);
+  font-size: 0.5rem;
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+  color: color-mix(in srgb, var(--row-accent) 70%, var(--color-muted));
+}
+
+.schedule-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  flex: none;
+  border: 1px solid color-mix(in srgb, var(--row-accent) 34%, var(--color-line));
+  border-radius: 0.35rem;
+  background: color-mix(in srgb, var(--row-accent) 9%, transparent);
+  color: var(--row-accent);
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.schedule-heading {
+  display: flex;
+  flex: 1 1 11rem;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.55rem;
+  min-width: 0;
+}
+
+.schedule-title {
+  min-width: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+  line-height: 1.15;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+  color: var(--color-text);
+}
+
+.schedule-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.45rem;
+  border: 1px solid color-mix(in srgb, var(--color-gold) 48%, transparent);
+  background: color-mix(in srgb, var(--color-gold) 12%, transparent);
+  color: var(--color-gold);
+  font-family: var(--font-pixel);
+  font-size: 0.44rem;
+  line-height: 1.6;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.schedule-duration {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  margin-left: auto;
+  padding: 0.28rem 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--row-accent) 36%, var(--color-line));
+  background: color-mix(in srgb, var(--row-accent) 8%, transparent);
+  color: color-mix(in srgb, var(--row-accent) 82%, var(--color-text));
+  font-family: var(--font-pixel);
+  font-size: 0.5rem;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.schedule-card-times {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.7rem;
+  padding-top: 0.7rem;
+  border-top: 1px dashed color-mix(in srgb, var(--color-line) 82%, transparent);
+}
+
+.schedule-card-time {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+}
+
+.schedule-time-label {
+  font-family: var(--font-pixel);
+  font-size: 0.44rem;
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-muted) 78%, transparent);
+}
+
+.schedule-card-time time {
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.schedule-time-arrow {
+  color: var(--row-accent);
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.schedule-meter {
+  height: 3px;
+  margin-top: 0.1rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-line) 55%, transparent);
+}
+
+.schedule-meter span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--row-accent) 52%, transparent),
+    var(--row-accent)
+  );
+  opacity: 0.72;
+}
+
+.schedule-row--featured {
+  --rail-node: 1.9rem;
+}
+
+.schedule-row--featured .schedule-card {
+  padding: 1.3rem 1.15rem;
+  border-color: color-mix(in srgb, var(--color-gold) 52%, var(--color-line));
+  background:
+    radial-gradient(ellipse at 0% 0%, color-mix(in srgb, var(--color-gold) 16%, transparent), transparent 58%),
+    linear-gradient(120deg, color-mix(in srgb, var(--color-gold) 10%, transparent), transparent 62%),
+    color-mix(in srgb, var(--color-panel) 78%, transparent);
+  box-shadow:
+    0 30px 62px -42px color-mix(in srgb, var(--color-gold) 70%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--color-text) 12%, transparent);
+}
+
+.schedule-row--featured .schedule-card::before {
+  width: 3px;
+  opacity: 0.9;
+}
+
+.schedule-row--featured .schedule-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-color: color-mix(in srgb, var(--color-gold) 55%, var(--color-line));
+  background: color-mix(in srgb, var(--color-gold) 14%, transparent);
+}
+
+.schedule-row--featured .schedule-title {
+  font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+}
+
+.schedule-row--featured .schedule-dot {
+  width: 0.78rem;
+  height: 0.78rem;
+}
+
+html[data-theme="light"] .schedule-card {
+  background:
+    linear-gradient(120deg, color-mix(in srgb, var(--row-accent) 6%, transparent), transparent 50%),
+    color-mix(in srgb, var(--color-panel) 90%, transparent);
+  box-shadow:
+    0 20px 42px -34px rgb(19 23 38 / 0.32),
+    inset 0 1px 0 #ffffff;
+}
+
+html[data-theme="light"] .schedule-row--featured .schedule-card {
+  background:
+    radial-gradient(ellipse at 0% 0%, color-mix(in srgb, var(--color-gold) 12%, transparent), transparent 58%),
+    linear-gradient(120deg, color-mix(in srgb, var(--color-gold) 8%, transparent), transparent 62%),
+    color-mix(in srgb, var(--color-panel) 95%, transparent);
+  box-shadow:
+    0 26px 52px -36px color-mix(in srgb, var(--color-gold) 60%, transparent),
+    inset 0 1px 0 #ffffff;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .schedule-stat:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--stat-accent) 48%, var(--color-line));
+    box-shadow:
+      0 24px 44px -32px color-mix(in srgb, var(--stat-accent) 55%, transparent),
+      inset 0 1px 0 color-mix(in srgb, var(--color-text) 10%, transparent);
+  }
+
+  .schedule-card:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--row-accent) 58%, var(--color-line));
+    box-shadow:
+      0 30px 58px -38px color-mix(in srgb, var(--row-accent) 62%, transparent),
+      inset 0 1px 0 color-mix(in srgb, var(--color-text) 10%, transparent);
+  }
+
+  .schedule-card:hover .schedule-icon {
+    transform: translateY(-1px) scale(1.06);
+  }
+}
+
+@media (min-width: 768px) {
+  .schedule-summary {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .schedule-intro {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .schedule-chip {
+    flex: none;
+    margin-bottom: 0.25rem;
+  }
+}
+
+@media (min-width: 880px) {
+  .schedule-row {
+    --rail-node: 2.1rem;
+    grid-template-columns: 8.25rem 2.5rem minmax(0, 1fr);
+    padding-bottom: 1.1rem;
+  }
+
+  .schedule-row--featured {
+    --rail-node: 2.25rem;
+  }
+
+  .schedule-time {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.3rem;
+    padding-top: 1.15rem;
+    padding-right: 1rem;
+    text-align: right;
+  }
+
+  .schedule-time-start {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 1.9vw, 1.5rem);
+    line-height: 1;
+    letter-spacing: 0.01em;
+    color: var(--color-text);
+    white-space: nowrap;
+  }
+
+  .schedule-time-end {
+    font-family: var(--font-pixel);
+    font-size: 0.5rem;
+    line-height: 1.6;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    white-space: nowrap;
+  }
+
+  .schedule-card {
+    padding: 1.2rem 1.35rem;
+  }
+
+  .schedule-card-times {
+    display: none;
+  }
+
+  .schedule-row--featured .schedule-card {
+    padding: 1.5rem 1.5rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .schedule-timeline {
+    max-width: 68rem;
+  }
+
+  .schedule-stat {
+    padding: 1.05rem 1.15rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .schedule-row {
+    grid-template-columns: 1.15rem minmax(0, 1fr);
+  }
+
+  .schedule-card {
+    padding: 0.9rem;
+  }
+
+  .schedule-index {
+    display: none;
+  }
+
+  .schedule-duration {
+    margin-left: 0;
+  }
+}
+
+.schedule-note {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  font-size: 0.75rem;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--color-muted);
+}
+
+.schedule-note svg {
+  flex: none;
+  margin-top: 0.14rem;
+  color: var(--color-primary);
+}
+
+/* ============================================================================
    REDUCED MOTION
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
@@ -1672,6 +2231,15 @@ html[data-theme="light"] .team-social--disabled {
 
   .team-card:hover,
   .team-card:focus-within {
+    transform: none;
+  }
+
+  .schedule-card:hover,
+  .schedule-stat:hover {
+    transform: none;
+  }
+
+  .schedule-card:hover .schedule-icon {
     transform: none;
   }
 
