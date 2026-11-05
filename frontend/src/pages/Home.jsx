@@ -279,7 +279,12 @@ export default function Home() {
                 <p className="lede mt-5 max-w-xl text-base">{event.intro}</p>
 
                 <div className="mt-8 flex justify-center">
-                  <Button to="/register" variant="primary">
+                  <Button
+                    href="https://luma.com/2r9858zm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="primary"
+                  >
                     Register now <Icon name="arrowRight" size={15} />
                   </Button>
                 </div>
