@@ -6,8 +6,8 @@
    Nothing else in the app hard-codes event information.
    ========================================================================== */
 
-/* Temporary placeholder — replace with the official X profile URL when available. */
-export const X_SOCIAL_URL = null;
+/* Official X profile URL. */
+export const X_SOCIAL_URL = "https://x.com/BugBusters2026";
 
 export const event = {
   /* ---------------------------------------------------------------- identity */
@@ -96,7 +96,7 @@ export const event = {
     },
     {
       label: "X",
-      handle: "Link coming soon",
+      handle: "@BugBusters2026",
       href: X_SOCIAL_URL,
       icon: "x",
     },
