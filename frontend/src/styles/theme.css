@@ -9,6 +9,8 @@
 @theme {
   /* type ---------------------------------------------------------------- */
   --font-heading: "Road Rage", cursive;
+  --tracking-heading: 0.15em;
+  --leading-heading: 1.22;
   --font-sans: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-display: "Pixelify Sans", "Space Grotesk", ui-sans-serif, sans-serif;
   --font-pixel: "Press Start 2P", ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -39,6 +41,8 @@
 
 :root {
   color-scheme: dark;
+  --font-heading-tracking: 0.15em;
+  --font-heading-leading: 1.22;
 
   /* fluid spacing ------------------------------------------------------- */
   --section-y: clamp(4.25rem, 8.5vw, 7.5rem);
