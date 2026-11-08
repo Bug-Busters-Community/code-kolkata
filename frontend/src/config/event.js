@@ -43,7 +43,7 @@ export const event = {
     // Paste a Devfolio / Google Form / Typeform URL to send every CTA there.
     url: null,
     isOpen: false,
-    label: "Registration opens soon",
+    label: "Registration live",
     formNote:
       "Preview build — this form validates locally and is not connected to a backend yet.",
   },

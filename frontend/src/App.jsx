@@ -10,7 +10,7 @@ import Mentors from "./pages/Mentors";
 import NotFound from "./pages/NotFound";
 import Partners from "./pages/Partners";
 import Prizes from "./pages/Prizes";
-import Register from "./pages/Register";
+import PartnerRegister from "./pages/PartnerRegister";
 import Schedule from "./pages/Schedule";
 import Sponsors from "./pages/Sponsors";
 import Team from "./pages/Team";
@@ -67,7 +67,7 @@ export default function App() {
           <Route element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
-            <Route path="register" element={<Register />} />
+            <Route path="partner-registration" element={<PartnerRegister />} />
             <Route path="schedule" element={<Schedule />} />
             <Route path="sponsors" element={<Sponsors />} />
             <Route path="mentors" element={<Mentors />} />

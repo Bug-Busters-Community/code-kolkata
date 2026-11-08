@@ -26,8 +26,6 @@ const benefits = [
 ];
 
 export default function Partners() {
-  const partnerHref = event.socials.find((social) => social.href)?.href;
-
   return (
     <>
       <PageHeader
@@ -144,15 +142,9 @@ export default function Partners() {
                 partner kit and the current slot list.
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                {partnerHref ? (
-                  <Button href={partnerHref} variant="primary">
-                    Apply as a partner <Icon name="arrowUpRight" size={15} />
-                  </Button>
-                ) : (
-                  <Button to="/team" variant="primary">
-                    Talk to the team
-                  </Button>
-                )}
+                <Button to="/register" variant="primary">
+                  Apply as a community partner <Icon name="arrowRight" size={15} />
+                </Button>
                 <Button to="/sponsors" variant="secondary">
                   Sponsor packages
                 </Button>
