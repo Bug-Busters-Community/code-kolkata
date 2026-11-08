@@ -10,8 +10,8 @@
   /* type ---------------------------------------------------------------- */
   --font-heading: "Road Rage", cursive;
   --font-sans: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Pixelify Sans", "Space Grotesk", ui-sans-serif, sans-serif;
-  --font-pixel: "Press Start 2P", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-display: "Montserrat", sans-serif;
+  --font-pixel: "Montserrat", sans-serif;
 
   /* palette — dark theme defaults (light overrides live further down) ---- */
   --color-ink: #05050c;
