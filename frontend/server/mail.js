@@ -39,42 +39,58 @@ function getResendApiKey() {
   return null;
 }
 
-function getHtmlTemplate() {
-  const possiblePaths = [
-    path.resolve(__dirname, "../src/assets/communityPartnerForm.html"),
-    path.resolve(__dirname, "../../frontend/src/assets/communityPartnerForm.html"),
-    path.resolve(process.cwd(), "src/assets/communityPartnerForm.html"),
-    path.resolve(process.cwd(), "frontend/src/assets/communityPartnerForm.html"),
+function getAssetPath(relativePath) {
+  const possibleRoots = [
+    path.resolve(__dirname, "../src/assets"),
+    path.resolve(__dirname, "../../frontend/src/assets"),
+    path.resolve(process.cwd(), "src/assets"),
+    path.resolve(process.cwd(), "frontend/src/assets"),
   ];
 
-  for (const templatePath of possiblePaths) {
-    if (fs.existsSync(templatePath)) {
-      return fs.readFileSync(templatePath, "utf-8");
+  for (const root of possibleRoots) {
+    const full = path.join(root, relativePath);
+    if (fs.existsSync(full)) {
+      return full;
     }
+  }
+  return null;
+}
+
+function getHtmlTemplate() {
+  const templatePath = getAssetPath("communityPartnerForm.html");
+  if (templatePath && fs.existsSync(templatePath)) {
+    return fs.readFileSync(templatePath, "utf-8");
   }
 
   throw new Error("Could not find communityPartnerForm.html template");
 }
 
-function getFontBase64() {
-  const possiblePaths = [
-    path.resolve(__dirname, "../src/assets/Road_Rage.otf"),
-    path.resolve(__dirname, "../../frontend/src/assets/Road_Rage.otf"),
-    path.resolve(process.cwd(), "src/assets/Road_Rage.otf"),
-    path.resolve(process.cwd(), "frontend/src/assets/Road_Rage.otf"),
+function getEmailAttachments() {
+  const assetDefinitions = [
+    { file: "CodeKolkataLogo.jpg", cid: "code-kolkata-logo", contentType: "image/jpeg" },
+    { file: "HowrahBridge.png", cid: "howrah-bridge", contentType: "image/png" },
+    { file: "email/title-reached-us.png", cid: "title-reached-us", contentType: "image/png" },
+    { file: "email/heading-app-details.png", cid: "heading-app-details", contentType: "image/png" },
+    { file: "email/heading-next-steps.png", cid: "heading-next-steps", contentType: "image/png" },
+    { file: "email/heading-organizers.png", cid: "heading-organizers", contentType: "image/png" },
   ];
 
-  for (const fontPath of possiblePaths) {
-    if (fs.existsSync(fontPath)) {
-      try {
-        return fs.readFileSync(fontPath).toString("base64");
-      } catch {
-        // continue
-      }
+  const attachments = [];
+  for (const item of assetDefinitions) {
+    const filePath = getAssetPath(item.file);
+    if (filePath && fs.existsSync(filePath)) {
+      attachments.push({
+        filename: path.basename(item.file),
+        content: fs.readFileSync(filePath),
+        contentType: item.contentType,
+        contentId: item.cid,
+      });
+    } else {
+      console.warn(`Could not locate asset for email attachment: ${item.file}`);
     }
   }
 
-  return null;
+  return attachments;
 }
 
 function escapeHtml(str) {
@@ -117,15 +133,7 @@ export async function sendPartnerConfirmationMail(formData, insertedId = "") {
     renderedHtml = renderedHtml.replaceAll(key, value);
   }
 
-  // Embed local Road_Rage.otf as base64 data URI so email clients render local font without external imports
-  const fontBase64 = getFontBase64();
-  if (fontBase64) {
-    renderedHtml = renderedHtml.replace(
-      "src: url('./Road_Rage.otf') format('opentype');",
-      `src: url('data:font/otf;base64,${fontBase64}') format('opentype'), url('./Road_Rage.otf') format('opentype');`
-    );
-  }
-
+  const attachments = getEmailAttachments();
   const resend = new Resend(apiKey);
 
   try {
@@ -133,8 +141,9 @@ export async function sendPartnerConfirmationMail(formData, insertedId = "") {
       from: "Code Kolkata <noreply@bugbusterscommunity.in>",
       to: formData.email,
       bcc: "community.bugbusters@gmail.com",
-      subject: `Your form has reached to us! — Code Kolkata 2026 Community Partner (${formData.communityName})`,
+      subject: `Your form has reached to us! — Code Kolkata Community Partner (${formData.communityName})`,
       html: renderedHtml,
+      attachments,
     });
 
     if (result.error) {
