@@ -2,6 +2,7 @@ import { MongoClient } from "mongodb";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { sendPartnerConfirmationMail } from "./mail.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -101,8 +102,18 @@ export async function saveCommunityPartnerForm(formData) {
   };
 
   const result = await collection.insertOne(document);
+
+  // Trigger confirmation email asynchronously (does not block client response if slow)
+  let emailResult = { sent: false };
+  try {
+    emailResult = await sendPartnerConfirmationMail(document, result.insertedId.toString());
+  } catch (err) {
+    console.error("Failed to trigger partner confirmation mail:", err);
+  }
+
   return {
     success: true,
     insertedId: result.insertedId.toString(),
+    emailSent: emailResult.sent,
   };
 }

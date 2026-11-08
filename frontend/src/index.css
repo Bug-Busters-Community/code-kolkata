@@ -1,7 +1,21 @@
 @font-face {
   font-family: 'Road Rage';
   src: url('./assets/Road_Rage.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Road Rage';
+  src: url('./assets/Road_Rage.otf') format('opentype');
   font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Road Rage';
+  src: url('./assets/Road_Rage.otf') format('opentype');
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -138,7 +152,7 @@ button {
 }
 
 .font-heading {
-  font-family: var(--font-heading);
+  font-family: 'Road Rage', var(--font-heading), cursive;
   line-height: var(--font-heading-leading, 1.22);
   letter-spacing: var(--font-heading-tracking, 0.06em);
 }
