@@ -12,9 +12,9 @@ export const coreTeam = [
     name: "Aayush Laddha",
     designation: "Founder",
     socials: {
-      linkedin: "https://www.linkedin.com/in/imagiwaeve?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+      linkedin: "https://www.linkedin.com/in/imagiwaeve",
       github: "https://github.com/eags-aayush",
-      instagram: "https://www.instagram.com/eags.aayush?obrf=MWVyNjBiOHBubm42MA==",
+      instagram: "https://www.instagram.com/eags.aayush",
     },
   },
   {
@@ -22,9 +22,9 @@ export const coreTeam = [
     name: "Amit Kumar Prasad",
     designation: "Co-Founder",
     socials: {
-      linkedin: "https://www.linkedin.com/in/amitkumarprasad1846?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+      linkedin: "https://www.linkedin.com/in/amitkumarprasad1846",
       github: "https://github.com/AmitKumarPrasad1846",
-      instagram: "https://www.instagram.com/amiku.1846?xtok=ODdzMHZrcmU1YTVu", 
+      instagram: "https://www.instagram.com/amiku.1846",
     },
   },
   {
@@ -32,8 +32,9 @@ export const coreTeam = [
     name: "Prachi Kaneriya",
     designation: "Event Manager",
     socials: {
-      linkedin: "https://www.linkedin.com/in/prachi-kaneriya-058067379?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+      linkedin: "https://www.linkedin.com/in/prachi-kaneriya-058067379",
       github: "https://github.com/prachikaneriya23",
+      instagram: "https://www.instagram.com/prachi_kaneriya23",
     },
     hiddenSocials: ["instagram"],
   },
@@ -42,9 +43,9 @@ export const coreTeam = [
     name: "Devansh Bharadwaj",
     designation: "Event Manager",
     socials: {
-      linkedin: "https://www.linkedin.com/in/devansh-bhardwaj-636870382?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+      linkedin: "https://www.linkedin.com/in/devansh-bhardwaj-636870382",
       github: "https://github.com/devanshbhardwaj99",
-      instagram: "https://www.instagram.com/itz_devansh_15t?exln=d3VhamI5YzF5bWJ1",
+      instagram: "https://www.instagram.com/itz_devansh_15t",
     },
   },
   {
@@ -52,9 +53,9 @@ export const coreTeam = [
     name: "Kushal Giri",
     designation: "Community Manager",
     socials: {
-      linkedin: "https://www.linkedin.com/in/kushal-giri-5685a9393?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+      linkedin: "https://www.linkedin.com/in/kushal-giri-5685a9393",
       github: "https://github.com/kushalgiri1",
-      instagram: "https://www.instagram.com/kushal.giri_1?cplk=ZGR1MjA0MjE0cWNo",
+      instagram: "https://www.instagram.com/kushal.giri_1",
     },
   },
   {
@@ -62,9 +63,9 @@ export const coreTeam = [
     name: "Krish Chakraborty",
     designation: "Web Developer",
     socials: {
-      linkedin: "https://www.linkedin.com/in/krishanjit-chakraborty-258a5237a?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+      linkedin: "https://www.linkedin.com/in/krishanjit-chakraborty-258a5237a",
       github: "https://github.com/codexxxx07",
-      instagram: "https://www.instagram.com/_k_r_i_s_h_x_?exln=d254M25mZzFmazRv",
+      instagram: "https://www.instagram.com/_k_r_i_s_h_x_",
     },
   },
   {
@@ -72,7 +73,7 @@ export const coreTeam = [
     name: "Rehan Shashi",
     designation: "Community Manager",
     socials: {
-      linkedin: "https://www.linkedin.com/in/rehan-shashi?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+      linkedin: "https://www.linkedin.com/in/rehan-shashi",
       github: "https://github.com/rehan1020",
     },
     hiddenSocials: ["instagram"],
@@ -82,8 +83,9 @@ export const coreTeam = [
     name: "Punya Shree",
     designation: "Social Media Manager",
     socials: {
-      linkedin: "https://www.linkedin.com/in/punya-shree-423432385?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+      linkedin: "https://www.linkedin.com/in/punya-shree-423432385",
       github: "https://github.com/punyashree1609-dev",
+      instagram: "https://www.instagram.com/ll.punya.ll",
     },
     hiddenSocials: ["instagram"],
   },
@@ -92,34 +94,39 @@ export const coreTeam = [
 export const eventCrew = [
   {
     id: "crew-01",
-    name: "Crew Member 01",
-    designation: "Demo",
+    name: "Ansh Shah",
+    designation: "Event Crew",
     socials: { linkedin: null, github: null, instagram: null },
-  },
+  },      
   {
     id: "crew-02",
-    name: "Crew Member 02",
-    designation: "Demo",
+    name: "Mukund Agarwal",
+    designation: "Event Crew",
     socials: { linkedin: null, github: null, instagram: null },
   },
   {
     id: "crew-03",
-    name: "Crew Member 03",
-    designation: "Demo",
+    name: "Pretrishna Datta",
+    designation: "Anchor",
     socials: { linkedin: null, github: null, instagram: null },
   },
   {
     id: "crew-04",
-    name: "Crew Member 04",
-    designation: "Demo",
-    socials: { linkedin: null, github: null, instagram: null },
+    name: "Monish Sethi",
+    designation: "Event Crew",
   },
   {
     id: "crew-05",
-    name: "Crew Member 05",
-    designation: "Demo",
+    name: "Aishi Biswas",
+    designation: "Event Crew",
     socials: { linkedin: null, github: null, instagram: null },
   },
+  {
+    id: "crew-06",
+    name: "Kailash Yadav",
+    designation: "Event Crew",
+    socials: { linkedin: null, github: null, instagram: null },
+  }
 ];
 
 export const teamSections = [
