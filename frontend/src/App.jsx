@@ -68,6 +68,7 @@ export default function App() {
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="partner-registration" element={<PartnerRegister />} />
+            <Route path="register" element={<PartnerRegister />} />
             <Route path="schedule" element={<Schedule />} />
             <Route path="sponsors" element={<Sponsors />} />
             <Route path="mentors" element={<Mentors />} />

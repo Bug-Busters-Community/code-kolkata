@@ -86,6 +86,8 @@ export default function PartnerRegister() {
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
 
   const update = (field) => (changeEvent) => {
     const value =
@@ -95,6 +97,7 @@ export default function PartnerRegister() {
 
     setValues((current) => ({ ...current, [field]: value }));
     setErrors((current) => ({ ...current, [field]: undefined }));
+    if (submitError) setSubmitError(null);
   };
 
   const blur = (field) => () => {
@@ -105,8 +108,9 @@ export default function PartnerRegister() {
 
   const showError = (field) => Boolean(touched[field] && errors[field]);
 
-  const handleSubmit = (submitEvent) => {
+  const handleSubmit = async (submitEvent) => {
     submitEvent.preventDefault();
+    setSubmitError(null);
     const nextErrors = validate(values);
     const allTouched = Object.keys(values).reduce((acc, key) => {
       acc[key] = true;
@@ -134,8 +138,32 @@ export default function PartnerRegister() {
       return;
     }
 
-    setSubmitted(true);
-    scrollToTop();
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("/api/community-partner", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to submit partner application. Please try again.");
+      }
+
+      setSubmitted(true);
+      scrollToTop();
+    } catch (err) {
+      console.error("Partner form submission error:", err);
+      setSubmitError(
+        err.message || "An unexpected error occurred while saving your form. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const fieldClass = (field) =>
@@ -566,9 +594,27 @@ export default function PartnerRegister() {
                     ) : null}
                   </div>
 
+                  {submitError ? (
+                    <div className="mt-5 flex items-start gap-3 border border-danger/40 bg-danger/10 p-4 text-danger">
+                      <Icon name="close" size={16} className="mt-0.5 shrink-0" />
+                      <div>
+                        <p className="font-pixel text-[0.5rem] uppercase tracking-[0.1em]">Submission failed</p>
+                        <p className="mt-1 text-xs leading-relaxed">{submitError}</p>
+                      </div>
+                    </div>
+                  ) : null}
+
                   <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-                    <Button type="submit" variant="primary">
-                      Submit partner application <Icon name="arrowRight" size={15} />
+                    <Button type="submit" variant="primary" disabled={isSubmitting}>
+                      {isSubmitting ? (
+                        <>
+                          Submitting...
+                        </>
+                      ) : (
+                        <>
+                          Submit partner application <Icon name="arrowRight" size={15} />
+                        </>
+                      )}
                     </Button>
                   </div>
 
