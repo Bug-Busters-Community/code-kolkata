@@ -1,6 +1,5 @@
 import FaqSection from "../components/FaqSection";
 import OrganizerCards from "../components/OrganizerCards";
-import TrackGrid from "../components/TrackGrid";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
 import { Icon } from "../components/ui/Icon";
@@ -175,7 +174,17 @@ export default function About() {
           </div>
 
           <Reveal className="mt-10">
-            <TrackGrid />
+            <div className="corner-ticks relative overflow-hidden border-2 border-primary/35 bg-gradient-to-br from-primary/10 via-ink-2 to-secondary/10 px-6 py-12 text-center sm:px-10 md:px-14 md:py-16">
+              <div className="absolute inset-0 grid-lines grid-fade opacity-60" aria-hidden="true" />
+
+              <div className="relative mx-auto flex max-w-2xl flex-col items-center">
+                <span className="icon-box h-14 w-14">
+                  <Icon name="lock" size={26} />
+                </span>
+                <h3 className="display-2 mt-6 text-text">ON THE SPOT</h3>
+                <p className="lede mt-4 text-base italic">Tracks will be revealed at the event.</p>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>
