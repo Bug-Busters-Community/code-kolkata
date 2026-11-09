@@ -7,15 +7,18 @@
    Social icons only render when the matching URL is filled in.
    ========================================================================== */
 
+import ananditaPhoto from "../assets/pics/ANANDITA_BHOWMICK.jpg";
+import sounakPhoto from "../assets/pics/SOUNAK_MANDAL.jpg";
+
 const mentors = [
   {
     name: "Anandita Bhowmick",
     role: "Judge",
     initials: "AB",
-    photo: "",
+    photo: ananditaPhoto,
     currentCompany: "Anibotix Robotics",
     designation: "Founder & CEO",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/anindita-bhowmick-387449395?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     instagram: "",
     other: ""
   },
@@ -23,7 +26,7 @@ const mentors = [
     name: "Sounak Mandal",
     role: "Mentor",
     initials: "SM",
-    photo: "",
+    photo: sounakPhoto,
     currentCompany: "SAP",
     designation: "System Analyst",
     linkedin: "",
