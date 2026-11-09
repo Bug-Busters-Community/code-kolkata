@@ -128,7 +128,7 @@ export default function Prizes() {
               Registration is free. Bring a team or join one at check-in. The theme drops at the opening keynote.
             </p>
             <div className="mt-2 flex flex-col gap-3 sm:flex-row">
-              <Button to="/register" variant="primary">
+              <Button to="https://luma.com/2r9858zm" variant="primary">
                 Register now <Icon name="arrowRight" size={15} />
               </Button>
               <Button to="/schedule" variant="ghost">
