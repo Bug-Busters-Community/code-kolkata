@@ -6,7 +6,6 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 import SoundNotice from "./SoundNotice";
 import { SoundProvider } from "./SoundProvider";
-import WelcomeModal from "./WelcomeModal";
 
 export default function Layout() {
   const { pathname } = useLocation();
@@ -35,7 +34,6 @@ export default function Layout() {
           aria-hidden="true"
         />
         <SoundNotice />
-        <WelcomeModal />
       </div>
     </SoundProvider>
   );

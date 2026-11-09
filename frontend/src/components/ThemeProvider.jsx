@@ -27,6 +27,8 @@ export function ThemeProvider({ children }) {
 
     try {
       window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+      const expires = new Date(Date.now() + 365 * 864e5).toUTCString();
+      document.cookie = `${THEME_STORAGE_KEY}=${encodeURIComponent(theme)}; expires=${expires}; path=/; SameSite=Lax`;
     } catch {
       /* storage can be unavailable — the theme still applies for this visit */
     }

@@ -13,6 +13,7 @@ export default function SoundToggle({ withLabel = false, className = "" }) {
     return (
       <button
         type="button"
+        data-sound-toggle="true"
         onClick={toggle}
         aria-pressed={isPlaying}
         className={`flex min-h-11 items-center justify-between gap-3 border border-line bg-ink/50 px-3 py-2 text-left transition-colors hover:border-primary ${className}`}
@@ -44,6 +45,7 @@ export default function SoundToggle({ withLabel = false, className = "" }) {
   return (
     <button
       type="button"
+      data-sound-toggle="true"
       onClick={toggle}
       aria-pressed={isPlaying}
       aria-label={label}

@@ -2,14 +2,44 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import musicSrc from "../assets/SuperMario.mp3";
 import { SoundContext } from "./soundContext";
 
-const STORAGE_KEY = "ck-soundtrack";
+const MUSIC_COOKIE_KEY = "ck-music";
 
-function readSavedPreference() {
-  try {
-    return window.localStorage.getItem(STORAGE_KEY) === "on";
-  } catch {
-    return false;
+function getCookie(name) {
+  if (typeof document === "undefined" || !document.cookie) return null;
+  const parts = document.cookie.split(";");
+  for (let i = 0; i < parts.length; i++) {
+    const part = parts[i].trim();
+    if (part.startsWith(name + "=")) {
+      return decodeURIComponent(part.substring(name.length + 1));
+    }
   }
+  return null;
+}
+
+function setCookie(name, value, days = 365) {
+  if (typeof document === "undefined") return;
+  const expires = new Date(Date.now() + days * 864e5).toUTCString();
+  document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax`;
+}
+
+function setUserMusicChoice(enabled) {
+  const val = enabled ? "on" : "off";
+  setCookie(MUSIC_COOKIE_KEY, val);
+  try {
+    window.localStorage.setItem(MUSIC_COOKIE_KEY, val);
+  } catch {
+    /* ignore storage errors */
+  }
+}
+
+function readUserMusicChoice() {
+  const cookieVal = getCookie(MUSIC_COOKIE_KEY);
+  if (cookieVal === "on") return true;
+  if (cookieVal === "off") return false;
+
+  // First visit: no cookie exists yet. Music is ON by default, store choice in cookie.
+  setUserMusicChoice(true);
+  return true;
 }
 
 function describePlaybackError(error) {
@@ -25,20 +55,80 @@ function describePlaybackError(error) {
 export function SoundProvider({ children }) {
   const audioRef = useRef(null);
   const attemptedPlayRef = useRef(false);
+  const userWantsSoundRef = useRef(readUserMusicChoice());
+  const interactionCleanupRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [pendingResume, setPendingResume] = useState(readSavedPreference);
   const [playbackError, setPlaybackError] = useState(null);
 
-  useEffect(() => {
-    const audio = new Audio(musicSrc);
-    // The soundtrack is ~3 MB, so buffer it while the welcome modal is open.
-    // Fetching it at click time is what made playback start late.
-    audio.preload = "auto";
-    audio.loop = true;
-    audio.volume = 0.32;
-    audioRef.current = audio;
+  const cleanupListeners = useCallback(() => {
+    if (interactionCleanupRef.current) {
+      interactionCleanupRef.current();
+      interactionCleanupRef.current = null;
+    }
+  }, []);
 
-    audio.load();
+  const play = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio) return Promise.resolve(false);
+
+    cleanupListeners();
+    userWantsSoundRef.current = true;
+    setUserMusicChoice(true);
+
+    attemptedPlayRef.current = true;
+    setPlaybackError(null);
+
+    let request;
+    try {
+      request = audio.play();
+    } catch (error) {
+      setIsPlaying(false);
+      setPlaybackError(describePlaybackError(error));
+      return Promise.resolve(false);
+    }
+
+    return Promise.resolve(request).then(
+      () => {
+        setIsPlaying(true);
+        return true;
+      },
+      (error) => {
+        setIsPlaying(false);
+        setPlaybackError(describePlaybackError(error));
+        return false;
+      },
+    );
+  }, [cleanupListeners]);
+
+  const stop = useCallback(() => {
+    cleanupListeners();
+    userWantsSoundRef.current = false;
+    setUserMusicChoice(false);
+
+    const audio = audioRef.current;
+    if (audio) {
+      audio.pause();
+    }
+    setIsPlaying(false);
+    setPlaybackError(null);
+  }, [cleanupListeners]);
+
+  const toggle = useCallback(() => {
+    const audio = audioRef.current;
+    if (isPlaying || (audio && !audio.paused)) {
+      stop();
+    } else {
+      void play();
+    }
+  }, [isPlaying, play, stop]);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const initialPreference = readUserMusicChoice();
+    userWantsSoundRef.current = initialPreference;
+    audio.volume = 0.32;
 
     const handlePlaying = () => setIsPlaying(true);
     const handlePause = () => setIsPlaying(false);
@@ -54,93 +144,113 @@ export function SoundProvider({ children }) {
     audio.addEventListener("pause", handlePause);
     audio.addEventListener("error", handleError);
 
-    // Never autoplay. A saved "on" preference only surfaces a resume affordance.
+    if (initialPreference) {
+      attemptedPlayRef.current = true;
+      audio.autoplay = true;
+
+      const tryPlay = () => {
+        if (!userWantsSoundRef.current || !audio) return;
+        try {
+          const promise = audio.play();
+          if (promise !== undefined) {
+            promise
+              .then(() => {
+                setIsPlaying(true);
+                cleanupListeners();
+              })
+              .catch(() => {
+                // If blocked by browser, wait for any gesture/motion
+              });
+          }
+        } catch {
+          // ignore
+        }
+      };
+
+      // 1. Try immediate autoplay
+      tryPlay();
+
+      // 2. Try when audio data is ready
+      audio.addEventListener("canplay", tryPlay);
+      audio.addEventListener("loadeddata", tryPlay);
+
+      // 3. Fallback: on any user gesture or movement
+      const onMotionOrGesture = (event) => {
+        if (!userWantsSoundRef.current) {
+          cleanupListeners();
+          return;
+        }
+
+        if (event?.target?.closest?.("[data-sound-toggle]")) {
+          cleanupListeners();
+          return;
+        }
+
+        tryPlay();
+      };
+
+      const remove = () => {
+        audio.removeEventListener("canplay", tryPlay);
+        audio.removeEventListener("loadeddata", tryPlay);
+        window.removeEventListener("pointermove", onMotionOrGesture, true);
+        window.removeEventListener("scroll", onMotionOrGesture, true);
+        window.removeEventListener("wheel", onMotionOrGesture, true);
+        window.removeEventListener("click", onMotionOrGesture, true);
+        window.removeEventListener("pointerup", onMotionOrGesture, true);
+        window.removeEventListener("touchend", onMotionOrGesture, true);
+        window.removeEventListener("keydown", onMotionOrGesture, true);
+      };
+
+      interactionCleanupRef.current = remove;
+
+      window.addEventListener("pointermove", onMotionOrGesture, { capture: true, passive: true });
+      window.addEventListener("scroll", onMotionOrGesture, { capture: true, passive: true });
+      window.addEventListener("wheel", onMotionOrGesture, { capture: true, passive: true });
+      window.addEventListener("click", onMotionOrGesture, true);
+      window.addEventListener("pointerup", onMotionOrGesture, true);
+      window.addEventListener("touchend", onMotionOrGesture, true);
+      window.addEventListener("keydown", onMotionOrGesture, true);
+    } else {
+      audio.autoplay = false;
+      audio.pause();
+    }
+
     return () => {
+      cleanupListeners();
       audio.removeEventListener("playing", handlePlaying);
       audio.removeEventListener("pause", handlePause);
       audio.removeEventListener("error", handleError);
-      audio.pause();
-      audio.removeAttribute("src");
-      audio.load();
-      audioRef.current = null;
     };
-  }, []);
-
-  const persist = useCallback((value) => {
-    try {
-      window.localStorage.setItem(STORAGE_KEY, value);
-    } catch {
-      /* storage can be unavailable — playback still works */
-    }
-  }, []);
-
-  const play = useCallback(() => {
-    const audio = audioRef.current;
-    if (!audio) return Promise.resolve(false);
-
-    attemptedPlayRef.current = true;
-    setPlaybackError(null);
-
-    // Call play() synchronously inside the click handler so the browser still
-    // sees a user activation; awaiting anything first can drop it.
-    let request;
-    try {
-      request = audio.play();
-    } catch (error) {
-      setIsPlaying(false);
-      setPlaybackError(describePlaybackError(error));
-      return Promise.resolve(false);
-    }
-
-    return Promise.resolve(request).then(
-      () => {
-        setIsPlaying(true);
-        setPendingResume(false);
-        persist("on");
-        return true;
-      },
-      (error) => {
-        setIsPlaying(false);
-        setPlaybackError(describePlaybackError(error));
-        return false;
-      },
-    );
-  }, [persist]);
-
-  const stop = useCallback(() => {
-    const audio = audioRef.current;
-    if (audio && !audio.paused) audio.pause();
-    setIsPlaying(false);
-    setPendingResume(false);
-    setPlaybackError(null);
-    persist("off");
-  }, [persist]);
-
-  const toggle = useCallback(() => {
-    const audio = audioRef.current;
-    // `isPlaying` flips on the "playing" event; checking the element too lets
-    // the toggle cancel playback that is still buffering.
-    if (isPlaying || (audio && !audio.paused)) {
-      stop();
-      return;
-    }
-    void play();
-  }, [isPlaying, play, stop]);
+  }, [cleanupListeners]);
 
   const clearPlaybackError = useCallback(() => setPlaybackError(null), []);
 
   const value = useMemo(
     () => ({
       isPlaying,
-      pendingResume,
+      pendingResume: userWantsSoundRef.current && !isPlaying,
       toggle,
       play,
       stop,
       playbackError,
       clearPlaybackError,
     }),
-    [isPlaying, pendingResume, toggle, play, stop, playbackError, clearPlaybackError],
+    [isPlaying, toggle, play, stop, playbackError, clearPlaybackError],
   );
 
-  return <SoundContext.Provider value={value}>{children}</SoundContext.Provider>;
+  return (
+    <SoundContext.Provider value={value}>
+      <audio
+        ref={audioRef}
+        src={musicSrc}
+        autoPlay={userWantsSoundRef.current}
+        loop
+        playsInline
+        preload="auto"
+        aria-hidden="true"
+        style={{ display: "none" }}
+      />
+      {children}
+    </SoundContext.Provider>
+  );
 }
