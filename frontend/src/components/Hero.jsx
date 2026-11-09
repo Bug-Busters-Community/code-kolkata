@@ -133,13 +133,13 @@ export default function Hero() {
       </div>
 
       <div className="shell relative z-10 flex flex-col items-center pb-24 pt-[calc(var(--nav-h)+2.25rem)] text-center lg:pb-28">
-        <p className="font-sans text-[1.5rem] uppercase leading-relaxed text-primary">
+        <p className="font-sans sm:text-[1rem] text-[1.5rem] uppercase leading-relaxed text-primary">
           ✦ BugBusters Presents ✦
         </p>
 
         <Wordmark reduced={reduced} />
 
-        <h2 className="text-[2rem] mt-5 text-pretty uppercase leading-relaxed tracking-[0.12em] text-text">
+        <h2 className="sm:text-[1rem] text-[2rem] mt-5 text-pretty uppercase leading-relaxed tracking-[0.12em] text-text">
           Powered by Anibotix Robotics
         </h2>
 
