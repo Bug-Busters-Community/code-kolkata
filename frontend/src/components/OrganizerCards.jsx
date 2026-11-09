@@ -9,9 +9,7 @@ export default function OrganizerCards({ className = "" }) {
         <li key={organizer.name}>
           <Card className="flex h-full flex-col">
             <div className="flex items-start justify-between gap-3">
-              <span className="flex h-14 w-14 items-center justify-center border border-primary/40 bg-primary/10 font-pixel text-[0.6rem] text-primary">
-                {organizer.monogram}
-              </span>
+              <img src={organizer.logo} alt={`${organizer.name} logo`} className="flex h-15 w-15 rounded-full items-center justify-center" />
               <span className="chip">Organizer 0{index + 1}</span>
             </div>
 

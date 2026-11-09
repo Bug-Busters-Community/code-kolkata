@@ -17,11 +17,10 @@ export default function Team() {
             behind <span className="accent">the pixels.</span>
           </>
         }
-        description="Two crews keep CODE KOLKATA moving - one sets the direction, the other runs the room. Together they turn a 24-hour build sprint into a weekend worth remembering."
+        description="Two crews keep CODE KOLKATA moving - one sets the direction, the other runs the room. Together they turn a 8-hour tech event into a day worth remembering."
         chips={[
           { label: "Core Team · 08", icon: "users" },
-          { label: "Event Crew · 05", icon: "layers" },
-          { label: "Roster updates soon", icon: "spark" },
+          { label: "Event Crew · 07", icon: "layers" }
         ]}
       />
 

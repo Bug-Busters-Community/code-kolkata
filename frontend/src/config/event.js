@@ -7,7 +7,7 @@
    ========================================================================== */
 
 /* Official X profile URL. */
-export const X_SOCIAL_URL = "https://x.com/BugBusters2026";
+export const X_SOCIAL_URL = "https://x.com/BugBusters";
 
 export const event = {
   /* ---------------------------------------------------------------- identity */
@@ -15,27 +15,27 @@ export const event = {
   shortName: "CODE KOLKATA",
   monogram: "CK",
   edition: "01",
-  year: "2026",
+  year: "",
   theme: "Discovering Kolkata Through AI & Innovation",
   collaboration: "Bug Busters X Anibotix Robotics",
   tagline: "TWO COMMUNITIES. ONE CITY. SHIP SOMETHING LEGENDARY.",
   intro:
-    "CODE KOLKATA is a 24-hour build sprint where two communities collide. Bring an idea, a laptop and unreasonable ambition — leave with a working product, a crew and a story worth posting.",
+    "CODE KOLKATA is a 8-hour tech event. Bring an idea, a laptop and unreasonable ambition, leave with a working product, a crew and a story worth posting.",
 
   /* ------------------------------------------------------- dates & location */
   dates: {
     label: "28th November",
     shortLabel: "28th November",
-    // Used by the live countdown. 28 November 2026, 10:00 AM IST.
-    iso: "2026-11-28T10:00:00+05:30",
+    // Used by the live countdown. 28 November , 10:00 AM IST.
+    iso: "-11-28T10:00:00+05:30",
     isConfirmed: true,
-    note: "28 November 2026 · 10:00 AM IST.",
+    note: "28 November  · 10:00 AM IST.",
   },
   venue: {
     name: "Jadavpur University, Kolkata",
     city: "Kolkata, India",
     isConfirmed: true,
-    note: "A 24-hour indoor venue with power, Wi-Fi and enough coffee to keep 500 builders upright.",
+    note: "A 8-hour indoor venue with power, Wi-Fi and enough energy to keep 100 builders upright.",
   },
 
   /* -------------------------------------------------------------- register */
@@ -53,7 +53,7 @@ export const event = {
     {
       name: "Bug Busters Community",
       role: "Host community",
-      monogram: "BB",
+      logo: "https://www.bugbusterscommunity.in/Logo.png",
       href: "https://instagram.com/community.bugbusters",
       blurb:
         "A builder-first community running offline hackathons, workshops and demo nights for students and early-career developers — and co-hosting CODE KOLKATA.",
@@ -61,8 +61,8 @@ export const event = {
     {
       name: "Anibotix Robotics",
       role: "Co-organizer",
-      monogram: "AR",
-      href: null,
+      logo: "https://www.anibotixrobotics.com/logo-pwa.png",
+      href: "https://anibotixrobotics.com",
       blurb:
         "The robotics half of the CODE KOLKATA collaboration, bringing hardware builders, makers and roboticists to the room.",
     },
@@ -96,7 +96,7 @@ export const event = {
     },
     {
       label: "X",
-      handle: "@BugBusters2026",
+      handle: "@BugBusters",
       href: X_SOCIAL_URL,
       icon: "x",
     },
@@ -115,7 +115,7 @@ export const event = {
   about: {
     paragraphs: [
       "CODE KOLKATA is not another webinar with a certificate at the end. It is a room full of people who would rather ship a rough version tonight than polish a slide deck for a month.",
-      "Two organizer communities are combining their crews, mentors and networks for one shared build weekend in Kolkata. The theme and track list stay under wraps until the reveal — the format does not.",
+      "Two organizer communities are combining their crews, mentors and networks for one shared build weekend in Kolkata. The track list stay under wraps until the reveal, the format does not.",
     ],
     expectations: [
       {
@@ -393,11 +393,11 @@ export const event = {
 
   /* --------------------------------------------------------------- marquee */
   marquee: [
-    "TITLE PARTNER · SLOT OPEN",
-    "PLATINUM · SLOT OPEN",
-    "GOLD · SLOT OPEN",
+    "SPONSORSHIP OPPORTUNITIES OPEN",
+    "FOOD PARTNER · SLOT OPEN",
     "COMMUNITY PARTNER · SLOT OPEN",
-    "MEDIA PARTNER · SLOT OPEN",
+    "SPONSORSHIP OPPORTUNITIES OPEN",
+    "BEVERAGE PARTNER · SLOT OPEN",
     "SWAG PARTNER · SLOT OPEN",
   ],
 
@@ -405,27 +405,27 @@ export const event = {
   faqs: [
     {
       q: "Who can take part?",
-      a: "CODE KOLKATA is open to students, early-career developers, designers and builders from any college or community. Teams can be 1–4 people; solo builders are welcome and can join a team at check-in.",
+      a: "CODE KOLKATA is open to students, early-career developers, designers and builders from any college or community. This is a solo event, however for the buildaton, teams will be formed by random selection of 4.",
     },
     {
       q: "Do I need a finished idea to register?",
-      a: "No. You can register with a track preference and no idea at all. The theme and track briefs are revealed at the opening keynote, and there is a team-matching board on Day 01.",
+      a: "No. You can register with a track preference and no idea at all. The theme and track briefs are revealed at the opening keynote.",
     },
     {
       q: "What does it cost?",
-      a: "Application is free. Any deposit, travel support or confirmation fee will be stated clearly on the registration page before you commit — no surprise charges.",
+      a: "Application is free. Any deposit, travel support or confirmation fee will be stated clearly on the registration page before you commit. No surprise charges.",
     },
     {
       q: "What should I bring?",
-      a: "Laptop, charger, student or government ID, and anything you need to sleep comfortably. Power, Wi-Fi, meals and coffee are provided on site.",
+      a: "Laptop, charger, student and government ID. Power, Wi-Fi, meals and coffee are provided on site.",
     },
     {
       q: "How are projects judged?",
-      a: "Working demo first, then originality, execution and the quality of your story. Judges rotate across every table during the expo and score with a shared rubric.",
+      a: "Working demo first, then originality, execution and the quality of your story. Judges rotate across every table during the buildathon and score with a shared rubric.",
     },
     {
-      q: "Is the venue accessible?",
-      a: "Accessibility requirements are collected during registration. Tell us what you need — step-free access, a quiet room, dietary requirements — and the operations crew will plan for it.",
+      q: "Have any other questions?",
+      a: "Feel free to reach out to the organizers on social media or via email. We will answer publicly so everyone can benefit.",
     },
   ],
 };

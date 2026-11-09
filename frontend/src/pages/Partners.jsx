@@ -41,41 +41,11 @@ export default function Partners() {
         }
         description="Community partners are the reason the room is full and the energy lasts past midnight. If you run a community, campus chapter, newsletter or podcast, there is a slot with your name on it."
         chips={[
-          { label: "6 community slots", icon: "users" },
-          { label: "10 campus chapters", icon: "compass" },
-          { label: "2 media slots", icon: "spark" },
+          // { label: "6 community slots", icon: "users" },
+          // { label: "10 campus chapters", icon: "compass" },
+          // { label: "2 media slots", icon: "spark" },
         ]}
       />
-
-      <section className="section" aria-labelledby="program-title">
-        <div className="shell">
-          <SectionHeading
-            id="program-title"
-            eyebrow="The program"
-            title="Four kinds of partnership."
-            description="Every partnership is swap-based: you bring reach or teams, we bring visibility, content and a room full of builders."
-          />
-
-          <ul className="mt-10 grid gap-4 sm:grid-cols-2">
-            {event.partnerProgram.map((partner, index) => (
-              <li key={partner.title}>
-                <Reveal delay={index * 70} className="h-full">
-                  <Card className="flex h-full flex-col">
-                    <div className="flex items-start justify-between gap-3">
-                      <span className="icon-box">
-                        <Icon name={partner.icon} size={21} />
-                      </span>
-                      <span className="chip chip-primary">{partner.slots}</span>
-                    </div>
-                    <h3 className="display-3 mt-5 text-text">{partner.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted">{partner.desc}</p>
-                  </Card>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
 
       <section className="section-tight section-rule overflow-hidden" aria-labelledby="partner-wall-title">
         <div className="shell">
@@ -144,9 +114,6 @@ export default function Partners() {
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Button to="/register" variant="primary">
                   Apply as a community partner <Icon name="arrowRight" size={15} />
-                </Button>
-                <Button to="/sponsors" variant="secondary">
-                  Sponsor packages
                 </Button>
               </div>
             </div>

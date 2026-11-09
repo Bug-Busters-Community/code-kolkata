@@ -209,7 +209,7 @@ export default function PartnerRegister() {
           {/* Eyebrow Callout */}
           <p className="mt-6 font-pixel text-[0.55rem] uppercase leading-relaxed tracking-[0.18em] text-primary">
             <span className="text-gold" aria-hidden="true">✦ </span>
-            Community Partner Program 2026
+            Community Partner Program 
             <span className="text-gold" aria-hidden="true"> ✦</span>
           </p>
 

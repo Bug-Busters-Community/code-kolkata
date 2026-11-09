@@ -29,7 +29,7 @@ const mentors = [
     photo: sounakPhoto,
     currentCompany: "SAP",
     designation: "System Analyst",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/sounak-kumar-mondal-2660b7314/",
     instagram: "",
     other: ""
   }

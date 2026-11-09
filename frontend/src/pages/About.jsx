@@ -9,9 +9,8 @@ import SectionHeading from "../components/ui/SectionHeading";
 import event from "../config/event";
 
 const glance = [
-  { label: "Format", value: "8-hour build sprint" },
-  { label: "Team size", value: "1-4 builders" },
-  { label: "Tracks", value: `${event.tracks.length} topic tracks` },
+  { label: "Format", value: "8-hour tech event" },
+  { label: "Team size", value: "Solo builders" },
   { label: "Cost", value: "Free to apply" },
   { label: "Dates", value: event.dates.label },
   { label: "Venue", value: event.venue.name },
@@ -26,7 +25,7 @@ export default function About() {
         eyebrow="The weekend"
         title={
           <>
-            Not a webinar.
+            Not an event.
             <br />
             A <span className="accent">work weekend.</span>
           </>
@@ -34,7 +33,7 @@ export default function About() {
         description={event.intro}
         chips={[
           { label: event.dates.label, icon: "calendar" },
-          { label: event.venue.city, icon: "mapPin" },
+          { label: event.venue.name, icon: "mapPin" },
           { label: event.theme, icon: "lock" },
         ]}
       />
@@ -76,10 +75,9 @@ export default function About() {
                 <span className="font-pixel text-[0.5rem] uppercase tracking-[0.12em] text-primary">
                   At a glance
                 </span>
-                <span className="chip">v.{event.edition}</span>
               </div>
 
-              <dl className="divide-y divide-line-soft">
+              <dl className="divide-y divide-line-soft mt-5">
                 {glance.map((row) => (
                   <div key={row.label} className="py-3 first:pt-0 last:pb-0">
                     <dt className="font-pixel text-[0.45rem] uppercase leading-relaxed tracking-[0.1em] text-muted">
@@ -95,9 +93,6 @@ export default function About() {
                   Theme reveal
                 </p>
                 <p className="mt-2 font-display text-xl uppercase text-text">{event.theme}</p>
-                <p className="mt-1 text-xs leading-relaxed text-muted">
-                  Announced at the opening keynote. Track briefs drop at the same time.
-                </p>
               </div>
             </Card>
           </Reveal>
@@ -109,8 +104,8 @@ export default function About() {
           <SectionHeading
             id="organizers-title"
             eyebrow="Organizers"
-            title="Two communities. One room."
-            description="This is a 50/50 collaboration. Both crews share the stage, the run of show and the judging panel."
+            title="Two Organizers. One room."
+            description="Both crews share the stage, the run of show and the judging panel."
           />
           <Reveal className="mt-10">
             <OrganizerCards />
@@ -163,14 +158,13 @@ export default function About() {
               eyebrow="Focus areas"
               title={
                 <>
-                  Four tracks.
+                  Many tracks.
                   <br />
                   One <span className="accent">demo table.</span>
                 </>
               }
               description="Pick a lane at kickoff, or mix two. Judges score the working build first, the slide deck never."
             />
-            <p className="chip chip-primary max-w-full md:mb-2">Theme · {event.theme}</p>
           </div>
 
           <Reveal className="mt-10">
@@ -217,7 +211,6 @@ export default function About() {
                   </p>
                   <p className="text-sm text-muted">{event.venue.city}</p>
                 </div>
-                <span className="absolute left-3 top-3 chip">Confirmed</span>
               </div>
 
               <div className="grid gap-3 p-5 sm:grid-cols-2">

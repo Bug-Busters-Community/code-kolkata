@@ -6,34 +6,53 @@
    Logos are imported so Vite fingerprints them in the production build.
    ========================================================================== */
 
+   import anibotixLogo from "../assets/pics/anibotix.png";
 import n8nLogo from "../assets/pics/n8n.png";
-import zenXyzLogo from "../assets/pics/.xyz.jpg";
+import GenXyzLogo from "../assets/pics/genxyz.png";
+import InterciewBuddyLogo from "../assets/pics/interviewbuddy.png";
 import event from "../config/event";
 
 const sponsors = [
   {
+    id: "anibotix-robotics",
+    name: "Anibotix Robotics",
+    category: "Title Sponsor",
+    description: "Empowering the next generation of roboticists.",
+    logo: anibotixLogo,
+    logoAlt: "Anibotix Robotics logo",
+    brandColor: "#007bff",
+    logoScale: 1,
+  },
+  {
     id: "n8n",
-    name: "N8N",
+    name: "n8n",
     category: "AI & Automation Platform Sponsor",
-    description: "Powering the AI & Automation track.",
+    description: "Powering the AI & Automation.",
     logo: n8nLogo,
     logoAlt: "N8N logo",
     brandColor: "#ea4b71",
-    // The source PNG is a square canvas with a wide wordmark and generous
-    // white margins. Scaling the contained image trims only that whitespace;
-    // the mark itself is never stretched or cropped.
     logoScale: 1.55,
   },
   {
     id: "zen-xyz",
-    name: "ZEN.XYZ",
+    name: "Gen XYZ",
     category: "Domain Sponsor",
-    description: "Domain names for every builder.",
-    logo: zenXyzLogo,
-    logoAlt: "ZEN.XYZ logo",
+    description: "Domain names for every top builder.",
+    logo: GenXyzLogo,
+    logoAlt: "Gen XYZ logo",
     brandColor: "#7b3f9e",
     logoScale: 1.12,
   },
+  {
+    id: "interview-buddy",
+    name: "Interview Buddy",
+    category: "Hiring Sponsor",
+    description: "Helping builders ace their interviews.",
+    logo: InterciewBuddyLogo,
+    logoAlt: "Interview Buddy logo",
+    brandColor: "#ff6f61",
+    logoScale: 0.5,
+  }
 ];
 
 /* Media is not part of the original four-tier config, but the Sponsors page
