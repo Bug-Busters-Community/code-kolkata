@@ -1,5 +1,3 @@
-import { Icon } from "./Icon";
-
 function Group({ items, copy }) {
   return (
     <ul
@@ -9,7 +7,7 @@ function Group({ items, copy }) {
     >
       {items.map((item) => (
         <li key={item} className="marquee-item">
-          <Icon name="spark" size={13} className="text-primary" />
+          <img src="" alt="" />
           <span>{item}</span>
         </li>
       ))}

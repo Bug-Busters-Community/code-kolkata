@@ -10,6 +10,7 @@ import Reveal from "../components/ui/Reveal";
 import SectionHeading from "../components/ui/SectionHeading";
 import Typewriter from "../components/ui/Typewriter";
 import event from "../config/event";
+import SponPartMarquee from "../components/ui/SponPartMarquee";
 
 const manifest = [
   { label: "Event", value: event.name },
@@ -250,7 +251,7 @@ export default function Home() {
       </section>
 
       {/* -------------------------------------------------- sponsor marquee */}
-      <section className="section-tight section-rule overflow-hidden" aria-labelledby="sponsor-marquee">
+      {/* <section className="section-tight section-rule overflow-hidden" aria-labelledby="sponsor-marquee">
         <div className="shell">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <SectionHeading
@@ -266,6 +267,38 @@ export default function Home() {
         </div>
 
         <div className="mt-9">
+          <Marquee items={event.marquee} />
+        </div>
+      </section> */}
+
+      <section className="section-tight section-rule overflow-hidden" aria-labelledby="sponsor-marquee">
+        <div className="shell">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <SectionHeading
+              id="sponsor-marquee"
+              eyebrow="Sponsors & partners"
+            />
+          </div>
+        </div>
+
+        <div className="mb-12">
+          <SponPartMarquee items={event.sponPartMarquee} />
+        </div>
+
+        <div className="shell">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <SectionHeading
+              id="sponsor-marquee"
+              title="Your logo belongs on this wall."
+              description={event.sponsorNote}
+            />
+            <Link to="/register" className="btn btn-secondary btn-sm md:mb-1">
+              Partner with us
+            </Link>
+          </div>
+        </div>
+
+        <div className="my-9">
           <Marquee items={event.marquee} />
         </div>
       </section>
