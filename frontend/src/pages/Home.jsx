@@ -131,13 +131,12 @@ export default function Home() {
                   Pick your <span className="accent">lane.</span>
                 </>
               }
-              description="The full track list drops on the day. Every track gets mentors, a judging rubric and a winner on stage."
+              description="The full track list drops on the day. Every track gets mentors."
             />
-            <p className="chip chip-primary max-w-full md:mb-2">Theme reveal · {event.theme}</p>
           </div>
 
           <Reveal className="mt-10">
-            <div className="corner-ticks relative overflow-hidden border-2 border-primary/35 bg-gradient-to-br from-primary/10 via-ink-2 to-secondary/10 px-6 py-12 text-center sm:px-10 md:px-14 md:py-16">
+            <div className="corner-ticks relative overflow-hidden border-2 border-primary/35 bg-linear-to-br from-primary/10 via-ink-2 to-secondary/10 px-6 py-12 text-center sm:px-10 md:px-14 md:py-16">
               <div className="absolute inset-0 grid-lines grid-fade opacity-60" aria-hidden="true" />
 
               <div className="relative mx-auto flex max-w-2xl flex-col items-center">
@@ -302,10 +301,6 @@ export default function Home() {
                   <li className="chip">
                     <Icon name="clock" size={13} />
                     3-hour sprint
-                  </li>
-                  <li className="chip">
-                    <Icon name="users" size={13} />
-                    Teams of 1-4
                   </li>
                   <li className="chip">
                     <Icon name="lock" size={13} />

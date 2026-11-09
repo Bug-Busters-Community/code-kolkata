@@ -133,20 +133,14 @@ export default function Hero() {
       </div>
 
       <div className="shell relative z-10 flex flex-col items-center pb-24 pt-[calc(var(--nav-h)+2.25rem)] text-center lg:pb-28">
-        <p className="font-pixel text-[0.55rem] uppercase leading-relaxed tracking-[0.16em] text-primary">
-          <span className="text-gold" aria-hidden="true">
-            ✦{" "}
-          </span>
-          BugBusters Presents
-          <span className="text-gold" aria-hidden="true">
-            {" "}✦
-          </span>
+        <p className="font-sans text-[1.5rem] uppercase leading-relaxed text-primary">
+          ✦ BugBusters Presents ✦
         </p>
 
         <Wordmark reduced={reduced} />
 
-        <h2 className="hero-subtitle mt-5 max-w-[46ch] text-pretty font-sans text-sm font-normal uppercase leading-relaxed tracking-[0.12em] text-text/75 sm:text-base">
-          In Collaboration with Anibotix Robotics
+        <h2 className="text-[2rem] mt-5 text-pretty uppercase leading-relaxed tracking-[0.12em] text-text">
+          Powered by Anibotix Robotics
         </h2>
 
         <ul className="mt-6 flex flex-wrap items-center justify-center gap-2">
@@ -177,9 +171,6 @@ export default function Hero() {
 
         <div className="mt-10 w-full max-w-md">
           <div className="flex items-center justify-between gap-3">
-            <span className="font-pixel text-[0.5rem] uppercase tracking-[0.16em] text-muted">
-              Launch sequence
-            </span>
           </div>
           <Countdown target={event.dates.iso} className="mt-3" />
         </div>
