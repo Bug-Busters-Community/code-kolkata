@@ -24,8 +24,8 @@ export default function Footer() {
     <footer className="relative border-t border-line bg-ink-2/70">
       <div className="absolute inset-0 grid-lines opacity-40" aria-hidden="true" />
       <div className="shell relative py-14 md:py-16">
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_0.7fr_0.8fr_1fr]">
-          <div>
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-1 md:gap-12 lg:grid-cols-[1.2fr_0.7fr_0.8fr_1fr]">
+          <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center gap-3">
               <span className="flex h-21 w-21 items-center justify-center overflow-hidden p-0.5">
                 <BrandLogo alt="" aria-hidden="true" />
@@ -35,14 +35,14 @@ export default function Footer() {
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted">{event.intro}</p>
           </div>
 
-          <nav aria-label="Explore">
+          <nav aria-label="Explore" className="text-center md:text-left">
             <p className="font-pixel text-[0.5rem] uppercase tracking-[0.14em] text-primary">Explore</p>
             <ul className="mt-4 space-y-1">
               {exploreLinks.map((link) => (
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="flex min-h-11 items-center text-sm text-muted transition-colors hover:text-primary"
+                    className="flex min-h-11 items-center justify-center text-sm text-muted transition-colors hover:text-primary md:justify-start"
                   >
                     {link.name}
                   </Link>
@@ -51,14 +51,14 @@ export default function Footer() {
             </ul>
           </nav>
 
-          <nav aria-label="Community">
+          <nav aria-label="Community" className="text-center md:text-left">
             <p className="font-pixel text-[0.5rem] uppercase tracking-[0.14em] text-primary">Community</p>
             <ul className="mt-4 space-y-1">
               {moreLinks.map((link) => (
                 <li key={link.to}>
                   <Link
                     to={link.to}
-                    className="flex min-h-11 items-center text-sm text-muted transition-colors hover:text-primary"
+                    className="flex min-h-11 items-center justify-center text-sm text-muted transition-colors hover:text-primary md:justify-start"
                   >
                     {link.name}
                   </Link>
@@ -67,7 +67,7 @@ export default function Footer() {
             </ul>
           </nav>
 
-          <div>
+          <div className="col-span-2 text-center md:col-span-1 md:text-left">
             <p className="font-pixel text-[0.5rem] uppercase tracking-[0.14em] text-primary">Follow</p>
             <ul className="mt-4 space-y-2">
               {event.socials.map((social) => (
@@ -79,14 +79,14 @@ export default function Footer() {
                       rel="noopener noreferrer"
                       aria-label={`${social.label} — opens in a new tab`}
                       title={`${social.label} — opens in a new tab`}
-                      className="flex min-h-11 items-center gap-2.5 text-sm text-muted transition-colors hover:text-primary"
+                      className="flex min-h-11 items-center justify-center gap-2.5 text-sm text-muted transition-colors hover:text-primary md:justify-start"
                     >
                       <SocialIcon name={social.icon} size={16} />
                       <span>{social.handle}</span>
                     </a>
                   ) : (
                     <span
-                      className="footer-soon flex min-h-11 items-center gap-2.5 text-sm text-muted/50"
+                      className="footer-soon flex min-h-11 items-center justify-center gap-2.5 text-sm text-muted/50 md:justify-start"
                       title={`${social.label} — link coming soon`}
                     >
                       <SocialIcon name={social.icon} size={16} />
