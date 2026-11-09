@@ -137,7 +137,7 @@ export default function Hero() {
           <span className="text-gold" aria-hidden="true">
             ✦{" "}
           </span>
-          Welcome to CODE KOLKATA
+          BugBusters Presents
           <span className="text-gold" aria-hidden="true">
             {" "}✦
           </span>
@@ -146,7 +146,7 @@ export default function Hero() {
         <Wordmark reduced={reduced} />
 
         <h2 className="hero-subtitle mt-5 max-w-[46ch] text-pretty font-sans text-sm font-normal uppercase leading-relaxed tracking-[0.12em] text-text/75 sm:text-base">
-          {event.collaboration}
+          In Collaboration with Anibotix Robotics
         </h2>
 
         <ul className="mt-6 flex flex-wrap items-center justify-center gap-2">
