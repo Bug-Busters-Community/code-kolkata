@@ -90,9 +90,6 @@ export default function Navbar() {
             <BrandLogo alt="" aria-hidden="true" />
           </span>
           <span className="flex min-w-0 flex-col justify-center">
-            <span className="truncate font-display text-[clamp(0.95rem,2.1vw,1.1rem)] uppercase leading-none tracking-wide text-text">
-              {event.name}
-            </span>
             <span className="mt-1.5 font-pixel text-[0.45rem] uppercase leading-[1.5] tracking-[0.08em] text-muted sm:text-[0.5rem] sm:leading-relaxed sm:tracking-[0.1em]">
               {event.collaboration}
             </span>
