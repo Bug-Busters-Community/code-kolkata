@@ -32,9 +32,9 @@ export const event = {
     note: "28 November 2026 · 10:00 AM IST.",
   },
   venue: {
-    name: "VENUE TBA",
+    name: "Jadavpur University, Kolkata",
     city: "Kolkata, India",
-    isConfirmed: false,
+    isConfirmed: true,
     note: "A 24-hour indoor venue with power, Wi-Fi and enough coffee to keep 500 builders upright.",
   },
 

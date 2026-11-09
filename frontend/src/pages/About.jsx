@@ -15,7 +15,7 @@ const glance = [
   { label: "Tracks", value: `${event.tracks.length} topic tracks` },
   { label: "Cost", value: "Free to apply" },
   { label: "Dates", value: event.dates.label },
-  { label: "Venue", value: `${event.venue.name} · ${event.venue.city}` },
+  { label: "Venue", value: event.venue.name },
 ];
 
 export default function About() {
@@ -187,9 +187,9 @@ export default function About() {
             eyebrow="Venue & city"
             title={
               <>
-                {event.venue.city.split(",")[0]},
+                {event.venue.name.split(",")[0]},
                 <br />
-                <span className="accent">venue TBA.</span>
+                <span className="accent">{event.venue.name.split(",").slice(1).join(",").trim()}.</span>
               </>
             }
             description={event.venue.note}
@@ -208,7 +208,7 @@ export default function About() {
                   </p>
                   <p className="text-sm text-muted">{event.venue.city}</p>
                 </div>
-                <span className="absolute left-3 top-3 chip">Provisional</span>
+                <span className="absolute left-3 top-3 chip">Confirmed</span>
               </div>
 
               <div className="grid gap-3 p-5 sm:grid-cols-2">
