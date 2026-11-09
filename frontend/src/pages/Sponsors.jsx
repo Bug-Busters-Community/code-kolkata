@@ -15,7 +15,7 @@ import "../styles/sponsors.css";
 const partnerBenefits = [
   {
     title: "A shout-out that sticks",
-    desc: "Logo on the site, the stage loop and the welcome kit — plus a stage mention during opening and closing.",
+    desc: "Logo on the site, the stage loop, plus a stage mention during opening and closing.",
     icon: "spark",
   },
   {
@@ -44,10 +44,9 @@ export default function Sponsors() {
             <span className="accent">backing</span> the build.
           </>
         }
-        description="N8N and ZEN.XYZ are officially on board for CODE KOLKATA 2026 — powering the AI & Automation track and putting a domain in every builder's hands."
+        description="Anibotix Robotics, n8n, Gen.XYZ, and Interview Buddy are officially on board for CODE KOLKATA , powering the AI & Automation track and putting a domain in top builder's hands."
         chips={[
-          { label: "2 confirmed sponsors", icon: "award" },
-          { label: "5 packages open", icon: "layers" },
+          { label: "4 confirmed sponsors", icon: "award" },
           { label: event.dates.label, icon: "calendar" },
         ]}
       />
@@ -61,15 +60,11 @@ export default function Sponsors() {
               eyebrow="Confirmed sponsors"
               title={
                 <>
-                  Two partners. <span className="accent">One room.</span>
+                  Four partners. <span className="accent">One room.</span>
                 </>
               }
-              description="The official partners already powering CODE KOLKATA 2026. Both are confirmed, both are on the build floor with us."
+              description="The official partners already powering CODE KOLKATA . Both are confirmed, both are on the build floor with us."
             />
-            <span className="chip chip-primary md:mb-2">
-              <Icon name="check" size={13} />
-              2 confirmed
-            </span>
           </div>
 
           <ul className="sponsor-grid mt-10">
@@ -84,123 +79,6 @@ export default function Sponsors() {
               </Reveal>
             ))}
           </ul>
-        </div>
-      </section>
-
-      {/* ---------------------------------------------------- open packages */}
-      <section
-        className="section section-rule"
-        id="sponsor-packages"
-        aria-labelledby="sponsor-packages-title"
-      >
-        <div className="shell">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <SectionHeading
-              id="sponsor-packages-title"
-              eyebrow="Open packages"
-              title={
-                <>
-                  The wall still has <span className="accent">room.</span>
-                </>
-              }
-              description="These official packages are available for CODE KOLKATA 2026. Every slot below is open — no package is confirmed until the announcement."
-            />
-            <span className="chip md:mb-2">
-              <Icon name="spark" size={13} />
-              5 packages open
-            </span>
-          </div>
-
-          <ul className="sponsor-packages mt-10">
-            {sponsorPackages.map((pkg, index) => (
-              <Reveal
-                as="li"
-                key={pkg.label}
-                className="sponsor-package-slot"
-                delay={index * 70}
-              >
-                <Card interactive={false} className="sponsor-package">
-                  <div className="sponsor-package__top">
-                    <span className="sponsor-package__index" aria-hidden="true">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="sponsor-slot">
-                      <span className="sponsor-slot__dot" aria-hidden="true" />
-                      Slot open
-                    </span>
-                  </div>
-
-                  <h3 className="sponsor-package__title">{pkg.label}</h3>
-                  <p className="sponsor-package__headline">{pkg.headline}</p>
-
-                  <ul className="sponsor-package__benefits">
-                    {pkg.benefits.map((benefit) => (
-                      <li key={benefit} className="sponsor-package__benefit">
-                        <Icon name="check" size={13} />
-                        <span>{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="sponsor-package__footer">
-                    <span>
-                      {pkg.slots} {pkg.slots === 1 ? "slot" : "slots"}
-                    </span>
-                    <span>Available</span>
-                  </div>
-                </Card>
-              </Reveal>
-            ))}
-          </ul>
-
-          <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-            <Button to="/register" variant="primary">
-              Request the sponsor deck <Icon name="arrowRight" size={15} />
-            </Button>
-            <p className="text-sm text-muted">
-              Custom packages and track sponsorships are available on request.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ------------------------------------------------ community partners */}
-      <section className="section section-rule" aria-labelledby="community-partners-title">
-        <div className="shell">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <SectionHeading
-              id="community-partners-title"
-              eyebrow="The program"
-              title="Four kinds of partnership."
-              description="Every partnership is swap-based: you bring reach or teams, we bring visibility, content and a room full of builders."
-            />
-            <span className="chip md:mb-2">Applications open</span>
-          </div>
-
-          <ul className="mt-10 grid gap-4 sm:grid-cols-2">
-            {event.partnerProgram.map((partner, index) => (
-              <li key={partner.title}>
-                <Reveal delay={index * 70} className="h-full">
-                  <Card className="flex h-full flex-col">
-                    <div className="flex items-start justify-between gap-3">
-                      <span className="icon-box">
-                        <Icon name={partner.icon} size={21} />
-                      </span>
-                      <span className="chip chip-primary">{partner.slots}</span>
-                    </div>
-                    <h3 className="display-3 mt-5 text-text">{partner.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted">{partner.desc}</p>
-                  </Card>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-8">
-            <Button to="/partners" variant="ghost">
-              Explore the community partner program <Icon name="arrowRight" size={15} />
-            </Button>
-          </div>
         </div>
       </section>
 
@@ -267,21 +145,17 @@ export default function Sponsors() {
       {/* ---------------------------------------------------------------- CTA */}
       <section className="section section-rule">
         <div className="shell">
-          <div className="corner-ticks relative overflow-hidden border-2 border-primary/35 bg-gradient-to-br from-secondary/10 via-ink-2 to-primary/10 p-8 text-center sm:p-12">
+          <div className="corner-ticks relative overflow-hidden border-2 border-primary/35 bg-linear-to-br from-secondary/10 via-ink-2 to-primary/10 p-8 text-center sm:p-12">
             <div className="absolute inset-0 grid-lines grid-fade opacity-50" aria-hidden="true" />
             <div className="relative mx-auto flex max-w-2xl flex-col items-center">
               <p className="eyebrow">Roll with us</p>
-              <h2 className="display-2 mt-4">Add your community to the wall.</h2>
+              <h2 className="display-2 mt-4">Add your company to the wall.</h2>
               <p className="lede mt-4 text-base">
-                Send your community name, size and the kind of collaboration you have in mind. We reply with a
-                partner kit and the current slot list.
+                Join us as a sponsor and get your company in front of a growing community of developers and builders.
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Button to="/register" variant="primary">
-                  Apply as a community partner <Icon name="arrowRight" size={15} />
-                </Button>
-                <Button href="#sponsor-packages" variant="secondary">
-                  Sponsor packages
+                <Button to="mailto:community.bugbusters@gmail.com" variant="primary">
+                  Apply as a sponsor <Icon name="arrowRight" size={15} />
                 </Button>
               </div>
             </div>

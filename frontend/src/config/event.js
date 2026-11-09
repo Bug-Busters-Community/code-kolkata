@@ -7,7 +7,7 @@
    ========================================================================== */
 
 /* Official X profile URL. */
-export const X_SOCIAL_URL = "https://x.com/BugBusters2026";
+export const X_SOCIAL_URL = "https://x.com/BugBusters";
 
 export const event = {
   /* ---------------------------------------------------------------- identity */
@@ -15,7 +15,7 @@ export const event = {
   shortName: "CODE KOLKATA",
   monogram: "CK",
   edition: "01",
-  year: "2026",
+  year: "",
   theme: "Discovering Kolkata Through AI & Innovation",
   collaboration: "Bug Busters X Anibotix Robotics",
   tagline: "TWO COMMUNITIES. ONE CITY. SHIP SOMETHING LEGENDARY.",
@@ -26,10 +26,10 @@ export const event = {
   dates: {
     label: "28th November",
     shortLabel: "28th November",
-    // Used by the live countdown. 28 November 2026, 10:00 AM IST.
-    iso: "2026-11-28T10:00:00+05:30",
+    // Used by the live countdown. 28 November , 10:00 AM IST.
+    iso: "-11-28T10:00:00+05:30",
     isConfirmed: true,
-    note: "28 November 2026 · 10:00 AM IST.",
+    note: "28 November  · 10:00 AM IST.",
   },
   venue: {
     name: "Jadavpur University, Kolkata",
@@ -96,7 +96,7 @@ export const event = {
     },
     {
       label: "X",
-      handle: "@BugBusters2026",
+      handle: "@BugBusters",
       href: X_SOCIAL_URL,
       icon: "x",
     },
@@ -393,11 +393,11 @@ export const event = {
 
   /* --------------------------------------------------------------- marquee */
   marquee: [
-    "TITLE PARTNER · SLOT OPEN",
-    "PLATINUM · SLOT OPEN",
-    "GOLD · SLOT OPEN",
+    "SPONSORSHIP OPPORTUNITIES OPEN",
+    "FOOD PARTNER · SLOT OPEN",
     "COMMUNITY PARTNER · SLOT OPEN",
-    "MEDIA PARTNER · SLOT OPEN",
+    "SPONSORSHIP OPPORTUNITIES OPEN",
+    "BEVERAGE PARTNER · SLOT OPEN",
     "SWAG PARTNER · SLOT OPEN",
   ],
 

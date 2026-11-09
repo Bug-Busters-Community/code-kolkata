@@ -11,7 +11,7 @@ export default function SponsorCard({ sponsor, index = 0 }) {
 
   return (
     <article
-      className="sponsor-card"
+      className="sponsor-card mt-10"
       style={{
         "--sponsor-brand": sponsor.brandColor,
         "--logo-scale": sponsor.logoScale,
@@ -44,14 +44,6 @@ export default function SponsorCard({ sponsor, index = 0 }) {
           {sponsor.name}
         </h3>
         <p className="sponsor-desc">{sponsor.description}</p>
-      </div>
-
-      <div className="sponsor-card__footer">
-        <span className="sponsor-card__footer-label">CODE KOLKATA / {event.year}</span>
-        <span className="sponsor-card__footer-mark">
-          <Icon name="check" size={13} />
-          Confirmed
-        </span>
       </div>
     </article>
   );
