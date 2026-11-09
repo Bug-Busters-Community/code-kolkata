@@ -6,10 +6,11 @@
    Logos are imported so Vite fingerprints them in the production build.
    ========================================================================== */
 
-   import anibotixLogo from "../assets/pics/anibotix.png";
+import anibotixLogo from "../assets/pics/anibotix.png";
 import n8nLogo from "../assets/pics/n8n.png";
 import GenXyzLogo from "../assets/pics/genxyz.png";
 import InterciewBuddyLogo from "../assets/pics/interviewbuddy.png";
+import ImagiwaeveStudios from "../assets/pics/imagiwaevestudios.png";
 import event from "../config/event";
 
 const sponsors = [
@@ -21,7 +22,7 @@ const sponsors = [
     logo: anibotixLogo,
     logoAlt: "Anibotix Robotics logo",
     brandColor: "#007bff",
-    logoScale: 1,
+    logoScale: 1
   },
   {
     id: "n8n",
@@ -31,7 +32,7 @@ const sponsors = [
     logo: n8nLogo,
     logoAlt: "N8N logo",
     brandColor: "#ea4b71",
-    logoScale: 1.55,
+    logoScale: 1.55
   },
   {
     id: "zen-xyz",
@@ -41,7 +42,7 @@ const sponsors = [
     logo: GenXyzLogo,
     logoAlt: "Gen XYZ logo",
     brandColor: "#7b3f9e",
-    logoScale: 1.12,
+    logoScale: 1.12
   },
   {
     id: "interview-buddy",
@@ -50,8 +51,18 @@ const sponsors = [
     description: "Helping builders ace their interviews.",
     logo: InterciewBuddyLogo,
     logoAlt: "Interview Buddy logo",
-    brandColor: "#ff6f61",
-    logoScale: 0.5,
+    brandColor: "#7F00FF",
+    logoScale: 0.5
+  },
+  {
+    id: "imagiwaeve-studios",
+    name: "Imagiwaeve Studios",
+    category: "Fiscal Sponsor",
+    description: "Management of all the funds.",
+    logo: ImagiwaeveStudios,
+    logoAlt: "Imagiwaeve Studios logo",
+    brandColor: "1e1e1e",
+    logoScale: 0.8
   }
 ];
 

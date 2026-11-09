@@ -6,6 +6,12 @@
    Nothing else in the app hard-codes event information.
    ========================================================================== */
 
+import AnibotixRobotics from "../assets/pics/anibotixBadge.png";
+import n8n from "../assets/pics/n8n.png";
+import GenXYZ from "../assets/pics/genxyz.png";
+import InterviewBuddy from "../assets/pics/interviewbuddy.png";
+import ImagiwaeveStudios from "../assets/pics/imagiwaevestudios.png";
+
 /* Official X profile URL. */
 export const X_SOCIAL_URL = "https://x.com/BugBusters";
 
@@ -399,6 +405,41 @@ export const event = {
     "SPONSORSHIP OPPORTUNITIES OPEN",
     "BEVERAGE PARTNER · SLOT OPEN",
     "SWAG PARTNER · SLOT OPEN",
+  ],
+
+  /* ------------------------------ Sponsors and Community Partners Marquee for landing page */
+  sponPartMarquee: [
+    {
+      logo: AnibotixRobotics,
+      name: "Anibotix Robotics",
+      title: "Title Sponsor"
+    },
+    {
+      logo: n8n,
+      name: "n8n",
+      title: "AI & Automation Platform Sponsor"
+    },
+    {
+      logo: GenXYZ,
+      name: "Gen.xyz",
+      title: "Domain Sponsor"
+    },
+    {
+      logo: AnibotixRobotics,
+      name: "Anibotix Robotics",
+      title: "Title Sponsor"
+    },
+    {
+      logo: InterviewBuddy,
+      name: "Interview Buddy",
+      title: "Hiring Sponsor"
+    },
+    {
+      logo: ImagiwaeveStudios,
+      name: "Imagiwaeve Studios",
+      title: "Fiscal Sponsor"
+    },
+
   ],
 
   /* ---------------------------------------------------------------- FAQs */
