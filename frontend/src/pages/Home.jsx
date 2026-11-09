@@ -137,37 +137,17 @@ export default function Home() {
           </div>
 
           <Reveal className="mt-10">
-            <Card
-              interactive
-              padded={false}
-              className="corner-ticks relative overflow-hidden p-8 sm:p-10 lg:p-14"
-            >
-              <span
-                aria-hidden="true"
-                className="grid-lines grid-fade pointer-events-none absolute inset-0 opacity-40"
-              />
-              <span
-                aria-hidden="true"
-                className="pointer-events-none absolute -right-16 -top-24 h-64 w-64 rounded-full bg-primary/10 blur-3xl"
-              />
+            <div className="corner-ticks relative overflow-hidden border-2 border-primary/35 bg-gradient-to-br from-primary/10 via-ink-2 to-secondary/10 px-6 py-12 text-center sm:px-10 md:px-14 md:py-16">
+              <div className="absolute inset-0 grid-lines grid-fade opacity-60" aria-hidden="true" />
 
-              <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
-                <span className="icon-box">
-                  <Icon name="lock" size={24} />
+              <div className="relative mx-auto flex max-w-2xl flex-col items-center">
+                <span className="icon-box h-14 w-14">
+                  <Icon name="lock" size={26} />
                 </span>
-
-                <div className="min-w-0">
-                  <p className="chip chip-primary">
-                    <Icon name="spark" size={12} />
-                    Track reveal
-                  </p>
-                  <h3 className="display-1 mt-4 text-primary">On the spot</h3>
-                  <p className="mt-3 max-w-xl text-base italic leading-relaxed text-muted">
-                    Hackathon tracks will be revealed at the event.
-                  </p>
-                </div>
+                <h3 className="display-2 mt-6 text-text">ON THE SPOT</h3>
+                <p className="lede mt-4 text-base italic">Tracks will be revealed at the event.</p>
               </div>
-            </Card>
+            </div>
           </Reveal>
         </div>
       </section>
