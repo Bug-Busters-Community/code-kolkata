@@ -18,7 +18,7 @@ export default function Mentors() {
             Meet the <span className="accent">panel.</span>
           </>
         }
-        description="One judge. One mentor. Two practitioners who have shipped real systems — here to pressure-test your build, sharpen the story and push the work further."
+        description="One judge. One mentor. Two practitioners who have shipped real systems are here to pressure-test your build, sharpen the story and push the work further."
         chips={[
           { label: "1 Judge", icon: "award" },
           { label: "1 Mentor", icon: "users" },
@@ -34,7 +34,7 @@ export default function Mentors() {
             <Reveal>
               <SectionHeading
                 id="panel-title"
-                eyebrow="The roster"
+                eyebrow="The panel"
                 title={
                   <>
                     Two seats. <span className="accent">Two perspectives.</span>
