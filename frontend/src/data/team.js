@@ -96,36 +96,50 @@ export const eventCrew = [
     id: "crew-01",
     name: "Ansh Shah",
     designation: "Event Crew",
-    socials: { linkedin: null, github: null, instagram: null },
+    socials: { linkedin: null, github: "https://github.com/anshshaw044-tech", instagram: "https://www.instagram.com/anshshah228" },
+    hiddenSocials: ["linkedin"],
   },      
   {
     id: "crew-02",
     name: "Mukund Agarwal",
     designation: "Event Crew",
-    socials: { linkedin: null, github: null, instagram: null },
+    socials: { linkedin: null, github: null, instagram: "https://www.instagram.com/itz_mukund.05" },
+    hiddenSocials: ["linkedin", "github"],
   },
   {
     id: "crew-03",
     name: "Pretrishna Datta",
     designation: "Anchor",
-    socials: { linkedin: null, github: null, instagram: null },
+    socials: { linkedin: null, github: null, instagram: "https://www.instagram.com/urpriti_datta" },
+    hiddenSocials: ["linkedin", "github"],
   },
   {
     id: "crew-04",
     name: "Monish Sethi",
     designation: "Event Crew",
+    socials: { linkedin: null, github: null, instagram: "https://www.instagram.com/monishsethi28/" },
+    hiddenSocials: ["linkedin", "github"],
   },
   {
     id: "crew-05",
     name: "Aishi Biswas",
     designation: "Event Crew",
-    socials: { linkedin: null, github: null, instagram: null },
+    socials: { linkedin: null, github: null, instagram: "https://www.instagram.com/_aisshi" },
+    hiddenSocials: ["linkedin", "github"],
   },
   {
     id: "crew-06",
+    name: "Sanjukta Jana",
+    designation: "Event Crew",
+    socials: { linkedin: null, github: null, instagram: "https://www.instagram.com/sangyuktaj" },
+    hiddenSocials: ["linkedin", "github"],
+  },
+  {
+    id: "crew-07",
     name: "Kailash Yadav",
     designation: "Event Crew",
-    socials: { linkedin: null, github: null, instagram: null },
+    socials: { linkedin: "https://www.linkedin.com/in/kailash-yadav-20a948426", github: null, instagram: "https://www.instagram.com/kailashyadav9007" },
+    hiddenSocials: ["github"],
   }
 ];
 
@@ -135,7 +149,7 @@ export const teamSections = [
     eyebrow: "The leadership",
     title: "Core Team",
     description:
-      "The people steering CODE KOLKATA — setting the direction, protecting the timeline and making sure every crew has what it needs to ship.",
+      "The people steering CODE KOLKATA, setting the direction, protecting the timeline and making sure every crew has what it needs to ship.",
     accent: "primary",
     members: coreTeam,
   },
@@ -144,7 +158,7 @@ export const teamSections = [
     eyebrow: "Behind the scenes",
     title: "Event Crew",
     description:
-      "The crew running the build weekend from the ground up — check-in, stage, content and everything in between — so builders can stay heads-down.",
+      "The crew running the build weekend from the ground up including check-in, stage, content and everything in between so builders can stay heads-down.",
     accent: "secondary",
     members: eventCrew,
   },
