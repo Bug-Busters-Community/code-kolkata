@@ -4,6 +4,7 @@ import { coreTeam } from "../data/team";
 import { scrollToTop } from "../lib/smoothScroll";
 import BrandLogo from "./ui/BrandLogo";
 import { Icon, SocialIcon } from "./ui/Icon";
+import AnibotixBadge from "../assets/pics/anibotixBadge.png";
 
 const exploreLinks = [
   { name: "Home", to: "/" },
@@ -53,9 +54,10 @@ export default function Footer() {
               <span className="flex h-21 w-21 items-center justify-center overflow-hidden p-0.5">
                 <BrandLogo alt="" aria-hidden="true" />
               </span>
-              <span className="font-display text-lg uppercase tracking-wide text-text">{event.name}</span>
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted">{event.intro}</p>
+            <span className="mt-5 block">Powered by</span>
+            <img src={AnibotixBadge} alt="Anibotix Badge" className="mt-1 h-50" />
           </div>
 
           <nav aria-label="Explore" className="text-center md:text-left">
