@@ -27,7 +27,7 @@ export const event = {
     label: "28th November",
     shortLabel: "28th November",
     // Used by the live countdown. 28 November , 10:00 AM IST.
-    iso: "-11-28T10:00:00+05:30",
+    iso: "2026-11-28T10:00:00+05:30",
     isConfirmed: true,
     note: "28 November  · 10:00 AM IST.",
   },
