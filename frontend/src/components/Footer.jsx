@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import event from "../config/event";
+import { coreTeam } from "../data/team";
 import { scrollToTop } from "../lib/smoothScroll";
 import BrandLogo from "./ui/BrandLogo";
 import { Icon, SocialIcon } from "./ui/Icon";
@@ -18,6 +19,26 @@ const moreLinks = [
   { name: "Community Partners", to: "/partners" },
   { name: "Team", to: "/team" },
 ];
+
+/* Developer credit — links are reused from the team roster. */
+const SOCIAL_LINKS = [
+  { key: "linkedin", label: "LinkedIn" },
+  { key: "github", label: "GitHub" },
+  { key: "instagram", label: "Instagram" },
+];
+
+const DEVELOPERS = ["Krish Chakraborty", "Prachi Kaneriya"].map((name) => {
+  const member = coreTeam.find((entry) => entry.name === name);
+  return {
+    name,
+    shortName: name.split(" ")[0],
+    links: SOCIAL_LINKS.map(({ key, label }) => ({
+      key,
+      label,
+      href: member?.socials?.[key] ?? null,
+    })),
+  };
+});
 
 export default function Footer() {
   return (
@@ -118,6 +139,57 @@ export default function Footer() {
             Back to top
             <Icon name="arrowUpRight" size={14} />
           </button>
+        </div>
+
+        <div className="credit-wrap">
+          <div className="credit-panel">
+            <div className="credit-heading">
+              <p className="credit-eyebrow">Design &amp; Developed by</p>
+              <p className="credit-names">
+                <span className="credit-name">Krish</span>
+                <span className="credit-amp" aria-hidden="true">
+                  &amp;
+                </span>
+                <span className="credit-name">Prachi</span>
+              </p>
+            </div>
+
+            <ul className="credit-devs">
+              {DEVELOPERS.map((developer) => (
+                <li key={developer.name} className="credit-dev">
+                  <p className="credit-dev-name">{developer.shortName}</p>
+                  <ul className="credit-dev-links" aria-label={`${developer.name} social profiles`}>
+                    {developer.links.map(({ key, label, href }) => (
+                      <li key={key}>
+                        {href ? (
+                          <a
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`credit-social social-link social-link--${key}`}
+                            aria-label={`${developer.name} on ${label} — opens in a new tab`}
+                            title={`${label} — opens in a new tab`}
+                          >
+                            <SocialIcon name={key} size={17} />
+                          </a>
+                        ) : (
+                          <button
+                            type="button"
+                            disabled
+                            className="credit-social credit-social--disabled"
+                            aria-label={`${label} link coming soon`}
+                            title={`${label} — link coming soon`}
+                          >
+                            <SocialIcon name={key} size={17} />
+                          </button>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </footer>
