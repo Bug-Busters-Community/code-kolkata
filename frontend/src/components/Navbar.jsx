@@ -86,7 +86,7 @@ export default function Navbar() {
     >
       <div className="shell flex h-[var(--nav-h)] items-center justify-between gap-4">
         <Link to="/" className="flex min-h-11 min-w-0 items-center gap-2.5">
-          <span className="flex h-10 w-10 flex-none items-center justify-center overflow-hidden">
+          <span className="flex h-21 w-21 flex-none items-center justify-center overflow-hidden">
             <BrandLogo alt="" aria-hidden="true" />
           </span>
           <span className="flex min-w-0 flex-col justify-center">

@@ -1,4 +1,4 @@
-import logo from "../../assets/CodeKolkataLogo.jpg";
+import logo from "../../assets/CodeKolkataLogo.png";
 
 /**
  * Official CODE KOLKATA brand mark.
