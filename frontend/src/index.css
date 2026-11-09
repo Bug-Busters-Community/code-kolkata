@@ -2387,3 +2387,668 @@ html[data-theme="light"] .coming-soon-footer {
     transform: none;
   }
 }
+
+/* ============================================================================
+   MENTOR / JUDGE PANEL
+   ----------------------------------------------------------------------------
+   The MENTOR page is a two-profile showcase. Each card carries its own accent
+   (gold for the judge, primary for the mentor) while every surface, border and
+   shadow is built from the shared theme tokens so both light and dark modes
+   stay consistent with the rest of the site.
+   ========================================================================== */
+.mentor-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.mentor-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 55% 45% at 8% 22%,
+      color-mix(in srgb, var(--color-gold) 8%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 55% 45% at 92% 28%,
+      color-mix(in srgb, var(--color-primary) 8%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 70% 35% at 50% 100%,
+      color-mix(in srgb, var(--color-secondary) 5%, transparent),
+      transparent 70%
+    );
+}
+
+.mentor-panel-head {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  margin-bottom: clamp(2.25rem, 4.5vw, 3.5rem);
+}
+
+.mentor-note {
+  position: relative;
+  max-width: 25rem;
+  padding: 0.15rem 0 0.15rem 1.1rem;
+  border-left: 1px solid color-mix(in srgb, var(--color-primary) 45%, var(--color-line));
+}
+
+.mentor-note__label {
+  font-family: var(--font-pixel);
+  font-size: 0.45rem;
+  line-height: 1.7;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.mentor-note__text {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+
+.mentor-note__judge {
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.mentor-note__mentor {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.mentor-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.mentor-card-slot {
+  display: flex;
+  min-width: 0;
+}
+
+.mentor-card {
+  --mentor-accent: var(--color-primary);
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--mentor-accent) 24%, var(--color-line));
+  border-radius: 1.35rem;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-panel) 88%, transparent),
+      color-mix(in srgb, var(--color-ink-2) 94%, transparent)
+    );
+  box-shadow:
+    0 40px 90px -62px rgb(0 0 0 / 0.9),
+    inset 0 1px 0 color-mix(in srgb, var(--color-text) 9%, transparent);
+  transition:
+    transform 420ms var(--ease-out),
+    border-color 320ms var(--ease-out),
+    box-shadow 420ms var(--ease-out);
+}
+
+.mentor-card--judge {
+  --mentor-accent: var(--color-gold);
+}
+
+.mentor-card--mentor {
+  --mentor-accent: var(--color-primary);
+}
+
+.mentor-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 4;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--mentor-accent) 85%, transparent),
+    transparent
+  );
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+/* Portrait ---------------------------------------------------------------- */
+.mentor-portrait {
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 4 / 4.4;
+  margin: clamp(0.65rem, 1.4vw, 0.9rem);
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--mentor-accent) 24%, var(--color-line));
+  border-radius: 0.95rem;
+  background: color-mix(in srgb, var(--color-ink) 88%, var(--mentor-accent));
+}
+
+.mentor-portrait__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.mentor-portrait__photo {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  filter: saturate(1.02) contrast(1.02);
+  animation: mentor-photo-in 900ms var(--ease-out) both;
+  transition:
+    transform 900ms var(--ease-out),
+    filter 600ms var(--ease-out);
+}
+
+@keyframes mentor-photo-in {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.001);
+  }
+}
+
+.mentor-monogram {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 50% 34%,
+      color-mix(in srgb, var(--mentor-accent) 26%, transparent),
+      transparent 58%
+    ),
+    linear-gradient(
+      155deg,
+      color-mix(in srgb, var(--color-panel-2) 90%, var(--mentor-accent)),
+      color-mix(in srgb, var(--color-ink) 92%, var(--mentor-accent))
+    );
+}
+
+.mentor-monogram::before {
+  content: "";
+  position: absolute;
+  width: min(72%, 24rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--mentor-accent) 24%, transparent),
+    transparent 68%
+  );
+  filter: blur(18px);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.mentor-monogram__ring {
+  position: absolute;
+  width: min(64%, 20rem);
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--mentor-accent) 34%, transparent);
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--mentor-accent) 8%, transparent),
+    0 0 60px -18px color-mix(in srgb, var(--mentor-accent) 55%, transparent);
+  transition:
+    transform 800ms var(--ease-out),
+    opacity 800ms var(--ease-out);
+}
+
+.mentor-monogram__ring--inner {
+  width: min(46%, 14rem);
+  border-style: dashed;
+  opacity: 0.55;
+}
+
+.mentor-monogram__initials {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: clamp(4.75rem, 11vw, 8rem);
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: 0.02em;
+  color: var(--mentor-accent);
+  text-shadow:
+    0 0 40px color-mix(in srgb, var(--mentor-accent) 55%, transparent),
+    0 1px 0 color-mix(in srgb, var(--color-text) 22%, transparent);
+  transition: transform 800ms var(--ease-out);
+}
+
+.mentor-portrait__grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color-text) 7%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-text) 7%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 15%, transparent 78%);
+  mask-image: radial-gradient(ellipse at center, black 15%, transparent 78%);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.mentor-portrait__shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-ink) 55%, transparent),
+      transparent 26%
+    ),
+    linear-gradient(
+      to top,
+      color-mix(in srgb, var(--color-ink) 82%, transparent),
+      transparent 42%
+    );
+}
+
+.mentor-portrait__corner {
+  position: absolute;
+  z-index: 2;
+  width: 12px;
+  height: 12px;
+  border: 0 solid color-mix(in srgb, var(--mentor-accent) 70%, transparent);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.mentor-portrait__corner--tl {
+  top: 0.6rem;
+  left: 0.6rem;
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+
+.mentor-portrait__corner--tr {
+  top: 0.6rem;
+  right: 0.6rem;
+  border-top-width: 1px;
+  border-right-width: 1px;
+}
+
+.mentor-portrait__corner--bl {
+  bottom: 0.6rem;
+  left: 0.6rem;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+}
+
+.mentor-portrait__corner--br {
+  right: 0.6rem;
+  bottom: 0.6rem;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+}
+
+.mentor-role {
+  position: absolute;
+  top: clamp(0.85rem, 1.8vw, 1.1rem);
+  left: clamp(0.85rem, 1.8vw, 1.1rem);
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.65rem 0.3rem;
+  border: 1px solid color-mix(in srgb, var(--mentor-accent) 58%, var(--color-line));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-ink) 62%, transparent);
+  color: var(--mentor-accent);
+  font-family: var(--font-pixel);
+  font-size: 0.48rem;
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 24px -18px color-mix(in srgb, var(--mentor-accent) 80%, transparent);
+}
+
+.mentor-index {
+  position: absolute;
+  top: clamp(0.85rem, 1.8vw, 1.1rem);
+  right: clamp(0.85rem, 1.8vw, 1.1rem);
+  z-index: 3;
+  font-family: var(--font-pixel);
+  font-size: 0.48rem;
+  line-height: 1.7;
+  letter-spacing: 0.12em;
+  color: color-mix(in srgb, var(--color-text) 62%, transparent);
+}
+
+.mentor-portrait__meta {
+  position: absolute;
+  right: clamp(0.9rem, 2vw, 1.15rem);
+  bottom: clamp(0.8rem, 1.8vw, 1rem);
+  left: clamp(0.9rem, 2vw, 1.15rem);
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--font-pixel);
+  font-size: 0.42rem;
+  line-height: 1.6;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 72%, transparent);
+  text-shadow: 0 1px 12px color-mix(in srgb, var(--color-ink) 80%, transparent);
+}
+
+/* Card body --------------------------------------------------------------- */
+.mentor-card__body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: clamp(1.2rem, 2.4vw, 1.6rem) clamp(1.25rem, 2.8vw, 1.9rem)
+    clamp(1.35rem, 2.8vw, 1.8rem);
+}
+
+.mentor-card__designation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.55rem;
+  font-family: var(--font-pixel);
+  font-size: 0.48rem;
+  line-height: 1.7;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.mentor-card__company {
+  color: color-mix(in srgb, var(--mentor-accent) 82%, var(--color-text));
+}
+
+.mentor-card__sep {
+  color: color-mix(in srgb, var(--color-line) 90%, transparent);
+}
+
+.mentor-card__name {
+  margin-top: 0.6rem;
+  margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 1.2rem + 1vw, 2.2rem);
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.mentor-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: clamp(1.15rem, 2.4vw, 1.5rem);
+  border-top: 1px solid var(--color-line-soft);
+}
+
+.mentor-card__footer-label {
+  font-family: var(--font-pixel);
+  font-size: 0.44rem;
+  line-height: 1.7;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.mentor-card__footer-note {
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--color-muted) 78%, transparent);
+}
+
+.mentor-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mentor-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: none;
+  border: 1px solid color-mix(in srgb, var(--mentor-accent) 26%, var(--color-line));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-ink-2) 64%, transparent);
+  color: var(--color-muted);
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    color var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out),
+    background-color var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out);
+}
+
+.mentor-social:hover,
+.mentor-social:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px -16px color-mix(in srgb, var(--social-brand, var(--mentor-accent)) 85%, transparent);
+}
+
+.mentor-social--other {
+  --social-brand: var(--mentor-accent);
+}
+
+/* CTA --------------------------------------------------------------------- */
+.mentor-cta {
+  border-radius: 1.35rem;
+  background:
+    radial-gradient(
+      ellipse at 8% 0%,
+      color-mix(in srgb, var(--color-primary) 9%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 100% 100%,
+      color-mix(in srgb, var(--color-gold) 8%, transparent),
+      transparent 55%
+    ),
+    color-mix(in srgb, var(--color-ink-2) 86%, transparent);
+}
+
+/* Light theme ------------------------------------------------------------- */
+html[data-theme="light"] .mentor-card {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-panel) 97%, transparent),
+    color-mix(in srgb, var(--color-panel-2) 88%, transparent)
+  );
+  box-shadow:
+    0 34px 70px -50px rgb(19 23 38 / 0.35),
+    inset 0 1px 0 #ffffff;
+}
+
+html[data-theme="light"] .mentor-role {
+  background: color-mix(in srgb, var(--color-panel) 82%, transparent);
+}
+
+html[data-theme="light"] .mentor-social {
+  background: color-mix(in srgb, var(--color-panel) 94%, transparent);
+}
+
+html[data-theme="light"] .mentor-monogram {
+  background:
+    radial-gradient(
+      circle at 50% 34%,
+      color-mix(in srgb, var(--mentor-accent) 18%, transparent),
+      transparent 60%
+    ),
+    linear-gradient(
+      155deg,
+      color-mix(in srgb, var(--color-panel-2) 94%, var(--mentor-accent)),
+      color-mix(in srgb, var(--color-panel) 96%, var(--mentor-accent))
+    );
+}
+
+html[data-theme="light"] .mentor-monogram__initials {
+  text-shadow: 0 1px 24px color-mix(in srgb, var(--mentor-accent) 30%, transparent);
+}
+
+html[data-theme="light"] .mentor-portrait__shade {
+  background:
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-ink) 45%, transparent),
+      transparent 24%
+    ),
+    linear-gradient(
+      to top,
+      color-mix(in srgb, var(--color-ink) 76%, transparent),
+      transparent 40%
+    );
+}
+
+html[data-theme="light"] .mentor-cta {
+  background:
+    radial-gradient(
+      ellipse at 8% 0%,
+      color-mix(in srgb, var(--color-primary) 7%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 100% 100%,
+      color-mix(in srgb, var(--color-gold) 6%, transparent),
+      transparent 55%
+    ),
+    color-mix(in srgb, var(--color-panel) 96%, transparent);
+}
+
+/* Hover ------------------------------------------------------------------- */
+@media (hover: hover) and (pointer: fine) {
+  .mentor-card:hover,
+  .mentor-card:focus-within {
+    transform: translateY(-8px);
+    border-color: color-mix(in srgb, var(--mentor-accent) 55%, var(--color-line));
+    box-shadow:
+      0 46px 100px -56px color-mix(in srgb, var(--mentor-accent) 65%, transparent),
+      0 30px 70px -52px rgb(0 0 0 / 0.9),
+      inset 0 1px 0 color-mix(in srgb, var(--color-text) 12%, transparent);
+  }
+
+  .mentor-card:hover .mentor-portrait__photo,
+  .mentor-card:focus-within .mentor-portrait__photo {
+    transform: scale(1.055);
+  }
+
+  .mentor-card:hover .mentor-monogram__initials,
+  .mentor-card:focus-within .mentor-monogram__initials {
+    transform: scale(1.04);
+  }
+
+  .mentor-card:hover .mentor-monogram__ring,
+  .mentor-card:focus-within .mentor-monogram__ring {
+    transform: scale(1.03);
+    opacity: 0.8;
+  }
+}
+
+/* Responsive -------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .mentor-panel-head {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+
+  .mentor-panel-head > :first-child {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 899px) {
+  .mentor-grid {
+    max-width: 34rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .mentor-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 639px) {
+  .mentor-card__body {
+    padding-inline: 1.1rem;
+  }
+
+  .mentor-portrait {
+    aspect-ratio: 4 / 4.6;
+  }
+
+  .mentor-portrait__meta {
+    font-size: 0.38rem;
+    letter-spacing: 0.1em;
+  }
+}
+
+/* Reduced motion ---------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .mentor-card,
+  .mentor-card:hover,
+  .mentor-card:focus-within {
+    transform: none;
+  }
+
+  .mentor-card:hover .mentor-portrait__photo,
+  .mentor-card:focus-within .mentor-portrait__photo,
+  .mentor-card:hover .mentor-monogram__initials,
+  .mentor-card:focus-within .mentor-monogram__initials,
+  .mentor-card:hover .mentor-monogram__ring,
+  .mentor-card:focus-within .mentor-monogram__ring {
+    transform: none;
+  }
+}
