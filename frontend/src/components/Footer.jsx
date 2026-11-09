@@ -32,7 +32,9 @@ const DEVELOPERS = ["Krish Chakraborty", "Prachi Kaneriya"].map((name) => {
   return {
     name,
     shortName: name.split(" ")[0],
-    links: SOCIAL_LINKS.map(({ key, label }) => ({
+    links: SOCIAL_LINKS.filter(
+      ({ key }) => !(name === "Prachi Kaneriya" && key === "instagram")
+    ).map(({ key, label }) => ({
       key,
       label,
       href: member?.socials?.[key] ?? null,
