@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 import PrizeCard from "../components/PrizeCard";
-import TrackGrid from "../components/TrackGrid";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
 import CountUp from "../components/ui/CountUp";
@@ -132,13 +131,43 @@ export default function Home() {
                   Pick your <span className="accent">lane.</span>
                 </>
               }
-              description="Four ways in, one leaderboard. Every track gets mentors, a judging rubric and a winner on stage."
+              description="The full track list drops on the day. Every track gets mentors, a judging rubric and a winner on stage."
             />
             <p className="chip chip-primary max-w-full md:mb-2">Theme reveal · {event.theme}</p>
           </div>
 
           <Reveal className="mt-10">
-            <TrackGrid />
+            <Card
+              interactive
+              padded={false}
+              className="corner-ticks relative overflow-hidden p-8 sm:p-10 lg:p-14"
+            >
+              <span
+                aria-hidden="true"
+                className="grid-lines grid-fade pointer-events-none absolute inset-0 opacity-40"
+              />
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-16 -top-24 h-64 w-64 rounded-full bg-primary/10 blur-3xl"
+              />
+
+              <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
+                <span className="icon-box">
+                  <Icon name="lock" size={24} />
+                </span>
+
+                <div className="min-w-0">
+                  <p className="chip chip-primary">
+                    <Icon name="spark" size={12} />
+                    Track reveal
+                  </p>
+                  <h3 className="display-1 mt-4 text-primary">On the spot</h3>
+                  <p className="mt-3 max-w-xl text-base italic leading-relaxed text-muted">
+                    Hackathon tracks will be revealed at the event.
+                  </p>
+                </div>
+              </div>
+            </Card>
           </Reveal>
         </div>
       </section>
