@@ -39,6 +39,7 @@ const initialValues = {
   size: COMMUNITY_SIZES[1],
   city: "Kolkata",
   website: "",
+  image: "",
   howYouCanHelp: "",
   whatYouWant: "",
   agree: false,
@@ -82,8 +83,11 @@ function validate(values) {
   return errors;
 }
 
+const MAX_IMAGE_SIZE_BYTES = 2 * 1024 * 1024; // 2 MB
+
 export default function PartnerRegister() {
   const [values, setValues] = useState(initialValues);
+  const [imageName, setImageName] = useState("");
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [submitted, setSubmitted] = useState(false);
@@ -99,6 +103,58 @@ export default function PartnerRegister() {
     setValues((current) => ({ ...current, [field]: value }));
     setErrors((current) => ({ ...current, [field]: undefined }));
     if (submitError) setSubmitError(null);
+  };
+
+  const handleImageChange = (changeEvent) => {
+    const file = changeEvent.target.files?.[0];
+    setTouched((current) => ({ ...current, image: true }));
+    if (submitError) setSubmitError(null);
+
+    if (!file) {
+      return;
+    }
+
+    if (!file.type.startsWith("image/")) {
+      setErrors((current) => ({
+        ...current,
+        image: "Please select a valid image file (PNG, JPG, WEBP, SVG, etc.).",
+      }));
+      changeEvent.target.value = "";
+      return;
+    }
+
+    if (file.size > MAX_IMAGE_SIZE_BYTES) {
+      setErrors((current) => ({
+        ...current,
+        image: "Image must be 2 MB or smaller.",
+      }));
+      changeEvent.target.value = "";
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (typeof reader.result === "string") {
+        setValues((current) => ({ ...current, image: reader.result }));
+        setImageName(file.name);
+        setErrors((current) => ({ ...current, image: undefined }));
+      }
+    };
+    reader.onerror = () => {
+      setErrors((current) => ({
+        ...current,
+        image: "Failed to read the selected image file. Please try another.",
+      }));
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const clearImage = () => {
+    setValues((current) => ({ ...current, image: "" }));
+    setImageName("");
+    setErrors((current) => ({ ...current, image: undefined }));
+    const input = document.getElementById("reg-image");
+    if (input) input.value = "";
   };
 
   const blur = (field) => () => {
@@ -327,6 +383,20 @@ export default function PartnerRegister() {
                       </dd>
                     </div>
                   ))}
+                  {values.image ? (
+                    <div className="py-3 first:pt-0 last:pb-0">
+                      <dt className="font-pixel text-[0.45rem] uppercase leading-relaxed tracking-[0.1em] text-muted">
+                        Community Logo / Image
+                      </dt>
+                      <dd className="mt-2">
+                        <img
+                          src={values.image}
+                          alt={values.communityName || "Community logo"}
+                          className="h-20 w-20 border border-line bg-ink object-contain p-1"
+                        />
+                      </dd>
+                    </div>
+                  ) : null}
                 </dl>
 
                 <div className="mt-7 flex flex-wrap gap-3">
@@ -614,6 +684,63 @@ export default function PartnerRegister() {
                         <p id="reg-website-error" className="field-error">
                           <Icon name="close" size={12} className="mt-0.5" />
                           {errors.website}
+                        </p>
+                      ) : null}
+                    </div>
+
+                    <div className="sm:col-span-2">
+                      <label htmlFor="reg-image" className="field-label">
+                        <span>Community logo / image</span>
+                        <span className="font-sans text-[0.7rem] lowercase text-muted">
+                          PNG, JPG, WEBP, SVG (max 2 MB)
+                        </span>
+                      </label>
+                      <div className={`${fieldClass("image")} flex flex-wrap items-center justify-between gap-3`}>
+                        <div className="flex min-w-0 flex-1 items-center gap-3">
+                          {values.image ? (
+                            <img
+                              src={values.image}
+                              alt="Community logo preview"
+                              className="h-12 w-12 shrink-0 border border-line bg-ink object-contain p-0.5"
+                            />
+                          ) : (
+                            <span className="flex h-12 w-12 shrink-0 items-center justify-center border border-line bg-ink text-muted">
+                              <Icon name="camera" size={18} />
+                            </span>
+                          )}
+                          <div className="min-w-0 flex-1">
+                            <input
+                              id="reg-image"
+                              name="image"
+                              type="file"
+                              accept="image/*"
+                              onChange={handleImageChange}
+                              aria-invalid={showError("image")}
+                              aria-describedby={showError("image") ? "reg-image-error" : undefined}
+                              className="block w-full cursor-pointer font-sans text-xs text-muted file:mr-3 file:cursor-pointer file:border file:border-primary/40 file:bg-primary/10 file:px-3 file:py-1.5 file:font-pixel file:text-[0.45rem] file:uppercase file:tracking-[0.1em] file:text-primary hover:file:bg-primary/20"
+                            />
+                            {imageName ? (
+                              <p className="mt-1 truncate font-sans text-xs text-muted">
+                                Selected: {imageName}
+                              </p>
+                            ) : null}
+                          </div>
+                        </div>
+                        {values.image ? (
+                          <button
+                            type="button"
+                            onClick={clearImage}
+                            className="inline-flex items-center gap-1 border border-line px-2.5 py-1.5 font-pixel text-[0.45rem] uppercase tracking-[0.1em] text-muted transition-colors hover:border-danger/60 hover:text-danger"
+                          >
+                            <Icon name="close" size={12} />
+                            Remove
+                          </button>
+                        ) : null}
+                      </div>
+                      {showError("image") ? (
+                        <p id="reg-image-error" className="field-error">
+                          <Icon name="close" size={12} className="mt-0.5" />
+                          {errors.image}
                         </p>
                       ) : null}
                     </div>
