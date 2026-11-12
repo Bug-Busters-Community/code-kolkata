@@ -3,6 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import event from "../config/event";
 import BackgroundVideo from "./BackgroundVideo";
 import Footer from "./Footer";
+import LumaCheckoutButton from "./LumaCheckoutButton";
 import Navbar from "./Navbar";
 import SoundNotice from "./SoundNotice";
 import { SoundProvider } from "./SoundProvider";
@@ -34,6 +35,7 @@ export default function Layout() {
           aria-hidden="true"
         />
         <SoundNotice />
+        <LumaCheckoutButton />
       </div>
     </SoundProvider>
   );

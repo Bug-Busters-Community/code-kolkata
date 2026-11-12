@@ -1378,6 +1378,21 @@ html[data-theme="light"] .checkbox-row input[type="checkbox"]:checked {
   }
 }
 
+/* Floating Luma registration CTA ---------------------------------------- */
+.luma-floating-cta {
+  position: fixed;
+  right: max(clamp(1rem, 3vw, 1.75rem), env(safe-area-inset-right));
+  bottom: max(clamp(4rem, 7vw, 5.25rem), env(safe-area-inset-bottom));
+  z-index: 45;
+  text-decoration: none;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out),
+    background-color var(--dur) var(--ease-out),
+    color var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out);
+}
+
 @media (min-width: 640px) {
   .welcome-actions {
     flex-direction: row;
