@@ -275,7 +275,6 @@ export default function PartnerRegister() {
             style={{ fontFamily: "'Road Rage', cursive" }}
           >
             Bring your <span className="accent">community.</span>
-            <br />
             Own the <span className="text-secondary">room.</span>
           </h1>
 
