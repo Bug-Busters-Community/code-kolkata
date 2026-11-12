@@ -83,6 +83,16 @@ export async function saveCommunityPartnerForm(formData) {
   if (!formData.howYouCanHelp?.trim()) throw new Error("Description of support is required.");
   if (!formData.whatYouWant?.trim()) throw new Error("Expectations from us is required.");
 
+  const rawImage = typeof formData.image === "string" ? formData.image.trim() : "";
+  if (rawImage) {
+    if (!/^data:image\/[a-zA-Z0-9.+-]+;base64,/.test(rawImage)) {
+      throw new Error("Invalid image format. Expected a base64-encoded image.");
+    }
+    if (rawImage.length > 3 * 1024 * 1024) {
+      throw new Error("Image payload is too large (max 2 MB).");
+    }
+  }
+
   const document = {
     name: formData.name.trim(),
     email: formData.email.trim().toLowerCase(),
@@ -93,6 +103,7 @@ export async function saveCommunityPartnerForm(formData) {
     size: formData.size || "500 – 1,500 members",
     city: formData.city.trim(),
     website: formData.website.trim(),
+    image: rawImage,
     howYouCanHelp: formData.howYouCanHelp.trim(),
     whatYouWant: formData.whatYouWant.trim(),
     agree: Boolean(formData.agree),
