@@ -11,7 +11,6 @@ import n8nLogo from "../assets/pics/n8n.png";
 import GenXyzLogo from "../assets/pics/genxyz.png";
 import InterciewBuddyLogo from "../assets/pics/interviewbuddy.png";
 import ImagiwaeveStudios from "../assets/pics/imagiwaevestudios.png";
-import event from "../config/event";
 
 const sponsors = [
   {
@@ -61,33 +60,9 @@ const sponsors = [
     description: "Management of all the funds.",
     logo: ImagiwaeveStudios,
     logoAlt: "Imagiwaeve Studios logo",
-    brandColor: "1e1e1e",
+    brandColor: "#1e1e1e",
     logoScale: 0.8
   }
-];
-
-/* Media is not part of the original four-tier config, but the Sponsors page
-   needs to keep the fifth availability label. It remains an open package. */
-const mediaPackage = {
-  label: "MEDIA",
-  slots: 2,
-  headline: "Put the story in front of the room",
-  benefits: [
-    "Logo on the media wall and recap",
-    "Podcast or interview slot",
-    "Press access to the build floor",
-    "First look at the highlight reel",
-  ],
-};
-
-export const sponsorPackages = [
-  ...event.sponsorTiers.map((tier) => ({
-    label: tier.tier.replace(/\s*partner$/i, "").toUpperCase(),
-    slots: tier.slots,
-    headline: tier.headline,
-    benefits: tier.benefits,
-  })),
-  mediaPackage,
 ];
 
 export default sponsors;

@@ -1,4 +1,3 @@
-import event from "../config/event";
 import { Icon } from "./ui/Icon";
 
 /**

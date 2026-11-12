@@ -67,7 +67,7 @@ function getHtmlTemplate() {
 
 function getEmailAttachments() {
   const assetDefinitions = [
-    { file: "CodeKolkataLogo.png", cid: "code-kolkata-logo", contentType: "image/jpeg" },
+    { file: "CodeKolkataLogo.png", cid: "code-kolkata-logo", contentType: "image/png" },
     { file: "HowrahBridge.png", cid: "howrah-bridge", contentType: "image/png" },
     { file: "email/title-reached-us.png", cid: "title-reached-us", contentType: "image/png" },
     { file: "email/heading-app-details.png", cid: "heading-app-details", contentType: "image/png" },

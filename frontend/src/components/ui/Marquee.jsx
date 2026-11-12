@@ -5,9 +5,8 @@ function Group({ items, copy }) {
       data-marquee-copy={copy ? "true" : undefined}
       aria-hidden={copy ? "true" : undefined}
     >
-      {items.map((item) => (
-        <li key={item} className="marquee-item">
-          <img src="" alt="" />
+      {items.map((item, index) => (
+        <li key={index} className="marquee-item">
           <span>{item}</span>
         </li>
       ))}
@@ -19,8 +18,8 @@ export default function Marquee({ items, label = "Sponsor and partner slots", cl
   return (
     <div className={`marquee ${className}`} role="group" aria-label={label}>
       <div className="marquee-track">
-        <Group items={items} copy={false} />
         <Group items={items} />
+        <Group items={items} copy />
       </div>
     </div>
   );

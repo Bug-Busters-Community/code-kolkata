@@ -251,31 +251,10 @@ export default function Home() {
       </section>
 
       {/* -------------------------------------------------- sponsor marquee */}
-      {/* <section className="section-tight section-rule overflow-hidden" aria-labelledby="sponsor-marquee">
-        <div className="shell">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <SectionHeading
-              id="sponsor-marquee"
-              eyebrow="Sponsors & partners"
-              title="Your logo belongs on this wall."
-              description={event.sponsorNote}
-            />
-            <Link to="/register" className="btn btn-secondary btn-sm md:mb-1">
-              Partner with us
-            </Link>
-          </div>
-        </div>
-
-        <div className="mt-9">
-          <Marquee items={event.marquee} />
-        </div>
-      </section> */}
-
       <section className="section-tight section-rule overflow-hidden" aria-labelledby="sponsor-marquee">
         <div className="shell">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <SectionHeading
-              id="sponsor-marquee"
               eyebrow="Sponsors & partners"
             />
           </div>

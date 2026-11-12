@@ -1,5 +1,4 @@
 import Button from "../components/ui/Button";
-import Card from "../components/ui/Card";
 import { Icon } from "../components/ui/Icon";
 import Marquee from "../components/ui/Marquee";
 import PageHeader from "../components/ui/PageHeader";
@@ -7,7 +6,7 @@ import Reveal from "../components/ui/Reveal";
 import SectionHeading from "../components/ui/SectionHeading";
 import SponsorCard from "../components/SponsorCard";
 import event from "../config/event";
-import sponsors, { sponsorPackages } from "../data/sponsors";
+import sponsors from "../data/sponsors";
 import "../styles/sponsors.css";
 
 /* Kept in sync with the community-partner page. These are partner benefits,
@@ -154,7 +153,10 @@ export default function Sponsors() {
                 Join us as a sponsor and get your company in front of a growing community of developers and builders.
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Button to="mailto:community.bugbusters@gmail.com" variant="primary">
+                <Button
+                  href="mailto:community.bugbusters@gmail.com"
+                  variant="primary"
+                >
                   Apply as a sponsor <Icon name="arrowRight" size={15} />
                 </Button>
               </div>

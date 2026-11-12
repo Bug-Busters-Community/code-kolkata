@@ -30,8 +30,8 @@ export default function SponPartMarquee({ items, label = "Sponsor and partner sl
   return (
     <div className={`marquee ${className}`} role="group" aria-label={label}>
       <div className="marquee-track">
-        <Group items={items} copy={false} />
         <Group items={items} />
+        <Group items={items} copy />
       </div>
     </div>
   );

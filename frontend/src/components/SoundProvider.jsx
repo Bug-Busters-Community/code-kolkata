@@ -37,8 +37,7 @@ function readUserMusicChoice() {
   if (cookieVal === "on") return true;
   if (cookieVal === "off") return false;
 
-  // First visit: no cookie exists yet. Music is ON by default, store choice in cookie.
-  setUserMusicChoice(true);
+  // First visit: no cookie exists yet. Music is ON by default.
   return true;
 }
 
@@ -55,10 +54,18 @@ function describePlaybackError(error) {
 export function SoundProvider({ children }) {
   const audioRef = useRef(null);
   const attemptedPlayRef = useRef(false);
-  const userWantsSoundRef = useRef(readUserMusicChoice());
   const interactionCleanupRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [playbackError, setPlaybackError] = useState(null);
+  // Whether the visitor wants the soundtrack. This is read during render (the
+  // context value and the `autoPlay` hint), so it lives in state; the ref
+  // mirrors it so the long-lived audio listeners always read the latest value.
+  const [userWantsSound, setUserWantsSound] = useState(readUserMusicChoice);
+  const userWantsSoundRef = useRef(userWantsSound);
+
+  useEffect(() => {
+    userWantsSoundRef.current = userWantsSound;
+  }, [userWantsSound]);
 
   const cleanupListeners = useCallback(() => {
     if (interactionCleanupRef.current) {
@@ -72,7 +79,7 @@ export function SoundProvider({ children }) {
     if (!audio) return Promise.resolve(false);
 
     cleanupListeners();
-    userWantsSoundRef.current = true;
+    setUserWantsSound(true);
     setUserMusicChoice(true);
 
     attemptedPlayRef.current = true;
@@ -102,7 +109,7 @@ export function SoundProvider({ children }) {
 
   const stop = useCallback(() => {
     cleanupListeners();
-    userWantsSoundRef.current = false;
+    setUserWantsSound(false);
     setUserMusicChoice(false);
 
     const audio = audioRef.current;
@@ -127,7 +134,10 @@ export function SoundProvider({ children }) {
     if (!audio) return;
 
     const initialPreference = readUserMusicChoice();
-    userWantsSoundRef.current = initialPreference;
+    setUserWantsSound(initialPreference);
+    if (getCookie(MUSIC_COOKIE_KEY) === null) {
+      setUserMusicChoice(initialPreference);
+    }
     audio.volume = 0.32;
 
     const handlePlaying = () => setIsPlaying(true);
@@ -228,14 +238,14 @@ export function SoundProvider({ children }) {
   const value = useMemo(
     () => ({
       isPlaying,
-      pendingResume: userWantsSoundRef.current && !isPlaying,
+      pendingResume: userWantsSound && !isPlaying,
       toggle,
       play,
       stop,
       playbackError,
       clearPlaybackError,
     }),
-    [isPlaying, toggle, play, stop, playbackError, clearPlaybackError],
+    [isPlaying, userWantsSound, toggle, play, stop, playbackError, clearPlaybackError],
   );
 
   return (
@@ -243,7 +253,7 @@ export function SoundProvider({ children }) {
       <audio
         ref={audioRef}
         src={musicSrc}
-        autoPlay={userWantsSoundRef.current}
+        autoPlay={userWantsSound}
         loop
         playsInline
         preload="auto"

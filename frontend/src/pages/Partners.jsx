@@ -1,9 +1,7 @@
 import Button from "../components/ui/Button";
-import Card from "../components/ui/Card";
 import { Icon } from "../components/ui/Icon";
 import Marquee from "../components/ui/Marquee";
 import PageHeader from "../components/ui/PageHeader";
-import Reveal from "../components/ui/Reveal";
 import SectionHeading from "../components/ui/SectionHeading";
 import event from "../config/event";
 

@@ -21,7 +21,7 @@ export const event = {
   shortName: "CODE KOLKATA",
   monogram: "CK",
   edition: "01",
-  year: "",
+  year: "2026",
   theme: "Discovering Kolkata Through AI & Innovation",
   collaboration: "Bug Busters X Anibotix Robotics",
   tagline: "TWO COMMUNITIES. ONE CITY. SHIP SOMETHING LEGENDARY.",
@@ -59,6 +59,7 @@ export const event = {
     {
       name: "Bug Busters Community",
       role: "Host community",
+      monogram: "BB",
       logo: "https://www.bugbusterscommunity.in/Logo.png",
       href: "https://instagram.com/community.bugbusters",
       blurb:
@@ -67,6 +68,7 @@ export const event = {
     {
       name: "Anibotix Robotics",
       role: "Co-organizer",
+      monogram: "AR",
       logo: "https://www.anibotixrobotics.com/logo-pwa.png",
       href: "https://anibotixrobotics.com",
       blurb:

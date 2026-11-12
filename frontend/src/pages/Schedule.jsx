@@ -6,9 +6,9 @@ import SectionHeading from "../components/ui/SectionHeading";
 import event from "../config/event";
 import schedule from "../data/schedule";
 
-const firstItem = schedule[0];
-const lastItem = schedule[schedule.length - 1];
-const buildathon = schedule.find((item) => item.featured);
+const firstItem = schedule[0] ?? {};
+const lastItem = schedule[schedule.length - 1] ?? {};
+const buildathon = schedule.find((item) => item.featured) ?? {};
 
 const overview = [
   { label: "First event", value: firstItem.start, icon: "login", tone: "primary" },
