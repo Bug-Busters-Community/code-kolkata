@@ -23,7 +23,7 @@ export const event = {
   edition: "01",
   year: "",
   theme: "Discovering Kolkata Through AI & Innovation",
-  collaboration: "Bug Busters X Anibotix Robotics",
+  collaboration: "",
   tagline: "TWO COMMUNITIES. ONE CITY. SHIP SOMETHING LEGENDARY.",
   intro:
     "CODE KOLKATA is a 8-hour tech event. Bring an idea, a laptop and unreasonable ambition, leave with a working product, a crew and a story worth posting.",
