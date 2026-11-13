@@ -45,7 +45,7 @@ export default function Sponsors() {
         }
         description="Anibotix Robotics, n8n, Gen.XYZ, Interview Buddy and Imagiwaeve Studios are officially on board for CODE KOLKATA , powering the AI & Automation track and putting a domain in top builder's hands."
         chips={[
-          { label: "5 confirmed sponsors", icon: "award" },
+          { label: "6 confirmed sponsors", icon: "award" },
           { label: event.dates.label, icon: "calendar" },
         ]}
       />
@@ -59,7 +59,7 @@ export default function Sponsors() {
               eyebrow="Confirmed sponsors"
               title={
                 <>
-                  Five partners. <span className="accent">One room.</span>
+                  Six partners. <span className="accent">One room.</span>
                 </>
               }
               description="The official partners already powering CODE KOLKATA . Both are confirmed, both are on the build floor with us."
