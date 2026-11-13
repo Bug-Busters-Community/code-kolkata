@@ -2,6 +2,7 @@ import Button from "../components/ui/Button";
 import { Icon } from "../components/ui/Icon";
 import Marquee from "../components/ui/Marquee";
 import PageHeader from "../components/ui/PageHeader";
+import Reveal from "../components/ui/Reveal";
 import SectionHeading from "../components/ui/SectionHeading";
 import PartnerCard from "../components/PartnerCard";
 import event from "../config/event";
