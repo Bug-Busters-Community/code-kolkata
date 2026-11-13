@@ -46,16 +46,16 @@ export default function Partners() {
         chips={
           hasPartners
             ? [
-                {
-                  label: `${partners.length} confirmed ${partners.length === 1 ? "partner" : "partners"}`,
-                  icon: "users",
-                },
-                { label: "Applications open", icon: "spark" },
-              ]
+              {
+                label: `${partners.length} confirmed ${partners.length === 1 ? "partner" : "partners"}`,
+                icon: "users",
+              },
+              { label: "Applications open", icon: "spark" },
+            ]
             : [
-                { label: "Community slots open", icon: "users" },
-                { label: "Applications open", icon: "spark" },
-              ]
+              { label: "Community slots open", icon: "users" },
+              { label: "Applications open", icon: "spark" },
+            ]
         }
       />
 
