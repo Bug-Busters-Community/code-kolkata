@@ -6,7 +6,8 @@
    ========================================================================== */
 
 /* ---------------------------------------------------------- confirmed grid */
-.sponsor-grid {
+.sponsor-grid,
+.partner-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 1.25rem;
@@ -15,7 +16,8 @@
   list-style: none;
 }
 
-.sponsor-card-slot {
+.sponsor-card-slot,
+.partner-card-slot {
   display: flex;
   min-width: 0;
 }
@@ -23,6 +25,18 @@
 @media (min-width: 768px) {
   .sponsor-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .partner-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .partner-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;
   }
 }

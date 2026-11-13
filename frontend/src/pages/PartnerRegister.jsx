@@ -246,28 +246,6 @@ export default function PartnerRegister() {
         </div>
 
         <div className="shell relative z-10 flex flex-col items-center text-center">
-          {/* Brand Logo & Monogram Badges */}
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <span className="flex h-12 w-12 items-center justify-center overflow-hidden border border-primary/60 bg-primary/10 p-1 shadow-lg shadow-primary/10">
-              <BrandLogo alt="Code Kolkata" />
-            </span>
-            <div className="flex items-center gap-2 border border-line bg-ink-2/80 px-3 py-1.5 backdrop-blur-sm">
-              <span className="font-pixel text-[0.45rem] uppercase tracking-[0.14em] text-primary">
-                Bug Busters
-              </span>
-              <span className="text-line">&times;</span>
-              <span className="font-pixel text-[0.45rem] uppercase tracking-[0.14em] text-secondary">
-                Anibotix
-              </span>
-            </div>
-          </div>
-
-          {/* Eyebrow Callout */}
-          <p className="mt-6 font-pixel text-[0.55rem] uppercase leading-relaxed tracking-[0.18em] text-primary">
-            <span className="text-gold" aria-hidden="true">✦ </span>
-            Community Partner Program 
-            <span className="text-gold" aria-hidden="true"> ✦</span>
-          </p>
 
           {/* Main Headline in Road Rage Font */}
           <h1
