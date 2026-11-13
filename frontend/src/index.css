@@ -1393,6 +1393,46 @@ html[data-theme="light"] .checkbox-row input[type="checkbox"]:checked {
     border-color var(--dur) var(--ease-out);
 }
 
+/* Floating Anibotix top-right badge ------------------------------------ */
+.anibotix-floating-badge {
+  position: fixed;
+  top: 0;
+  right: max(clamp(0.5rem, 2vw, 2rem), env(safe-area-inset-right));
+  z-index: 55;
+  display: block;
+  width: clamp(4.875rem, 8.25vw, 7.125rem);
+  line-height: 0;
+  text-decoration: none;
+  transform-origin: top center;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    filter var(--dur-fast) var(--ease-out),
+    opacity var(--dur-fast) var(--ease-out);
+}
+
+.anibotix-floating-badge.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.anibotix-floating-badge:hover {
+  transform: translateY(3px);
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45));
+}
+
+.anibotix-floating-badge:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.anibotix-badge-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
 @media (min-width: 640px) {
   .welcome-actions {
     flex-direction: row;

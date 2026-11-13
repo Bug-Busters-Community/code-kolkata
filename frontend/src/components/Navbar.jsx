@@ -7,6 +7,7 @@ import SoundToggle from "./SoundToggle";
 import ThemeToggle from "./ThemeToggle";
 import BrandLogo from "./ui/BrandLogo";
 import { Icon, SocialIcon } from "./ui/Icon";
+import AnibotixBadge from "./AnibotixBadge";
 
 export default function Navbar() {
   const [menuPath, setMenuPath] = useState(null);
@@ -109,7 +110,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="flex flex-none items-center gap-2">
+        <div className="flex flex-none items-center gap-2 mr-20 sm:mr-24 md:mr-32 xl:mr-32">
           <span className="hidden min-[360px]:block">
             <ThemeToggle />
           </span>
@@ -129,6 +130,8 @@ export default function Navbar() {
           </span>
         </div>
       </div>
+
+      <AnibotixBadge isMenuOpen={open} />
 
       {open ? (
         <div className="menu-overlay fixed inset-0 z-[60] xl:hidden">
