@@ -1,5 +1,4 @@
 import Button from "../components/ui/Button";
-import Card from "../components/ui/Card";
 import { Icon } from "../components/ui/Icon";
 import Marquee from "../components/ui/Marquee";
 import PageHeader from "../components/ui/PageHeader";
