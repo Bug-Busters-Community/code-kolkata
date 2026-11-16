@@ -20,8 +20,9 @@ export default function Mentors() {
         }
         description="One judge. One mentor. Two practitioners who have shipped real systems are here to pressure-test your build, sharpen the story and push the work further."
         chips={[
-          { label: "1 Judge", icon: "award" },
-          { label: "1 Mentor", icon: "users" },
+          { label: "3 Judge", icon: "award" },
+          { label: "1 Guest Speaker", icon: "microphone" },
+          { label: "2 Mentor", icon: "users" },
           { label: "On the floor", icon: "compass" },
         ]}
       />
