@@ -50,6 +50,19 @@ const partners = [
     logoScale: 2.5
   },
   {
+    id: "yotta",
+    name: "Yotta",
+    catetory: "Community Partner",
+    description: "A community of developers.",
+    logo: "https://instagram.fccu27-3.fna.fbcdn.net/v/t51.82787-19/683035512_18101749126839969_4571678379075718065_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=111&_nc_map=urlgen_bucketless&ig_cache_key=GHhLtiihvoTmcU9AALFLJJRD3XE-bmNDAQAB1501500j-ccb7-5&ccb=7-5&_nc_sid=669407&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=_b6intqLGfwQ7kNvwFEqgyH&_nc_oc=Adov2Cn0acSE8noB0aNX_mF_NDXWkmzmnh_0vXeiRRKcS7uFf6e4LQN8t4x2GSrwJ8khZJDeNMXaZGy3g9-p6L6E&_nc_zt=24&_nc_ht=instagram.fccu27-3.fna&_nc_gid=oTvg9kEzwLH0icCmgjMgJQ&_nc_ss=7b6a8&_nc_ct=RQosPBUCFQIAAAA&oh=00_AQTfDw05C-u419TU8ggUA5PH7RFGcmhSayIlCvWBKkrTbw&oe=6B009135",
+    logoAlt: "Yotta logo",
+    brandColor: "#000000",
+    accentColor: "#ffffff",
+    city: "Kolkata",
+    reach: "1000",
+    logoScale: 1
+  },
+  {
     id: "opt-skill",
     name: "OptSkill",
     category: "Community Partner",
