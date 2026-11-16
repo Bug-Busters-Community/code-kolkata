@@ -46,6 +46,17 @@ const mentors = [
     other: ""
   },
   {
+    name: "Dhrubojyoti Chakraborty",
+    role: "Guest Speaker",
+    initials: "DC",
+    photo: "https://media.licdn.com/dms/image/v2/D5603AQFMH6FwwpW1kQ/profile-displayphoto-crop_800_800/B56ZmG8p7BJ0AQ-/0/1758905672884?e=1796256000&v=beta&t=KPz48iLZ6Zg-79XMXxp-2USSMLBboShxubv8tvqYNJg",
+    currentCompany: "Amazon Web Services (AWS)",
+    designation: "Student Builder Campus Leader",
+    linkedin: "https://www.linkedin.com/in/dhrubojyoti-chakraborty-567857257/",
+    instagram: "",
+    other: ""
+  },
+  {
     name: "Sounak Mandal",
     role: "Mentor",
     initials: "SM",
