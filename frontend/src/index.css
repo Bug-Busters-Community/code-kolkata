@@ -2516,6 +2516,11 @@ html[data-theme="light"] .coming-soon-footer {
   font-weight: 600;
 }
 
+.mentor-note__guest {
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
 .mentor-note__mentor {
   color: var(--color-primary);
   font-weight: 600;
@@ -2563,6 +2568,10 @@ html[data-theme="light"] .coming-soon-footer {
 
 .mentor-card--judge {
   --mentor-accent: var(--color-gold);
+}
+
+.mentor-card--guest {
+  --mentor-accent: var(--color-secondary);
 }
 
 .mentor-card--mentor {

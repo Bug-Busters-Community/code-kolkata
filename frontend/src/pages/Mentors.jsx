@@ -37,7 +37,7 @@ export default function Mentors() {
                 eyebrow="The panel"
                 title={
                   <>
-                    Two seats. <span className="accent">Two perspectives.</span>
+                    Three seats. <span className="accent">Three perspectives.</span>
                   </>
                 }
               />
@@ -48,6 +48,7 @@ export default function Mentors() {
                 <p className="mentor-note__label">How to read the panel</p>
                 <p className="mentor-note__text">
                   The <span className="mentor-note__judge">judge</span> sets the bar at the final pitch.
+                  The <span className="mentor-note__guest">guest speaker</span> shares their experience and gives you a peek into the industry.
                   The <span className="mentor-note__mentor">mentor</span> helps you clear it while you build.
                 </p>
               </aside>

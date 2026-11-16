@@ -26,7 +26,9 @@ export default function MentorCard({ person, index = 0 }) {
   const [failedPhoto, setFailedPhoto] = useState(null);
   const hasPhoto = Boolean(person.photo) && failedPhoto !== person.photo;
   const isJudge = String(person.role).toLowerCase() === "judge";
-  const roleKey = isJudge ? "judge" : "mentor";
+  const isGuest = String(person.role).toLowerCase() === "guest speaker";
+  const isMentor = String(person.role).toLowerCase() === "mentor";
+  const roleKey = isJudge ? "judge" : isGuest ? "guest" : "mentor" ;
   const roleIcon = isJudge ? "award" : "users";
   const links = SOCIAL_LINKS.filter(({ key }) => Boolean(person[key]));
   const initials = getInitials(person);
