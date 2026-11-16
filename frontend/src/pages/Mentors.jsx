@@ -23,7 +23,6 @@ export default function Mentors() {
           { label: "3 Judge", icon: "award" },
           { label: "1 Guest Speaker", icon: "microphone" },
           { label: "2 Mentor", icon: "users" },
-          { label: "On the floor", icon: "compass" },
         ]}
       />
 
