@@ -128,13 +128,6 @@ export const eventCrew = [
     hiddenSocials: ["linkedin", "github"],
   },
   {
-    id: "crew-06",
-    name: "Sanjukta Jana",
-    designation: "Event Crew",
-    socials: { linkedin: null, github: null, instagram: "https://www.instagram.com/sangyuktaj" },
-    hiddenSocials: ["linkedin", "github"],
-  },
-  {
     id: "crew-07",
     name: "Kailash Yadav",
     designation: "Event Crew",
