@@ -38,6 +38,7 @@ export const event = {
     note: "28 November  · 10:00 AM IST.",
   },
   venue: {
+    by: "Venue by: Innovation & Skill Development Research Centre (ISDRC)",
     name: "Jadavpur University, Kolkata",
     city: "Kolkata, India",
     isConfirmed: true,

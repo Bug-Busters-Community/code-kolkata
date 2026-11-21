@@ -3,6 +3,8 @@ import event from "../config/event";
 import Button from "./ui/Button";
 import Countdown from "./ui/Countdown";
 import { Icon, SocialIcon } from "./ui/Icon";
+import AnibotixBadge from "../assets/pics/anibotixBadge.png";
+import ISDRCBadge from "../assets/pics/ISDRC.png";
 
 const TITLE = event.name.toUpperCase();
 const SOCIAL_LINKS = event.socials;
@@ -134,12 +136,12 @@ export default function Hero() {
 
       <div className="shell relative z-10 flex flex-col items-center pb-24 pt-[calc(var(--nav-h)+2.25rem)] text-center lg:pb-28">
         <p className="font-sans text-[1rem] lg:text-[1.5rem] uppercase leading-relaxed text-primary">
-          ✦ BugBusters Presents ✦
+          ✦ Bug Busters Presents ✦
         </p>
 
         <Wordmark reduced={reduced} />
 
-        <h2 className="text-[1rem] lg:text-[2rem] mt-5 text-pretty uppercase leading-relaxed tracking-[0.12em] text-text">
+        <h2 className="text-[0.55rem] lg:text-[0.85rem] mt-5 font-pixel uppercase leading-relaxed tracking-[0.12em] text-text">
           Powered by Anibotix Robotics
         </h2>
 
@@ -150,10 +152,15 @@ export default function Hero() {
           </li>
           <li className="chip">
             <Icon name="mapPin" size={13} />
-            {event.venue.city}
+            {event.venue.by}
           </li>
-          <li className="chip chip-primary">{event.theme}</li>
+          {/* <li className="chip chip-primary">{event.theme}</li> */}
+          {/* <div className="2 flex flex-row gap-3 justify-evenly items-center">
+          <h1 className="chip chip-primary">Venue by: Innovation & Skill Development Research Centre (ISDRC)</h1>
+        </div> */}
         </ul>
+
+        
 
         <div className="mt-8 flex w-full flex-col items-stretch justify-center gap-3 sm:w-auto sm:flex-row">
           <a
