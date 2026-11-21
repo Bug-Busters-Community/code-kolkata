@@ -13,7 +13,7 @@ import InterviewBuddy from "../assets/pics/interviewbuddy.png";
 import ImagiwaeveStudios from "../assets/pics/imagiwaevestudios.png";
 
 /* Official X profile URL. */
-export const X_SOCIAL_URL = "https://x.com/BugBusters";
+export const X_SOCIAL_URL = "https://x.com/BugBusters2026";
 
 export const event = {
   /* ---------------------------------------------------------------- identity */
