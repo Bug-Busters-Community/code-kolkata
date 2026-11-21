@@ -14,6 +14,7 @@ import PartnerRegister from "./pages/PartnerRegister";
 import Schedule from "./pages/Schedule";
 import Sponsors from "./pages/Sponsors";
 import Team from "./pages/Team";
+import CodeOfConduct from "./pages/CodeOfConduct";
 
 export default function App() {
   useEffect(() => {
@@ -75,6 +76,7 @@ export default function App() {
             <Route path="prizes" element={<Prizes />} />
             <Route path="partners" element={<Partners />} />
             <Route path="team" element={<Team />} />
+            <Route path="code-of-conduct" element={<CodeOfConduct />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

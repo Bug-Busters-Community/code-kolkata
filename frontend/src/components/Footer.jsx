@@ -11,6 +11,7 @@ const exploreLinks = [
   { name: "About", to: "/about" },
   { name: "Register", to: "/register" },
   { name: "Schedule", to: "/schedule" },
+  { name: "Code of Conduct", to: "/code-of-conduct" },
 ];
 
 const moreLinks = [
