@@ -7,7 +7,7 @@ export default function AnibotixBadge({ isMenuOpen = false }) {
       href="https://anibotixrobotics.com"
       target="_blank"
       rel="noopener noreferrer"
-      className={`anibotix-floating-badge ${isMenuOpen ? "is-hidden" : ""}`}
+      className={`h-full anibotix-floating-badge ${isMenuOpen ? "is-hidden" : ""}`}
       aria-label="Anibotix Robotics (opens in a new tab)"
       title="Anibotix Robotics"
     >
