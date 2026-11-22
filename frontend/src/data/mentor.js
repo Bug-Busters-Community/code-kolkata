@@ -61,7 +61,7 @@ const mentors = [
     name: "Kushal Samaddar",
     role: "Guest Speaker",
     initials: "KS",
-    photo: {kushalPhoto},
+    photo: kushalPhoto,
     currentCompany: "Mercy for Animals India",
     designation: "Founder",
     linkedin: "",
