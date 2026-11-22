@@ -253,7 +253,7 @@ export default function Home() {
       {/* -------------------------------------------------- sponsor marquee */}
       <section className="section-tight section-rule overflow-hidden" aria-labelledby="sponsor-marquee">
         <div className="shell">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="flex flex-col mb-5 gap-6 md:flex-row md:items-end md:justify-between">
             <SectionHeading
               eyebrow="Sponsors & partners"
             />

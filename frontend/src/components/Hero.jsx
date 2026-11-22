@@ -156,11 +156,11 @@ export default function Hero() {
           </li>
           {/* <li className="chip chip-primary">{event.theme}</li> */}
           {/* <div className="2 flex flex-row gap-3 justify-evenly items-center">
-          <h1 className="chip chip-primary">Venue by: Innovation & Skill Development Research Centre (ISDRC)</h1>
+          <h1 className="chip chip-primary">Knowledge Partner: Innovation & Skill Development Research Centre (ISDRC)</h1>
         </div> */}
         </ul>
 
-        
+
 
         <div className="mt-8 flex w-full flex-col items-stretch justify-center gap-3 sm:w-auto sm:flex-row">
           <a

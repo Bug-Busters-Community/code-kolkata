@@ -7,6 +7,7 @@
    ========================================================================== */
 
 import AnibotixRobotics from "../assets/pics/anibotixBadge.png";
+import isdrcLogo from "../assets/pics/ISDRC.png";
 import n8n from "../assets/pics/n8n.png";
 import GenXYZ from "../assets/pics/genxyz.png";
 import InterviewBuddy from "../assets/pics/interviewbuddy.png";
@@ -38,7 +39,7 @@ export const event = {
     note: "28 November  · 10:00 AM IST.",
   },
   venue: {
-    by: "Venue by: Innovation & Skill Development Research Centre (ISDRC)",
+    by: "Knowledge Partner: Innovation & Skill Development Research Centre (ISDRC)",
     name: "Jadavpur University, Kolkata",
     city: "Kolkata, India",
     isConfirmed: true,
@@ -416,6 +417,11 @@ export const event = {
       logo: AnibotixRobotics,
       name: "Anibotix Robotics",
       title: "Title Sponsor"
+    },
+    {
+      logo: isdrcLogo,
+      name: "Innovation & Skill Development Research Centre (ISDRC)",
+      title: "Knowledge Sponsor"
     },
     {
       logo: n8n,

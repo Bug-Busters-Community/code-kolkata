@@ -64,7 +64,7 @@ export default function Footer() {
                 <img src={AnibotixBadge} alt="Anibotix Badge" className="mt-1 h-40" />
               </div>
               <div>
-                <span className="mt-5 block">Venue by</span>
+                <span className="mt-5 block">Knowledge Partner</span>
                 <img src={ISDRC} alt="ISDRC Badge" className="mt-1 h-30" />
               </div>
             </div>

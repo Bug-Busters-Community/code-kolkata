@@ -7,6 +7,7 @@
    ========================================================================== */
 
 import anibotixLogo from "../assets/pics/anibotix.png";
+import isdrcLogo from "../assets/pics/ISDRC.png";
 import n8nLogo from "../assets/pics/n8n.png";
 import GenXyzLogo from "../assets/pics/genxyz.png";
 import InterciewBuddyLogo from "../assets/pics/interviewbuddy.png";
@@ -22,6 +23,16 @@ const sponsors = [
     logoAlt: "Anibotix Robotics logo",
     brandColor: "#007bff",
     logoScale: 1
+  },
+  {
+    id: "isdrc",
+    name: "Innovation & Skill Development Research Centre (ISDRC)",
+    category: "Knowledge Sponsor",
+    description: "The International Student Design and Research Conference.",
+    logo: isdrcLogo,
+    logoAlt: "ISDRC logo",
+    brandColor: "#ff0000",
+    logoScale: 0.8
   },
   {
     id: "n8n",
