@@ -10,6 +10,7 @@
 import ananditaPhoto from "../assets/pics/ANANDITA_BHOWMICK.jpg";
 import sounakPhoto from "../assets/pics/SOUNAK_MANDAL.jpg";
 import aadityaPhoto from "../assets/pics/AADITYA_GUPTA.jpg";
+import kushalPhoto from "../assets/pics/KUSHAL_SAMADDAR.jpg";
 
 const mentors = [
   {
@@ -53,7 +54,18 @@ const mentors = [
     currentCompany: "Amazon Web Services (AWS)",
     designation: "Student Builder Campus Leader",
     linkedin: "https://www.linkedin.com/in/dhrubojyoti-chakraborty-567857257/",
-    instagram: "",
+    instagram: "https://www.instagram.com/i_am_dhrubojyoti_chakraborty",
+    other: ""
+  },
+  {
+    name: "Kushal Samaddar",
+    role: "Guest Speaker",
+    initials: "KS",
+    photo: {kushalPhoto},
+    currentCompany: "Mercy for Animals India",
+    designation: "Founder",
+    linkedin: "",
+    instagram: "https://www.instagram.com/mfa_india",
     other: ""
   },
   {
