@@ -27,7 +27,7 @@ export const event = {
   collaboration: "",
   tagline: "TWO COMMUNITIES. ONE CITY. SHIP SOMETHING LEGENDARY.",
   intro:
-    "CODE KOLKATA is a 8-hour tech event. Bring an idea, a laptop and unreasonable ambition, leave with a working product, a crew and a story worth posting.",
+    "CODE KOLKATA is an 8-hour tech event. Bring an idea, a laptop and unreasonable ambition, leave with a working product, a crew and a story worth posting.",
 
   /* ------------------------------------------------------- dates & location */
   dates: {
@@ -281,7 +281,7 @@ export const event = {
         desc: "Best overall build across every track, judged on execution, originality, tech stack and live demo.",
         perks: [
           "₹₹₹₹ INR Cash Prize",
-          "Paid Internship in Cybersecurity and Hardware",
+          "Paid Cybersecurity Internship & Hardware Internship",
           "Official Champion Swags and AI Credits",
           "Free .xyz Domain",
           "Official Winner Trophy & Certificate"
@@ -292,7 +292,7 @@ export const event = {
         place: "02",
         title: "Runner-Up",
         amount: "₹₹₹₹ Cash",
-        desc: "The second-strongest build outstanding engineering craft, polished UX, and pitch delivery.",
+        desc: "The second-strongest build with outstanding engineering craft, polished UX, and pitch delivery.",
         perks: [
           "₹₹₹₹ INR Cash Prize",
           "Official Runner-up Swags and AI Credits",
@@ -475,7 +475,7 @@ export const event = {
         icon: "spark",
       },
       {
-        title: "Interview Dsicount Coupons (All)",
+        title: "Interview Discount Coupons (All)",
         desc: "Discount coupon on interview preparation courses for all attendees.",
         icon: "compass",
       },
