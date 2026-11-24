@@ -40,7 +40,7 @@ export const event = {
   },
   venue: {
     by: "Knowledge Partner: Innovation & Skill Development Research Centre (ISDRC)",
-    name: "Jadavpur University, Kolkata",
+    name: "K.P. Basu Memorial Hall, Jadavpur University, Kolkata",
     city: "Kolkata, India",
     isConfirmed: true,
     note: "A 8-hour indoor venue with power, Wi-Fi and enough energy to keep 100 builders upright.",
