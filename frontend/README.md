@@ -15,7 +15,7 @@
 | **Edition** | Edition 01 (Year: 2026) |
 | **Theme** | **Discovering Kolkata Through AI & Innovation** |
 | **Format** | 8-Hour Offline Tech Event / Build Sprint |
-| **Date & Time** | **28th November 2026** · 10:00 AM – 6:00 PM IST |
+| **Date & Time** | **30th November 2026** · 10:00 AM – 6:00 PM IST |
 | **Venue** | **Jadavpur University**, Kolkata, West Bengal, India |
 | **Participation** | Solo application; teams of 4 formed randomly for the Buildathon |
 | **Registration Cost** | **100% Free to apply** |
@@ -71,7 +71,7 @@ Builders may choose from four curated tracks that blend cutting-edge technology 
 
 ## ⏰ Run of Show (Full Schedule)
 
-The official timetable for **28th November 2026** at Jadavpur University:
+The official timetable for **30th November 2026** at Jadavpur University:
 
 ```
  10:00 AM ── [30m] Entry & Registration Desk Check-in

@@ -31,10 +31,10 @@ export const event = {
 
   /* ------------------------------------------------------- dates & location */
   dates: {
-    label: "28th November",
-    shortLabel: "28th November",
+    label: "30th November",
+    shortLabel: "30th November",
     // Used by the live countdown. 28 November , 10:00 AM IST.
-    iso: "2026-11-28T10:00:00+05:30",
+    iso: "2026-11-30T10:00:00+05:30",
     isConfirmed: true,
     note: "28 November  · 10:00 AM IST.",
   },
@@ -187,7 +187,7 @@ export const event = {
       {
         id: "day-1",
         label: "Day 01",
-        date: "28th November",
+        date: "30th November",
         theme: "Arrive, form up, start shipping",
         items: [
           {
