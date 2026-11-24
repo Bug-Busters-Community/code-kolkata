@@ -465,7 +465,7 @@ export const event = {
         icon: "box",
       },
       {
-        title: "Mercy for Animals Kit (All)",
+        title: "Official Builder Kit (All)",
         desc: "Complete builder kit.",
         icon: "box",
       },
