@@ -57,7 +57,7 @@ const mentors = [
     other: ""
   },
   {
-    name: "Kushal Samaddar",
+    name: "Kushal Samantar",
     role: "Guest Speaker",
     initials: "KS",
     photo: kushalPhoto,
