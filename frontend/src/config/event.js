@@ -360,14 +360,14 @@ export const event = {
         ],
       },
       {
-        name: "Akirons",
+        name: "Aqyrons Labs",
         role: "Cybersecurity Partner",
         badge: "Paid Internship",
         icon: "lock",
         tone: "secondary",
         perks: [
           "Winner: Paid Internship in Cybersecurity",
-          "All Participants: Akirons Custom Stickers",
+          "All Participants: Custom Stickers",
           "Speaker: Keynote on Cybersecurity & Threat Landscape",
         ],
       },
