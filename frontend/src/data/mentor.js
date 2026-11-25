@@ -9,7 +9,6 @@
 
 import ananditaPhoto from "../assets/pics/ANANDITA_BHOWMICK.jpg";
 import sounakPhoto from "../assets/pics/SOUNAK_MANDAL.jpg";
-import aadityaPhoto from "../assets/pics/AADITYA_GUPTA.jpg";
 import kushalPhoto from "../assets/pics/KUSHAL_SAMADDAR.jpg";
 
 const mentors = [
@@ -80,13 +79,13 @@ const mentors = [
     other: ""
   },
   {
-    name: "Aaditya Gupta",
-    role: "Co-Mentor",
-    initials: "AG",
-    photo: aadityaPhoto,
-    currentCompany: "Anibotix Robotics",
-    designation: "Community Manager",
-    linkedin: "https://www.linkedin.com/in/aaditya-gupta-ag6",
+    name: "Ruyam Bhattacharjee",
+    role: "Mentor",
+    initials: "RB",
+    photo: "https://media.licdn.com/dms/image/v2/D5603AQF-XhE6mgGQtg/profile-displayphoto-crop_800_800/B56Z2sUHzBKoAI-/0/1776712454458?e=1797465600&v=beta&t=-E1NBgHRI9MWPaFXzD6-ajk0aNG4impVe71ceL1g_m8",
+    currentCompany: "Akipoly",
+    designation: "Co-Founder & GTM",
+    linkedin: "https://www.linkedin.com/in/ruyam-bhattacharya",
     instagram: "",
     other: ""
   }
