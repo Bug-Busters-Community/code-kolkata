@@ -38,7 +38,7 @@ const mentors = [
     name: "Vishal Nandy",
     role: "Judge",
     initials: "VN",
-    photo: "https://media.licdn.com/dms/image/v2/D4D03AQHHfRGJ7tCUcA/profile-displayphoto-crop_800_800/B4DaHeIsr1JMAI-/0/1794728186678?e=1796256000&v=beta&t=pG_EEPE8lLBAtKDvkCFgOkK64Zd30tEuGqeBt9UZNck",
+    photo: "https://media.licdn.com/dms/image/v2/D4D03AQHDZzlOHwqMzg/profile-displayphoto-crop_800_800/B4DaIO59K_JUAI-/0/1795546408122?e=1797465600&v=beta&t=HxAO-LG5uxRXlZl-9Nh0w8MwVLfbmE8UjtapIvczDuI",
     currentCompany: "Core Platform",
     designation: "Founder",
     linkedin: "https://www.linkedin.com/in/vishal-nandy-7a04a427b",
