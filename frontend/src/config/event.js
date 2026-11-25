@@ -629,6 +629,11 @@ export const event = {
       title: "Knowledge Sponsor"
     },
     {
+      logo: "https://aqyronlabs.com/logo.png",
+      name: "Aqyrons Labs",
+      title: "Internship Sponsor"
+    },
+    {
       logo: n8n,
       name: "n8n",
       title: "AI & Automation Platform Sponsor"
@@ -654,9 +659,14 @@ export const event = {
       title: "Certificate Sponsor"
     },
     {
-      name: "Mercy for Animals India",
       logo: "https://instagram.fccu27-2.fna.fbcdn.net/v/t51.2885-19/292361678_764929521324866_2786903070199466758_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=104&_nc_map=urlgen_bucketless&ig_cache_key=GM4VbRFCk2UIs7cCAAZLr6KTEa0mbkULAAAB1501500j-ccb7-5&ccb=7-5&_nc_sid=669407&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4zNjAuQzMifQ%3D%3D&_nc_ohc=x8U2TOws5n8Q7kNvwE5v2Tv&_nc_oc=AdpV5tgZobgcS8Z8XiT-DhTWZuJtL33PeFfhxkQIAd8owN5OT7iFjNo1JTjwuwCcajMCpgNJak4MMBWEKTqS8BwZ&_nc_zt=24&_nc_ht=instagram.fccu27-2.fna&_nc_ss=7b6a8&_nc_ct=RQosPBUCFQIAAAA&oh=00_AQSXlE9gFQVsumg_yo1r0P4cCpNkolQ5zHaNaac2t9e-Jg&oe=6B091D9C",
+      name: "Mercy for Animals India",
       title: "Swag Sponsor"
+    },
+    {
+      logo: "https://www.vyapo.tech/_next/image?url=%2Fvyapo-logo-final.png&w=256&q=75",
+      name: "Vyapo",
+      title: "In-kind Sponsor"
     },
     {
       logo: AnibotixRobotics,

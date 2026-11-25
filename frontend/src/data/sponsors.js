@@ -35,6 +35,16 @@ const sponsors = [
     logoScale: 0.8
   },
   {
+    id: "aqyron-labs",
+    name: "Aqyron Labs",
+    category: "Internship Sponsor",
+    description: "Aqyron Labs is a technology company that specializes in software development and IT solutions.",
+    logo: "https://aqyronlabs.com/logo.png",
+    logoAlt: "Aqyron Labs logo",
+    brandColor: "#00ff00",
+    logoScale: 1
+  },
+  {
     id: "n8n",
     name: "n8n",
     category: "AI & Automation Platform Sponsor",
@@ -93,6 +103,16 @@ const sponsors = [
     logoAlt: "Mercy for Animals India logo",
     brandColor: "#0000ff",
     logoScale: 1
+  },
+  {
+    id: 'vyapo',
+    name: 'Vyapo',
+    category: "In-kind Sponsor",
+    description: "Vyapo is a platform that connects businesses with suppliers and manufacturers.",
+    logo: "https://www.vyapo.tech/_next/image?url=%2Fvyapo-logo-final.png&w=256&q=75",
+    logoAlt: "Vyapo logo",
+    brandColor: "#ff6600",
+    logoScale: 0.8
   },
 ];
 
